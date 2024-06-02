@@ -11,12 +11,14 @@ CONFIG += c++17
 SOURCES += \
     LoginSigninPage.cpp \
     bankaccount.cpp \
+    linklist.cpp \
     main.cpp \
     users.cpp
 
 HEADERS += \
     LoginSigninPage.h \
     bankaccount.h \
+    linklist.h \
     users.h
 
 FORMS += \
