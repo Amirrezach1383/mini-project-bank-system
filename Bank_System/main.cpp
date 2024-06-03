@@ -10,6 +10,6 @@ int main(int argc, char *argv[])
     LoginSigninForm w;
     UserPanel u;
     w.show();
-    // u.show();
+    u.show();
     return a.exec();
 }

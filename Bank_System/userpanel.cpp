@@ -6,8 +6,6 @@ UserPanel::UserPanel(QWidget *parent)
     , ui(new Ui::UserPanel)
 {
     ui->setupUi(this);
-    ui->firstNameLabel->setText("Amir");
-    ui->lastNameLabel->setText("Chami");
 
 }
 

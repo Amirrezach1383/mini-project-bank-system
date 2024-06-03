@@ -9,24 +9,36 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    balanceform.cpp \
     bankaccount.cpp \
     cards.cpp \
+    changepasses.cpp \
     linklist.cpp \
     loginsigninform.cpp \
     main.cpp \
+    newaccountform.cpp \
+    transfer.cpp \
     userpanel.cpp \
     users.cpp
 
 HEADERS += \
+    balanceform.h \
     bankaccount.h \
     cards.h \
+    changepasses.h \
     linklist.h \
     loginsigninform.h \
+    newaccountform.h \
+    transfer.h \
     userpanel.h \
     users.h
 
 FORMS += \
+    balanceform.ui \
+    changepasses.ui \
     loginsigninform.ui \
+    newaccountform.ui \
+    transfer.ui \
     userpanel.ui
 
 # Default rules for deployment.
