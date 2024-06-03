@@ -6,14 +6,231 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>800</width>
+    <height>529</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>529</height>
+   </size>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>529</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Myanmar Text</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Balance</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>529</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="background.qrc">:/image/Better Template Forms.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="accountComboBox">
+   <property name="geometry">
+    <rect>
+     <x>348</x>
+     <y>240</y>
+     <width>291</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 10pt &quot;Myanmar Text&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="balanceLabel">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>20</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 30pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Balance</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="accountLabel">
+   <property name="geometry">
+    <rect>
+     <x>167</x>
+     <y>221</y>
+     <width>141</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 18pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Account : </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showBalancePushButton">
+   <property name="geometry">
+    <rect>
+     <x>527</x>
+     <y>300</y>
+     <width>113</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;Myanmar Text&quot;;
+background-color: rgb(4, 27, 48);</string>
+   </property>
+   <property name="text">
+    <string>Show Balance</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="footerBalanceLabel">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>165</x>
+     <y>366</y>
+     <width>121</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 18pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Balance : </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="valueLabel">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>385</y>
+     <width>289</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>value</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backPushButton">
+   <property name="geometry">
+    <rect>
+     <x>609</x>
+     <y>125</y>
+     <width>91</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 12pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeLabel">
+   <property name="geometry">
+    <rect>
+     <x>185</x>
+     <y>122</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>National Code</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>183</x>
+     <y>80</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="firstNameLabel">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+      </property>
+      <property name="text">
+       <string>First Name </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lastNameLabel">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Last Name</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="background.qrc"/>
+ </resources>
  <connections/>
 </ui>

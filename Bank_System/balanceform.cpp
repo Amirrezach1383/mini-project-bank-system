@@ -6,6 +6,8 @@ BalanceForm::BalanceForm(QWidget *parent)
     , ui(new Ui::BalanceForm)
 {
     ui->setupUi(this);
+    ui->footerBalanceLabel->hide();
+    ui->valueLabel->hide();
 }
 
 BalanceForm::~BalanceForm()
