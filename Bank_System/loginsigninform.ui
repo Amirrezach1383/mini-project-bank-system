@@ -44,11 +44,12 @@
    <double>11.000000000000000</double>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">#LoginSigninForm {
-	background-image: url(:/image/background1.jpg);
+	background-image: url(:/image/Login and sign up.jpg);
+
 }
 </string>
   </property>

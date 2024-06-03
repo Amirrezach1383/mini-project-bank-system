@@ -14,6 +14,7 @@ SOURCES += \
     linklist.cpp \
     loginsigninform.cpp \
     main.cpp \
+    userpanel.cpp \
     users.cpp
 
 HEADERS += \
@@ -21,10 +22,12 @@ HEADERS += \
     cards.h \
     linklist.h \
     loginsigninform.h \
+    userpanel.h \
     users.h
 
 FORMS += \
-    loginsigninform.ui
+    loginsigninform.ui \
+    userpanel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

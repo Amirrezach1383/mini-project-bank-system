@@ -6,7 +6,6 @@ LoginSigninForm::LoginSigninForm(QWidget *parent)
     , ui(new Ui::LoginSigninForm)
 {
     ui->setupUi(this);
-
 }
 
 LoginSigninForm::~LoginSigninForm()

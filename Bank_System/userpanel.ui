@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserPanel</class>
+ <widget class="QWidget" name="UserPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>529</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>529</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>529</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>User Panel</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#UserPanel {
+	border-image: url(:/image/User Panel 3.jpg);
+	background-image: url(:/image/User Panel 3.jpg);
+}</string>
+  </property>
+  <widget class="QLabel" name="userPanelLabel">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>20</y>
+     <width>251</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 30pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>User Panel </string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>90</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="firstNameLabel">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+      </property>
+      <property name="text">
+       <string>First Name </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lastNameLabel">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Last Name</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="nationalCodeLabel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>140</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>National Code</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="logoutPushButton">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>440</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Log Out</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>444</x>
+     <y>288</y>
+     <width>100</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font:  10pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Transfer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showBalancePushButton">
+   <property name="geometry">
+    <rect>
+     <x>631</x>
+     <y>288</y>
+     <width>101</width>
+     <height>47</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Show Balance</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="newAccountPushButton">
+   <property name="geometry">
+    <rect>
+     <x>62</x>
+     <y>288</y>
+     <width>100</width>
+     <height>44</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Myanmar Text</family>
+     <pointsize>9</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>New Account</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="changPasswordPushButton">
+   <property name="geometry">
+    <rect>
+     <x>241</x>
+     <y>287</y>
+     <width>112</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Change passes</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
