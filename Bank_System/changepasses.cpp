@@ -6,6 +6,8 @@ ChangePasses::ChangePasses(QWidget *parent)
     , ui(new Ui::ChangePasses)
 {
     ui->setupUi(this);
+
+
 }
 
 ChangePasses::~ChangePasses()

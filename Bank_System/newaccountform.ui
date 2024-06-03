@@ -28,10 +28,10 @@
   <widget class="QPushButton" name="logoutPushButton">
    <property name="geometry">
     <rect>
-     <x>595</x>
-     <y>118</y>
-     <width>104</width>
-     <height>40</height>
+     <x>602</x>
+     <y>123</y>
+     <width>98</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="cursor">
@@ -185,7 +185,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
      <x>590</x>
      <y>322</y>
      <width>111</width>
-     <height>41</height>
+     <height>39</height>
     </rect>
    </property>
    <property name="cursor">

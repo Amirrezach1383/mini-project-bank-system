@@ -6,6 +6,8 @@ NewAccountForm::NewAccountForm(QWidget *parent)
     , ui(new Ui::NewAccountForm)
 {
     ui->setupUi(this);
+    ui->cardInformationGroupBox->hide();
+    ui->accountInformationGroupBox->hide();
 }
 
 NewAccountForm::~NewAccountForm()
