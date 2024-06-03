@@ -26,16 +26,13 @@
    <string>User Panel</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#UserPanel {
-	border-image: url(:/image/User Panel 3.jpg);
-	background-image: url(:/image/User Panel 3.jpg);
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="userPanelLabel">
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>20</y>
+     <y>23</y>
      <width>251</width>
      <height>61</height>
     </rect>
@@ -102,8 +99,8 @@ font: 11pt &quot;Myanmar Text&quot;;</string>
   <widget class="QPushButton" name="logoutPushButton">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>440</y>
+     <x>620</x>
+     <y>430</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -113,7 +110,8 @@ font: 11pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);</string>
    </property>
    <property name="text">
     <string>Log Out</string>
@@ -132,7 +130,8 @@ color: rgb(0, 0, 0);</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
 font:  10pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="text">
@@ -152,7 +151,8 @@ font:  10pt &quot;Myanmar Text&quot;;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
 font: 9pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="text">
@@ -180,7 +180,8 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
 font: 9pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="text">
@@ -200,14 +201,42 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
 font: 9pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="text">
     <string>Change passes</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>529</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="background.qrc">:/image/User Panel.jpg</pixmap>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>userPanelLabel</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>nationalCodeLabel</zorder>
+  <zorder>logoutPushButton</zorder>
+  <zorder>pushButton_4</zorder>
+  <zorder>showBalancePushButton</zorder>
+  <zorder>newAccountPushButton</zorder>
+  <zorder>changPasswordPushButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="background.qrc"/>
+ </resources>
  <connections/>
 </ui>

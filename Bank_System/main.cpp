@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LoginSigninForm w;
     UserPanel u;
-    u.show();
+    w.show();
+    // u.show();
     return a.exec();
 }

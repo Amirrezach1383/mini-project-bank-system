@@ -44,14 +44,10 @@
    <double>11.000000000000000</double>
   </property>
   <property name="autoFillBackground">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">#LoginSigninForm {
-	background-image: url(:/image/Login and sign up.jpg);
-
-}
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="loginLabel">
    <property name="geometry">
@@ -90,6 +86,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
    <property name="contextMenuPolicy">
     <enum>Qt::DefaultContextMenu</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
+   </property>
   </widget>
   <widget class="QLabel" name="usernameLabelL">
    <property name="geometry">
@@ -125,6 +128,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="acceptDrops">
     <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="passwordLabelL">
@@ -168,6 +178,10 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
     <string>Login</string>
    </property>
@@ -181,6 +195,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
      <height>28</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="nationalCodeLineEdit">
    <property name="geometry">
@@ -190,6 +211,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
      <width>191</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="firstNameLineEdit">
@@ -201,6 +229,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
      <height>28</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="ageLineEdit">
    <property name="geometry">
@@ -211,6 +246,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
      <height>28</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="usernameLineEditS">
    <property name="geometry">
@@ -220,6 +262,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
      <width>191</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="SignInLabel">
@@ -388,6 +437,13 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
      <height>28</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+gridline-color: rgb(91, 91, 91);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="signinPushButton">
    <property name="geometry">
@@ -408,11 +464,54 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
-    <string>Sign In</string>
+    <string>Sign Up</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-1</y>
+     <width>800</width>
+     <height>529</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="background.qrc">:/image/Login and sign up 2.jpg</pixmap>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>loginLabel</zorder>
+  <zorder>usernameLineEditL</zorder>
+  <zorder>usernameLabelL</zorder>
+  <zorder>passwordLineEditL</zorder>
+  <zorder>passwordLabelL</zorder>
+  <zorder>loginPushButton</zorder>
+  <zorder>lastNameLineEdit</zorder>
+  <zorder>nationalCodeLineEdit</zorder>
+  <zorder>firstNameLineEdit</zorder>
+  <zorder>ageLineEdit</zorder>
+  <zorder>usernameLineEditS</zorder>
+  <zorder>SignInLabel</zorder>
+  <zorder>lastNameLabel</zorder>
+  <zorder>ageLabel</zorder>
+  <zorder>firstNameLabel</zorder>
+  <zorder>nationalCodeLabel</zorder>
+  <zorder>userNameLabelS</zorder>
+  <zorder>passwordLableS</zorder>
+  <zorder>passwordLineEditS</zorder>
+  <zorder>signinPushButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="background.qrc"/>
+ </resources>
  <connections/>
 </ui>

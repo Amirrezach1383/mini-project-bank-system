@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>image/Login and sign up.jpg</file>
         <file>image/User Panel 3.jpg</file>
+        <file>image/Login and sign up 2.jpg</file>
+        <file>image/User Panel.jpg</file>
     </qresource>
 </RCC>
