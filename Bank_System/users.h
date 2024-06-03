@@ -11,7 +11,7 @@ private:
     QString age;
     QString password;
     QString userName;
-    BankAccount bankAccount;
+    BankAccount bankAccount[5];
 
 public:
     Users();
@@ -23,7 +23,7 @@ public:
     void setAge (QString);
     void setNationnalCode (QString);
     void setUserName (QString);
-    void setBankAccount (BankAccount);
+    void setBankAccount (BankAccount, int);
     void setPassword (QString);
 
     ///get data
@@ -33,7 +33,7 @@ public:
     QString getNationalCode ();
     QString getUserName ();
     QString getPassword ();
-    BankAccount getBankAccount ();
+    BankAccount getBankAccount (int);
 };
 
 #endif // USERS_H

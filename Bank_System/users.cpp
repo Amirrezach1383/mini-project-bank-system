@@ -13,8 +13,8 @@ QString Users::getPassword () {
 QString Users::getUserName () {
     return userName;
 }
-BankAccount Users::getBankAccount () {
-    return bankAccount;
+BankAccount Users::getBankAccount (int idx) {
+    return bankAccount[idx];
 }
 QString Users::getAge () {
     return age;
@@ -36,8 +36,8 @@ void Users::setLastName (QString data) {
 void Users::setUserName (QString data) {
     userName = data;
 }
-void Users::setBankAccount (BankAccount data) {
-    bankAccount = data;
+void Users::setBankAccount (BankAccount data, int idx) {
+    bankAccount[idx] = data;
 }
 void Users::setPassword (QString data) {
     password = data;
