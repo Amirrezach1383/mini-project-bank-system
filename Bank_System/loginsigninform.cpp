@@ -8,14 +8,9 @@ LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::
 
     ui->setupUi(this);
 
-    ui->ageError->hide();
-    ui->usernameFillError->hide();
-    ui->nationalCodeError->hide();
-    ui->firstNameError->hide();
-    ui->lastNameError->hide();
-    ui->passwordFillError->hide();
-    ui->ageInvalidError->hide();
-    ui->nationalCodeInvalidError->hide();
+    hideAllError();
+
+
 
     connect(ui->signinPushButton, SIGNAL(clicked()), this, SLOT(checkTheFieldsValue()));
 }
@@ -76,10 +71,38 @@ bool LoginSigninForm::checkCorrectNationalCodeValue () {
         return false;
     }
 }
-bool LoginSigninForm::checkCorrectFirstName(){}
-bool LoginSigninForm::checkCorrectLastName(){}
-bool LoginSigninForm::checkCorrectUserName(){}
-bool LoginSigninForm::checkCorrectPassword(){}
+bool LoginSigninForm::checkCorrectFirstName() {
+
+}
+bool LoginSigninForm::checkCorrectLastName() {
+
+}
+bool LoginSigninForm::checkCorrectUserName() {
+
+}
+bool LoginSigninForm::checkCorrectPassword() {
+
+}
+
+void LoginSigninForm::hideAllError(){
+    ui->firstNameError->hide();
+    ui->firstNameInvalidError->hide();
+
+    ui->lastNameError->hide();
+    ui->lastNameInvalidError->hide();
+
+    ui->nationalCodeError->hide();
+    ui->nationalCodeInvalidError->hide();
+
+    ui->ageError->hide();
+    ui->ageInvalidError->hide();
+
+    ui->usernameInvalidError->hide();
+    ui->usernameFillError->hide();
+
+    ui->passwordFillError->hide();
+    ui->passworInvalidError->hide();
+}
 
 
 

@@ -388,7 +388,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     <string>National Code : </string>
    </property>
   </widget>
-  <widget class="QLabel" name="userNameLabelS">
+  <widget class="QLabel" name="usernameLabelS">
    <property name="geometry">
     <rect>
      <x>351</x>
@@ -630,6 +630,74 @@ color: rgb(255, 73, 73);</string>
     <string>Invalid Data</string>
    </property>
   </widget>
+  <widget class="QLabel" name="usernameInvalidError">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>376</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Invalid Data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="passworInvalidError">
+   <property name="geometry">
+    <rect>
+     <x>521</x>
+     <y>425</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Invalid Data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameInvalidError">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>235</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Invalid Data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameInvalidError">
+   <property name="geometry">
+    <rect>
+     <x>522</x>
+     <y>189</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Invalid Data</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>loginLabel</zorder>
   <zorder>usernameLineEditL</zorder>
@@ -647,7 +715,7 @@ color: rgb(255, 73, 73);</string>
   <zorder>ageLabel</zorder>
   <zorder>firstNameLabel</zorder>
   <zorder>nationalCodeLabel</zorder>
-  <zorder>userNameLabelS</zorder>
+  <zorder>usernameLabelS</zorder>
   <zorder>passwordLableS</zorder>
   <zorder>passwordLineEditS</zorder>
   <zorder>signinPushButton</zorder>
@@ -659,6 +727,10 @@ color: rgb(255, 73, 73);</string>
   <zorder>passwordFillError</zorder>
   <zorder>ageInvalidError</zorder>
   <zorder>nationalCodeInvalidError</zorder>
+  <zorder>usernameInvalidError</zorder>
+  <zorder>passworInvalidError</zorder>
+  <zorder>lastNameInvalidError</zorder>
+  <zorder>firstNameInvalidError</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>
