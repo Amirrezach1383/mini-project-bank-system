@@ -1,5 +1,10 @@
 #include "users.h"
 
+Users::Users () {
+}
+Users::~Users() {
+}
+
 /// Getter Functions
 QString Users::getName () {
     return name;

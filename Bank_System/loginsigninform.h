@@ -10,6 +10,8 @@ class LoginSigninForm;
 class LoginSigninForm : public QWidget
 {
     Q_OBJECT
+private slots:
+    void pushInput();
 
 public:
     explicit LoginSigninForm(QWidget *parent = nullptr);

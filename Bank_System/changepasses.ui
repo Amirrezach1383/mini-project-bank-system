@@ -110,7 +110,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
       <x>10</x>
       <y>40</y>
       <width>531</width>
-      <height>80</height>
+      <height>81</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -263,7 +263,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    </widget>
    <widget class="QPushButton" name="changeFixedSecondPassword_2">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>

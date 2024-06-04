@@ -16,7 +16,6 @@ private:
 public:
     Users();
     ~Users();
-
     ///set data
     void setName (QString);
     void setLastName (QString);
