@@ -20,6 +20,9 @@ public:
 private:
     void pushSignUpInputs();
 
+    /// hide Error Functions
+    void hideAllError();
+
     ///Check Value Functions
     bool checkCorrectAgeValue();
     bool checkCorrectNationalCodeValue();

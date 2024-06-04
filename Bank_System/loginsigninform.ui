@@ -634,7 +634,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>376</y>
+     <y>377</y>
      <width>171</width>
      <height>20</height>
     </rect>
@@ -647,7 +647,7 @@ color: rgb(255, 73, 73);</string>
     <string>Invalid Data</string>
    </property>
   </widget>
-  <widget class="QLabel" name="passworInvalidError">
+  <widget class="QLabel" name="passwordInvalidError">
    <property name="geometry">
     <rect>
      <x>521</x>
@@ -728,7 +728,7 @@ color: rgb(255, 73, 73);</string>
   <zorder>ageInvalidError</zorder>
   <zorder>nationalCodeInvalidError</zorder>
   <zorder>usernameInvalidError</zorder>
-  <zorder>passworInvalidError</zorder>
+  <zorder>passwordInvalidError</zorder>
   <zorder>lastNameInvalidError</zorder>
   <zorder>firstNameInvalidError</zorder>
  </widget>

@@ -19,13 +19,14 @@ LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::
 bool LoginSigninForm::checkCorrectAgeValue() {
     QString age = ui->ageLineEdit->text();
 
-    if(age == "")
+    if(age == "") {
+        ui->ageInvalidError->hide();
         return true;
-
+    }
     int i = 0;
     int ageInt = ui->ageLineEdit->text().toInt();
 
-    while(i != age.length() - 1) {
+    while(i < age.length()) {
         if('0' <= age[i] && age[i] <= '9')
             i++;
         else {
@@ -47,12 +48,14 @@ bool LoginSigninForm::checkCorrectAgeValue() {
 bool LoginSigninForm::checkCorrectNationalCodeValue () {
     QString nationalCode = ui->nationalCodeLineEdit->text();
 
-    if(nationalCode == "")
+    if(nationalCode == "") {
+        ui->nationalCodeInvalidError->hide();
         return true;
+    }
 
     int i = 0;
 
-    while(i != nationalCode.length() - 1) {
+    while(i < nationalCode.length()) {
         if('0' <= nationalCode[i] && nationalCode[i] <= '9')
             i++;
         else {
@@ -72,16 +75,117 @@ bool LoginSigninForm::checkCorrectNationalCodeValue () {
     }
 }
 bool LoginSigninForm::checkCorrectFirstName() {
+    QString firstName = ui->firstNameLineEdit->text();
+    if(firstName == "") {
+        ui->firstNameInvalidError->hide();
+        return true;
+    }
 
+    int i = 0;
+
+    while(i < firstName.length()) {
+        if(('A' <= firstName[i] && firstName[i] <= 'Z') || ('a' <= firstName[i] && 'z' >= firstName[i]))
+            i++;
+        else {
+            ui->firstNameError->hide();
+            ui->firstNameInvalidError->show();
+            return false;
+        }
+    }
+    ui->firstNameInvalidError->hide();
+    return true;
 }
 bool LoginSigninForm::checkCorrectLastName() {
+    QString lastName = ui->lastNameLineEdit->text();
+    if(lastName == "") {
+        ui->lastNameInvalidError->hide();
+        return true;
+    }
 
+    int i = 0;
+
+    while(i < lastName.length()) {
+        if(('A' <= lastName[i] && lastName[i] <= 'Z') || ('a' <= lastName[i] && 'z' >= lastName[i]))
+            i++;
+        else {
+            ui->lastNameError->hide();
+            ui->lastNameInvalidError->show();
+            return false;
+        }
+    }
+    ui->lastNameInvalidError->hide();
+    return true;
 }
 bool LoginSigninForm::checkCorrectUserName() {
+    QString username = ui->usernameLineEditS->text();
 
+    if(username == "") {
+        ui->usernameInvalidError->hide();
+        return true;
+    }
+
+    int i = 0, a = 0;
+
+    while(i < username.length()) {
+        if((username[i] <= 'Z' && username[i] >= 'A') || (username[i] <= 'z' && username[i] >= 'a') ||
+            (username[i] <= '9' && username[i] >= '0')) {
+
+            if((username[i] <= 'Z' && username[i] >= 'A') || (username[i] <= 'z' && username[i] >= 'a'))
+                a++;
+            i++;
+        }
+        else {
+            ui->usernameFillError->hide();
+            ui->usernameInvalidError->show();
+            return false;
+        }
+
+    }
+
+    if(a != 0) {
+        ui->usernameInvalidError->hide();
+        return true;
+    } else {
+        ui->usernameFillError->hide();
+        ui->usernameInvalidError->show();
+        return false;
+    }
 }
 bool LoginSigninForm::checkCorrectPassword() {
+    QString password = ui->passwordLineEditS->text();
 
+    if(password == "") {
+        ui->passwordInvalidError->hide();
+        return true;
+    }
+
+    int i = 0, a = 0, a1 = 0;
+
+    while(i < password.length()) {
+        if((password[i] <= 'Z' && password[i] >= 'A') || (password[i] <= 'z' && password[i] >= 'a') || (password[i] <= '9' && password[i] >= '0') || (password[i] == '_')) {
+            if((password[i] <= 'Z' && password[i] >= 'A') || (password[i] <= 'z' && password[i] >= 'a'))
+                a++;
+            else if(password[i] <= '9' && password[i] >= '0')
+                a1++;
+            i++;
+        }
+        else {
+            ui->passwordFillError->hide();
+            ui->passwordInvalidError->show();
+            return false;
+        }
+    }
+
+
+    if(a != 0 && a1 != 0) {
+        ui->passwordInvalidError->hide();
+        return true;
+
+    }else {
+        ui->passwordFillError->hide();
+        ui->passwordInvalidError->show();
+        return false;
+    }
 }
 
 void LoginSigninForm::hideAllError(){
@@ -101,7 +205,7 @@ void LoginSigninForm::hideAllError(){
     ui->usernameFillError->hide();
 
     ui->passwordFillError->hide();
-    ui->passworInvalidError->hide();
+    ui->passwordInvalidError->hide();
 }
 
 
@@ -147,8 +251,10 @@ void LoginSigninForm::checkTheFieldsValue () {
     } else if (!ui->passwordFillError->isHidden())
         ui->passwordFillError->hide();
 
-    if(checkCorrectAgeValue() && checkCorrectNationalCodeValue())
-        checkCorrectValue = true;
+    if(checkCorrectAgeValue() && checkCorrectNationalCodeValue() && checkCorrectPassword() && checkCorrectFirstName()
+        && checkCorrectLastName() && checkCorrectUserName())
+
+    checkCorrectValue = true;
     else
         checkCorrectValue = false;
 
