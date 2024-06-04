@@ -150,6 +150,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     <font>
      <family>Myanmar Text</family>
      <pointsize>14</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -163,7 +164,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>440</y>
+     <y>449</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -190,7 +191,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>240</y>
+     <y>250</y>
      <width>191</width>
      <height>28</height>
     </rect>
@@ -207,7 +208,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>198</y>
+     <y>206</y>
      <width>191</width>
      <height>28</height>
     </rect>
@@ -241,7 +242,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>280</y>
+     <y>295</y>
      <width>101</width>
      <height>28</height>
     </rect>
@@ -258,7 +259,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>340</y>
+     <y>347</y>
      <width>191</width>
      <height>28</height>
     </rect>
@@ -298,14 +299,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>351</x>
-     <y>190</y>
+     <y>204</y>
      <width>141</width>
      <height>39</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Myanmar Text</family>
      <pointsize>14</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -319,7 +322,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>280</y>
+     <y>295</y>
      <width>71</width>
      <height>39</height>
     </rect>
@@ -351,6 +354,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     <font>
      <family>Myanmar Text</family>
      <pointsize>14</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -364,7 +368,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>352</x>
-     <y>240</y>
+     <y>250</y>
      <width>171</width>
      <height>39</height>
     </rect>
@@ -388,7 +392,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>351</x>
-     <y>340</y>
+     <y>347</y>
      <width>121</width>
      <height>39</height>
     </rect>
@@ -397,6 +401,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     <font>
      <family>Myanmar Text</family>
      <pointsize>14</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -410,7 +415,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>353</x>
-     <y>380</y>
+     <y>395</y>
      <width>141</width>
      <height>39</height>
     </rect>
@@ -419,6 +424,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     <font>
      <family>Myanmar Text</family>
      <pointsize>14</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -432,7 +438,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>380</y>
+     <y>395</y>
      <width>191</width>
      <height>28</height>
     </rect>
@@ -449,7 +455,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>630</x>
-     <y>440</y>
+     <y>449</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -488,6 +494,108 @@ color: rgb(255, 255, 255);</string>
     <pixmap resource="background.qrc">:/image/Login and sign up 2.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QLabel" name="firstNameError">
+   <property name="geometry">
+    <rect>
+     <x>522</x>
+     <y>190</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameError">
+   <property name="geometry">
+    <rect>
+     <x>521</x>
+     <y>235</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeError">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>279</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageError">
+   <property name="geometry">
+    <rect>
+     <x>521</x>
+     <y>326</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="usernameFillError">
+   <property name="geometry">
+    <rect>
+     <x>521</x>
+     <y>377</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="passwordFillError">
+   <property name="geometry">
+    <rect>
+     <x>522</x>
+     <y>425</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>loginLabel</zorder>
   <zorder>usernameLineEditL</zorder>
@@ -509,6 +617,12 @@ color: rgb(255, 255, 255);</string>
   <zorder>passwordLableS</zorder>
   <zorder>passwordLineEditS</zorder>
   <zorder>signinPushButton</zorder>
+  <zorder>firstNameError</zorder>
+  <zorder>lastNameError</zorder>
+  <zorder>nationalCodeError</zorder>
+  <zorder>ageError</zorder>
+  <zorder>usernameFillError</zorder>
+  <zorder>passwordFillError</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

@@ -11,7 +11,8 @@ class LoginSigninForm : public QWidget
 {
     Q_OBJECT
 private slots:
-    void pushInput();
+    void pushSignUpInputs();
+    void checkTheFieldsFilled();
 
 public:
     explicit LoginSigninForm(QWidget *parent = nullptr);
