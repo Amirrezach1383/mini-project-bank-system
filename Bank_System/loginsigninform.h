@@ -11,14 +11,24 @@ class LoginSigninForm : public QWidget
 {
     Q_OBJECT
 private slots:
-    void checkTheFieldsFilled();
+    void checkTheFieldsValue();
 
 public:
-    void pushSignUpInputs();
     explicit LoginSigninForm(QWidget *parent = nullptr);
     ~LoginSigninForm();
 
 private:
+    void pushSignUpInputs();
+
+    ///Check Value Functions
+    bool checkCorrectAgeValue();
+    bool checkCorrectNationalCodeValue();
+    bool checkCorrectFirstName();
+    bool checkCorrectLastName();
+    bool checkCorrectUserName();
+    bool checkCorrectPassword();
+
+
     Ui::LoginSigninForm *ui;
 };
 

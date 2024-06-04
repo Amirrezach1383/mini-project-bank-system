@@ -596,6 +596,40 @@ color: rgb(255, 73, 73);</string>
     <string>Please Fill Out This Field</string>
    </property>
   </widget>
+  <widget class="QLabel" name="ageInvalidError">
+   <property name="geometry">
+    <rect>
+     <x>522</x>
+     <y>325</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Invalid Data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeInvalidError">
+   <property name="geometry">
+    <rect>
+     <x>521</x>
+     <y>279</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Invalid Data</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>loginLabel</zorder>
   <zorder>usernameLineEditL</zorder>
@@ -623,6 +657,8 @@ color: rgb(255, 73, 73);</string>
   <zorder>ageError</zorder>
   <zorder>usernameFillError</zorder>
   <zorder>passwordFillError</zorder>
+  <zorder>ageInvalidError</zorder>
+  <zorder>nationalCodeInvalidError</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>
