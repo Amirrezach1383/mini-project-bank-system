@@ -50,3 +50,7 @@ void Users::setPassword (QString data) {
 void Users::setNationnalCode (QString data) {
     nationalCode = data;
 }
+
+void Users::addUserToList() {
+    usersList.pushBack(*this);
+}

@@ -1,6 +1,6 @@
 #ifndef LINKLIST_H
 #define LINKLIST_H
-#include <users.h>
+
 
 template <class T>
 class Node {
@@ -116,5 +116,4 @@ public:
         return size;
     }
 };
-LinkList<Users> userList;
 #endif // LINKLIST_H

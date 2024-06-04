@@ -15,7 +15,8 @@ private:
     BankAccount bankAccount[5];
 
 public:
-    LinkList
+    LinkList<Users> usersList;
+
     Users();
     ~Users();
     ///set data
@@ -36,6 +37,7 @@ public:
     QString getPassword ();
     BankAccount getBankAccount (int);
 
+    void addUserToList();
 
 };
 
