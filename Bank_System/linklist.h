@@ -115,5 +115,15 @@ public:
     int getSize() {
         return size;
     }
+
+    bool find(T data) {
+        Node<T> *tmp = getHeadNode();
+        while (tmp) {
+            if (tmp->data == data)
+                return true;
+            tmp = tmp->getNextNode();
+        }
+        return false ;
+    }
 };
 #endif // LINKLIST_H

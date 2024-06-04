@@ -16,7 +16,7 @@ QString Users::getPassword () {
     return password;
 }
 QString Users::getUserName () {
-    return userName;
+    return username;
 }
 BankAccount Users::getBankAccount (int idx) {
     return bankAccount[idx];
@@ -39,7 +39,7 @@ void Users::setLastName (QString data) {
     lastName = data;
 }
 void Users::setUserName (QString data) {
-    userName = data;
+    username = data;
 }
 void Users::setBankAccount (BankAccount data, int idx) {
     bankAccount[idx] = data;
@@ -54,3 +54,24 @@ void Users::setNationnalCode (QString data) {
 void Users::addUserToList() {
     usersList.pushBack(*this);
 }
+bool Users::searchPasswordInList(QString password){
+    Node<Users> *tmp = usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().password == password)
+            return true;
+        tmp = tmp->getNextNode();
+    }
+    return false ;
+}
+bool Users::searchUsernameInList(QString username) {
+    if(usersList.getSize() == 0)
+        return false;
+    Node<Users> *tmp = usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().username == username)
+            return true;
+        tmp = tmp->getNextNode();
+    }
+    return false ;
+}
+

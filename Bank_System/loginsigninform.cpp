@@ -1,18 +1,51 @@
 #include "loginsigninform.h"
 #include "ui_loginsigninform.h"
 #include "users.h"
-
-
+#include "QMessageBox"
 
 LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSigninForm) {
-
     ui->setupUi(this);
 
+    /// SignUp =========
     hideAllError();
-
-
-
     connect(ui->signinPushButton, SIGNAL(clicked()), this, SLOT(checkTheFieldsValue()));
+    /// =======
+
+    /// Login ==========
+    connect(ui->loginPushButton, SIGNAL(clicked()), this, SLOT());
+
+}
+
+/// =================== SignUp ====================
+
+void LoginSigninForm::hideAllError(){
+
+    ui->firstNameError->hide();
+    ui->firstNameInvalidError->hide();
+
+    ui->lastNameError->hide();
+    ui->lastNameInvalidError->hide();
+
+    ui->nationalCodeError->hide();
+    ui->nationalCodeInvalidError->hide();
+
+    ui->ageError->hide();
+    ui->ageInvalidError->hide();
+
+    ui->usernameInvalidError->hide();
+    ui->usernameFillError->hide();
+    ui->usernameExistsError->hide();
+
+    ui->passwordFillError->hide();
+    ui->passwordInvalidError->hide();
+}
+void LoginSigninForm::cleanFields() {
+    ui->usernameLineEditS->clear();
+    ui->passwordLineEditS->clear();
+    ui->firstNameLineEdit->clear();
+    ui->lastNameLineEdit->clear();
+    ui->nationalCodeLineEdit->clear();
+    ui->ageLineEdit->clear();
 }
 
 /// Check Functions
@@ -136,6 +169,7 @@ bool LoginSigninForm::checkCorrectUserName() {
         }
         else {
             ui->usernameFillError->hide();
+            ui->usernameExistsError->hide();
             ui->usernameInvalidError->show();
             return false;
         }
@@ -146,6 +180,7 @@ bool LoginSigninForm::checkCorrectUserName() {
         ui->usernameInvalidError->hide();
         return true;
     } else {
+        ui->usernameExistsError->hide();
         ui->usernameFillError->hide();
         ui->usernameInvalidError->show();
         return false;
@@ -187,29 +222,6 @@ bool LoginSigninForm::checkCorrectPassword() {
         return false;
     }
 }
-
-void LoginSigninForm::hideAllError(){
-    ui->firstNameError->hide();
-    ui->firstNameInvalidError->hide();
-
-    ui->lastNameError->hide();
-    ui->lastNameInvalidError->hide();
-
-    ui->nationalCodeError->hide();
-    ui->nationalCodeInvalidError->hide();
-
-    ui->ageError->hide();
-    ui->ageInvalidError->hide();
-
-    ui->usernameInvalidError->hide();
-    ui->usernameFillError->hide();
-
-    ui->passwordFillError->hide();
-    ui->passwordInvalidError->hide();
-}
-
-
-
 void LoginSigninForm::checkTheFieldsValue () {
     bool checkEmpty = true, checkCorrectValue = true;
 
@@ -262,10 +274,22 @@ void LoginSigninForm::checkTheFieldsValue () {
         pushSignUpInputs();
     }
 }
+void LoginSigninForm::setUsernameExistErrorInForm() {
+    ui->usernameExistsError->show();
+    checkTheFieldsValue();
+}
 
+
+///Push Inputs
 void LoginSigninForm::pushSignUpInputs() {
 
+    QString username;
     Users user;
+    username = ui->usernameLineEditS->text();
+
+    if(user.searchUsernameInList(username))
+        setUsernameExistErrorInForm();
+
     user.setName(ui->firstNameLineEdit->text());
     user.setLastName(ui->lastNameLineEdit->text());
     user.setNationnalCode(ui->nationalCodeLineEdit->text());
@@ -274,7 +298,14 @@ void LoginSigninForm::pushSignUpInputs() {
     user.setPassword(ui->passwordLineEditS->text());
 
     user.addUserToList();
+
+    cleanFields();
 }
+
+/// ========================================================
+
+
+/// ===================== Login Part ========================
 
 LoginSigninForm::~LoginSigninForm() {
     delete ui;

@@ -698,6 +698,23 @@ color: rgb(255, 73, 73);</string>
     <string>Invalid Data</string>
    </property>
   </widget>
+  <widget class="QLabel" name="usernameExistsError">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>379</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>This Username Exists!</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>loginLabel</zorder>
   <zorder>usernameLineEditL</zorder>
@@ -731,6 +748,7 @@ color: rgb(255, 73, 73);</string>
   <zorder>passwordInvalidError</zorder>
   <zorder>lastNameInvalidError</zorder>
   <zorder>firstNameInvalidError</zorder>
+  <zorder>usernameExistsError</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

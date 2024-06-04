@@ -11,7 +11,7 @@ private:
     QString nationalCode;
     QString age;
     QString password;
-    QString userName;
+    QString username;
     BankAccount bankAccount[5];
 
 public:
@@ -38,6 +38,8 @@ public:
     BankAccount getBankAccount (int);
 
     void addUserToList();
+    bool searchPasswordInList(QString);
+    bool searchUsernameInList(QString);
 
 };
 

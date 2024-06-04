@@ -7,8 +7,7 @@ namespace Ui {
 class LoginSigninForm;
 }
 
-class LoginSigninForm : public QWidget
-{
+class LoginSigninForm : public QWidget {
     Q_OBJECT
 private slots:
     void checkTheFieldsValue();
@@ -18,10 +17,12 @@ public:
     ~LoginSigninForm();
 
 private:
-    void pushSignUpInputs();
 
     /// hide Error Functions
     void hideAllError();
+
+    /// Clean SignUp Fields
+    void cleanFields ();
 
     ///Check Value Functions
     bool checkCorrectAgeValue();
@@ -30,6 +31,10 @@ private:
     bool checkCorrectLastName();
     bool checkCorrectUserName();
     bool checkCorrectPassword();
+    void setUsernameExistErrorInForm();
+
+    /// Push Inputs
+    void pushSignUpInputs();
 
 
     Ui::LoginSigninForm *ui;
