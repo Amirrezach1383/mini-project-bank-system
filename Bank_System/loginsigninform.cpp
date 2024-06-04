@@ -13,8 +13,12 @@ LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::
 
     /// Login ==========
     connect(ui->loginPushButton, SIGNAL(clicked()), this, SLOT());
-
+    /// =======
 }
+LoginSigninForm::~LoginSigninForm() {
+    delete ui;
+}
+
 
 /// =================== SignUp ====================
 
@@ -274,21 +278,21 @@ void LoginSigninForm::checkTheFieldsValue () {
         pushSignUpInputs();
     }
 }
-void LoginSigninForm::setUsernameExistErrorInForm() {
-    ui->usernameExistsError->show();
-    checkTheFieldsValue();
-}
+// void LoginSigninForm::setUsernameExistErrorInForm() {
+//     ui->usernameExistsError->show();
+//     checkTheFieldsValue();
+// }
 
 
 ///Push Inputs
 void LoginSigninForm::pushSignUpInputs() {
 
-    QString username;
+    // QString username;
     Users user;
-    username = ui->usernameLineEditS->text();
+    // username = ui->usernameLineEditS->text();
 
-    if(user.searchUsernameInList(username))
-        setUsernameExistErrorInForm();
+    // if(user.searchUsernameInList(username))
+    //     setUsernameExistErrorInForm();
 
     user.setName(ui->firstNameLineEdit->text());
     user.setLastName(ui->lastNameLineEdit->text());
@@ -307,6 +311,79 @@ void LoginSigninForm::pushSignUpInputs() {
 
 /// ===================== Login Part ========================
 
-LoginSigninForm::~LoginSigninForm() {
-    delete ui;
+bool LoginSigninForm::checkValidLoginUsername() {
+    QString username = ui->usernameLineEditL->text();
+
+    if(username == "") {
+        ui->loginUsernameInvalidError->hide();
+        return true;
+    }
+
+    int i = 0, a = 0;
+
+    while(i < username.length()) {
+        if((username[i] <= 'Z' && username[i] >= 'A') || (username[i] <= 'z' && username[i] >= 'a') ||
+            (username[i] <= '9' && username[i] >= '0')) {
+
+            if((username[i] <= 'Z' && username[i] >= 'A') || (username[i] <= 'z' && username[i] >= 'a'))
+                a++;
+            i++;
+        }
+        else {
+            ui->loginUsernameEmptyError->hide();
+            ui->loginUsernameIncorrectError->hide();
+            ui->loginUsernameInvalidError->show();
+            return false;
+        }
+
+    }
+
+    if(a != 0) {
+        ui->loginUsernameInvalidError->hide();
+        return true;
+    } else {
+        ui->loginUsernameEmptyError->hide();
+        ui->loginUsernameIncorrectError->hide();
+        ui->loginUsernameInvalidError->show();
+        return false;
+    }
 }
+bool LoginSigninForm::checkValidLoginPassword() {
+    QString password = ui->passwordLineEditL->text();
+
+    if(password == "") {
+        ui->loginPasswordInvalidError->hide();
+        return true;
+    }
+
+    int i = 0, a = 0, a1 = 0;
+
+    while(i < password.length()) {
+        if((password[i] <= 'Z' && password[i] >= 'A') || (password[i] <= 'z' && password[i] >= 'a') || (password[i] <= '9' && password[i] >= '0') || (password[i] == '_')) {
+            if((password[i] <= 'Z' && password[i] >= 'A') || (password[i] <= 'z' && password[i] >= 'a'))
+                a++;
+            else if(password[i] <= '9' && password[i] >= '0')
+                a1++;
+            i++;
+        }
+        else {
+            ui->loginPasswordEmptyError->hide();
+            ui->loginPasswordIncorrectError->hide();
+            ui->loginPasswordInvalidError->show();
+            return false;
+        }
+    }
+
+
+    if(a != 0 && a1 != 0) {
+        ui->loginPasswordInvalidError->hide();
+        return true;
+
+    }else {
+        ui->loginPasswordEmptyError->hide();
+        ui->loginPasswordIncorrectError->hide();
+        ui->loginPasswordInvalidError->show();
+        return false;
+    }
+}
+

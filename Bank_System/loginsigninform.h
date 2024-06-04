@@ -18,6 +18,7 @@ public:
 
 private:
 
+    /// ========= Sign Up ==========
     /// hide Error Functions
     void hideAllError();
 
@@ -31,13 +32,20 @@ private:
     bool checkCorrectLastName();
     bool checkCorrectUserName();
     bool checkCorrectPassword();
-    void setUsernameExistErrorInForm();
+    // void setUsernameExistErrorInForm();
 
     /// Push Inputs
     void pushSignUpInputs();
+    ///=============================================
+
+    ///=========== Login =============
+    void checkLoginFieldsValue();
+    bool checkValidLoginUsername();
+    bool checkValidLoginPassword();
 
 
     Ui::LoginSigninForm *ui;
+
 };
 
 #endif // LOGINSIGNINFORM_H
