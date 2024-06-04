@@ -191,7 +191,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>250</y>
+     <y>207</y>
      <width>191</width>
      <height>28</height>
     </rect>
@@ -208,7 +208,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>206</y>
+     <y>251</y>
      <width>191</width>
      <height>28</height>
     </rect>

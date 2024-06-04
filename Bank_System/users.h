@@ -2,6 +2,7 @@
 #define USERS_H
 #include <QString>
 #include <bankaccount.h>
+#include "linklist.h"
 
 class Users {
 private:
@@ -14,6 +15,7 @@ private:
     BankAccount bankAccount[5];
 
 public:
+    LinkList
     Users();
     ~Users();
     ///set data
@@ -33,6 +35,8 @@ public:
     QString getUserName ();
     QString getPassword ();
     BankAccount getBankAccount (int);
+
+
 };
 
 #endif // USERS_H
