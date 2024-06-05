@@ -21,7 +21,7 @@ LoginSigninForm::~LoginSigninForm() {
 
 void LoginSigninForm::hideAllError(){
 
-    /// SignUP Fields
+    /// SignUP Errors
     ui->firstNameError->hide();
     ui->firstNameInvalidError->hide();
 
@@ -41,7 +41,9 @@ void LoginSigninForm::hideAllError(){
     ui->passwordFillError->hide();
     ui->passwordInvalidError->hide();
 
-    /// LoginFields
+    ui->signUpUserExistError->hide();
+
+    /// Login Errors
     ui->loginPasswordEmptyError->hide();
     ui->loginPasswordInvalidError->hide();
     ui->loginPasswordIncorrectError->hide();
@@ -236,8 +238,48 @@ bool LoginSigninForm::checkCorrectPassword() {
         return false;
     }
 }
+bool LoginSigninForm::checkUserExist() {
+    QString firstName, lastName, nationalCode;
+    firstName = ui->firstNameLineEdit->text();
+    lastName = ui->lastNameLineEdit->text();
+    nationalCode = ui->nationalCodeLineEdit->text();
+
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getName() == firstName && tmp->getData().getLastName() == lastName && tmp->getData().getNationalCode() == nationalCode) {
+
+            ui->signUpUserExistError->show();
+            return false;
+        }
+
+        tmp = tmp->getNextNode();
+    }
+    return true;
+}
+bool LoginSigninForm::checkSignUpUsernameExist() {
+    QString username = ui->usernameLineEditS->text();
+
+    if(username == "") {
+        ui->usernameExistsError->hide();
+        return true;
+    }
+
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getUserName() == username) {
+            ui->usernameFillError->hide();
+            ui->usernameInvalidError->hide();
+            ui->usernameExistsError->show();
+            return false;
+        }
+        tmp = tmp->getNextNode();
+    }
+    ui->usernameExistsError->hide();
+    return true;
+}
+
 void LoginSigninForm::checkTheFieldsValue () {
-    bool checkEmpty = true, checkCorrectValue = true;
+    bool checkEmpty = true, checkCorrectValue = true, userExist = false, usernameExist = false;
 
     if(ui->firstNameLineEdit->text() == "") {
         ui->firstNameError->show();
@@ -284,14 +326,19 @@ void LoginSigninForm::checkTheFieldsValue () {
     else
         checkCorrectValue = false;
 
-    if(checkEmpty && checkCorrectValue) {
+    if(!checkUserExist()) {
+        userExist = true;
+    }
+    if(!checkSignUpUsernameExist()) {
+        usernameExist = true;
+    }
+
+    if(checkEmpty && checkCorrectValue && !usernameExist && !userExist) {
         pushSignUpInputs();
     }
 }
-// void LoginSigninForm::setUsernameExistErrorInForm() {
-//     ui->usernameExistsError->show();
-//     checkTheFieldsValue();
-// }
+
+
 
 
 ///Push Inputs

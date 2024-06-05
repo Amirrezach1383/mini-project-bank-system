@@ -702,7 +702,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>379</y>
+     <y>376</y>
      <width>171</width>
      <height>20</height>
     </rect>
@@ -817,6 +817,23 @@ color: rgb(255, 73, 73);</string>
     <string>Incorrect Username</string>
    </property>
   </widget>
+  <widget class="QLabel" name="signUpUserExistError">
+   <property name="geometry">
+    <rect>
+     <x>351</x>
+     <y>458</y>
+     <width>301</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>You Have Already Registered !</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>loginLabel</zorder>
   <zorder>usernameLineEditL</zorder>
@@ -857,6 +874,7 @@ color: rgb(255, 73, 73);</string>
   <zorder>loginPasswordIncorrectError</zorder>
   <zorder>loginUsernameEmptyError</zorder>
   <zorder>loginUsernameIncorrectError</zorder>
+  <zorder>signUpUserExistError</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

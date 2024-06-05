@@ -35,7 +35,8 @@ private:
     bool checkCorrectLastName();
     bool checkCorrectUserName();
     bool checkCorrectPassword();
-    // void setUsernameExistErrorInForm();
+    bool checkUserExist();
+    bool checkSignUpUsernameExist();
 
     /// Push Inputs
     void pushSignUpInputs();
