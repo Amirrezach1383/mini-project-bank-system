@@ -12,18 +12,16 @@ LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::
     /// =======
 
     /// Login ==========
-    connect(ui->loginPushButton, SIGNAL(clicked()), this, SLOT());
+    connect(ui->loginPushButton, SIGNAL(clicked()), this, SLOT(checkLoginFieldsValue()));
     /// =======
 }
 LoginSigninForm::~LoginSigninForm() {
     delete ui;
 }
 
-
-/// =================== SignUp ====================
-
 void LoginSigninForm::hideAllError(){
 
+    /// SignUP Fields
     ui->firstNameError->hide();
     ui->firstNameInvalidError->hide();
 
@@ -42,7 +40,19 @@ void LoginSigninForm::hideAllError(){
 
     ui->passwordFillError->hide();
     ui->passwordInvalidError->hide();
+
+    /// LoginFields
+    ui->loginPasswordEmptyError->hide();
+    ui->loginPasswordInvalidError->hide();
+    ui->loginPasswordIncorrectError->hide();
+
+    ui->loginUsernameIncorrectError->hide();
+    ui->loginUsernameEmptyError->hide();
+    ui->loginUsernameInvalidError->hide();
 }
+
+/// =================== SignUp ====================
+
 void LoginSigninForm::cleanFields() {
     ui->usernameLineEditS->clear();
     ui->passwordLineEditS->clear();
@@ -288,7 +298,6 @@ void LoginSigninForm::checkTheFieldsValue () {
 void LoginSigninForm::pushSignUpInputs() {
 
     // QString username;
-    Users user;
     // username = ui->usernameLineEditS->text();
 
     // if(user.searchUsernameInList(username))
@@ -385,5 +394,108 @@ bool LoginSigninForm::checkValidLoginPassword() {
         ui->loginPasswordInvalidError->show();
         return false;
     }
+}
+bool LoginSigninForm::checkCorrectLoginUsername(){
+    QString username = ui->usernameLineEditL->text();
+
+    if(username == "") {
+        ui->loginUsernameIncorrectError->hide();
+        return true;
+    }
+
+
+    if(user.searchUsernameInList(username)) {
+        ui->loginUsernameIncorrectError->hide();
+        return true;
+
+    } else {
+        ui->loginUsernameEmptyError->hide();
+        ui->loginUsernameInvalidError->hide();
+        ui->loginUsernameIncorrectError->show();
+        return false;
+    }
+}
+bool LoginSigninForm::checkCorrectLoginPassword(){
+
+    QString password = ui->passwordLineEditL->text();
+
+    if(password == "") {
+        ui->loginPasswordIncorrectError->hide();
+        return true;
+    }
+
+
+    if(user.searchPasswordInList(password)) {
+        Users userTmp;
+        Node<Users> *tmp = user.usersList.getHeadNode();
+        while (tmp) {
+            if (tmp->getData().getUserName() == ui->usernameLineEditL->text()){
+                userTmp = tmp->getData();
+            }
+            tmp = tmp->getNextNode();
+        }
+
+        if(userTmp.getPassword() == password) {
+            ui->loginPasswordIncorrectError->hide();
+            return true;
+        } else {
+            ui->loginPasswordEmptyError->hide();
+            ui->loginPasswordInvalidError->hide();
+            ui->loginPasswordIncorrectError->show();
+            return false;
+        }
+
+    } else {
+        ui->loginPasswordEmptyError->hide();
+        ui->loginPasswordInvalidError->hide();
+        ui->loginPasswordIncorrectError->show();
+        return false;
+    }
+}
+bool LoginSigninForm::checkEmptyLoginUsername(){
+    if(ui->usernameLineEditL->text() == "") {
+        ui->loginUsernameInvalidError->hide();
+        ui->loginUsernameIncorrectError->hide();
+        ui->loginUsernameEmptyError->show();
+        return false;
+    }
+    ui->loginUsernameEmptyError->hide();
+    return true;
+}
+bool LoginSigninForm::checkEmptyLoginPassword(){
+    if(ui->passwordLineEditL->text() == "") {
+        ui->loginPasswordInvalidError->hide();
+        ui->loginPasswordIncorrectError->hide();
+        ui->loginPasswordEmptyError->show();
+        return false;
+    }
+    ui->loginPasswordEmptyError->hide();
+    return true;
+
+}
+
+void LoginSigninForm::checkLoginFieldsValue(){
+    bool checkEmpty = true;
+    bool checkValid = true;
+    bool checkCorrect = true;
+
+    if(!(checkEmptyLoginPassword()) && (checkEmptyLoginUsername()))
+        checkEmpty = false;
+
+    if(!(checkCorrectLoginPassword()) && (checkCorrectLoginUsername()))
+        checkCorrect = false;
+
+    if(!(checkValidLoginPassword()) && (checkValidLoginUsername()))
+        checkValid = false;
+
+    if(checkCorrect && checkEmpty && checkValid) {
+
+    }
+
+
+}
+
+void LoginSigninForm::openUserPanelForm () {
+
 }
 

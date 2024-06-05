@@ -2,6 +2,7 @@
 #define LOGINSIGNINFORM_H
 
 #include <QWidget>
+#include <users.h>
 
 namespace Ui {
 class LoginSigninForm;
@@ -11,8 +12,10 @@ class LoginSigninForm : public QWidget {
     Q_OBJECT
 private slots:
     void checkTheFieldsValue();
+    void checkLoginFieldsValue();
 
 public:
+    Users user;
     explicit LoginSigninForm(QWidget *parent = nullptr);
     ~LoginSigninForm();
 
@@ -39,10 +42,15 @@ private:
     ///=============================================
 
     ///=========== Login =============
-    void checkLoginFieldsValue();
-    bool checkValidLoginUsername();
-    bool checkValidLoginPassword();
 
+    bool checkValidLoginUsername();
+    bool checkCorrectLoginUsername();
+    bool checkEmptyLoginUsername();
+    bool checkValidLoginPassword();
+    bool checkCorrectLoginPassword();
+    bool checkEmptyLoginPassword();
+
+    void openUserPanelForm ();
 
     Ui::LoginSigninForm *ui;
 

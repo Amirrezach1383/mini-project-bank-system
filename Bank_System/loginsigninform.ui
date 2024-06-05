@@ -718,7 +718,7 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="loginUsernameInvalidError">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>133</x>
      <y>250</y>
      <width>171</width>
      <height>20</height>
@@ -749,28 +749,11 @@ color: rgb(255, 73, 73);</string>
     <string>Invalid Data</string>
    </property>
   </widget>
-  <widget class="QLabel" name="loginUsernameEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>250</y>
-     <width>171</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
-color: rgb(255, 73, 73);</string>
-   </property>
-   <property name="text">
-    <string>Please Fill Out This Field</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="loginPasswordEmptyError">
    <property name="geometry">
     <rect>
-     <x>131</x>
-     <y>321</y>
+     <x>130</x>
+     <y>320</y>
      <width>171</width>
      <height>20</height>
     </rect>
@@ -786,7 +769,7 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="loginPasswordIncorrectError">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>131</x>
      <y>320</y>
      <width>171</width>
      <height>20</height>
@@ -800,12 +783,12 @@ color: rgb(255, 73, 73);</string>
     <string>Incorrect password</string>
    </property>
   </widget>
-  <widget class="QLabel" name="loginUsernameIncorrectError">
+  <widget class="QLabel" name="loginUsernameEmptyError">
    <property name="geometry">
     <rect>
      <x>130</x>
      <y>250</y>
-     <width>171</width>
+     <width>161</width>
      <height>20</height>
     </rect>
    </property>
@@ -814,7 +797,24 @@ color: rgb(255, 73, 73);</string>
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
-    <string>Incorrect username</string>
+    <string>Please Fill Out This Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="loginUsernameIncorrectError">
+   <property name="geometry">
+    <rect>
+     <x>131</x>
+     <y>250</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string>Incorrect Username</string>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -853,9 +853,9 @@ color: rgb(255, 73, 73);</string>
   <zorder>usernameExistsError</zorder>
   <zorder>loginUsernameInvalidError</zorder>
   <zorder>loginPasswordInvalidError</zorder>
-  <zorder>loginUsernameEmptyError</zorder>
   <zorder>loginPasswordEmptyError</zorder>
   <zorder>loginPasswordIncorrectError</zorder>
+  <zorder>loginUsernameEmptyError</zorder>
   <zorder>loginUsernameIncorrectError</zorder>
  </widget>
  <resources>
