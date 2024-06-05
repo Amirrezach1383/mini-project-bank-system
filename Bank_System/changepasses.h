@@ -2,6 +2,7 @@
 #define CHANGEPASSES_H
 
 #include <QWidget>
+#include "users.h"
 
 namespace Ui {
 class ChangePasses;
@@ -12,10 +13,11 @@ class ChangePasses : public QWidget
     Q_OBJECT
 
 public:
-    explicit ChangePasses(QWidget *parent = nullptr);
+    explicit ChangePasses(Users, QWidget *parent = nullptr);
     ~ChangePasses();
 
 private:
+    Users user;
     Ui::ChangePasses *ui;
 };
 

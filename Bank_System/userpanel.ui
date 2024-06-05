@@ -117,7 +117,7 @@ background-color: rgb(4, 27, 48);</string>
     <string>Log Out</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="transferPushButton">
    <property name="geometry">
     <rect>
      <x>531</x>
@@ -230,7 +230,7 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>nationalCodeLabel</zorder>
   <zorder>logoutPushButton</zorder>
-  <zorder>pushButton_4</zorder>
+  <zorder>transferPushButton</zorder>
   <zorder>showBalancePushButton</zorder>
   <zorder>newAccountPushButton</zorder>
   <zorder>changPasswordPushButton</zorder>

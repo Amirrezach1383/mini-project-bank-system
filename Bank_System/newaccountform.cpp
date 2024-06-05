@@ -1,10 +1,8 @@
 #include "newaccountform.h"
 #include "ui_newaccountform.h"
 
-NewAccountForm::NewAccountForm(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::NewAccountForm)
-{
+NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent), user(users), ui(new Ui::NewAccountForm) {
+
     ui->setupUi(this);
     ui->cardInformationGroupBox->hide();
     ui->accountInformationGroupBox->hide();

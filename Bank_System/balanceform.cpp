@@ -1,9 +1,8 @@
 #include "balanceform.h"
 #include "ui_balanceform.h"
+#include "users.h"
 
-BalanceForm::BalanceForm(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::BalanceForm)
+BalanceForm::BalanceForm(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::BalanceForm)
 {
     ui->setupUi(this);
     ui->footerBalanceLabel->hide();

@@ -12,6 +12,15 @@ class UserPanel;
 class UserPanel : public QWidget
 {
     Q_OBJECT
+private slots:
+
+    /// ====== Opening Forms Functions ======
+    void openTransferForm();
+    void openNewAccountForm();
+    void openBalanceForm();
+    void openChangePasswordForm();
+    void openLoginSignUpForm();
+
 
 public:
     explicit UserPanel(Users, QWidget *parent = nullptr);

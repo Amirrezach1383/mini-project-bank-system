@@ -1,9 +1,8 @@
 #include "changepasses.h"
 #include "ui_changepasses.h"
+#include "users.h"
 
-ChangePasses::ChangePasses(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::ChangePasses)
+ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::ChangePasses)
 {
     ui->setupUi(this);
 
