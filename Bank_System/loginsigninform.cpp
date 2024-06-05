@@ -1,6 +1,7 @@
 #include "loginsigninform.h"
 #include "ui_loginsigninform.h"
 #include "users.h"
+#include "userpanel.h"
 #include "QMessageBox"
 
 LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSigninForm) {
@@ -536,13 +537,26 @@ void LoginSigninForm::checkLoginFieldsValue(){
         checkValid = false;
 
     if(checkCorrect && checkEmpty && checkValid) {
-
+        openUserPanelForm();
     }
 
 
 }
 
 void LoginSigninForm::openUserPanelForm () {
+    Users userTmp;
 
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getUserName() == ui->usernameLineEditL->text()
+            && tmp->getData().getPassword() == ui->passwordLineEditL->text()) {
+            userTmp = tmp->getData();
+            break;
+        }
+    }
+
+    UserPanel *userPanel = new UserPanel(userTmp);
+    userPanel->show();
+    this->close();
 }
 

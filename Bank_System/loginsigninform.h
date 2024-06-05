@@ -51,6 +51,7 @@ private:
     bool checkCorrectLoginPassword();
     bool checkEmptyLoginPassword();
 
+
     void openUserPanelForm ();
 
     Ui::LoginSigninForm *ui;
