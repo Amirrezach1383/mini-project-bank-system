@@ -528,24 +528,24 @@ bool LoginSigninForm::checkEmptyLoginPassword(){
 }
 
 void LoginSigninForm::checkLoginFieldsValue(){
-    bool checkEmpty = false;
-    bool checkValid = false;
-    bool checkCorrect = false;
+    bool checkEmpty = true;
+    bool checkValid = true;
+    bool checkCorrect = true;
 
-    if(checkEmptyLoginPassword())
-        checkEmpty = true;
-    if(checkEmptyLoginUsername())
-        checkEmpty = true;
+    if(!checkEmptyLoginPassword())
+        checkEmpty = false;
+    if(!checkEmptyLoginUsername())
+        checkEmpty = false;
 
-    if(checkCorrectLoginPassword())
-        checkCorrect = true;
-    if(checkCorrectLoginUsername())
-        checkCorrect = true;
+    if(!checkCorrectLoginPassword())
+        checkCorrect = false;
+    if(!checkCorrectLoginUsername())
+        checkCorrect = false;
 
-    if(checkValidLoginPassword())
-        checkValid = true;
-    if(checkValidLoginUsername())
-        checkValid = true;
+    if(!checkValidLoginPassword())
+        checkValid = false;
+    if(!checkValidLoginUsername())
+        checkValid = false;
 
     if(checkCorrect && checkEmpty && checkValid) {
         openUserPanelForm();

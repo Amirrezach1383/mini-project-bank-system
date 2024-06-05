@@ -39,7 +39,6 @@ public:
 
     void addUserToList();
     bool searchPasswordInList(QString);
-    bool searchUsernameInList(QString);
 
 };
 

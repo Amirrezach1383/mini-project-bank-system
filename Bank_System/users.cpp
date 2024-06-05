@@ -55,6 +55,8 @@ void Users::addUserToList() {
     usersList.pushBack(*this);
 }
 bool Users::searchPasswordInList(QString password){
+    if(usersList.getSize() == 0)
+        return false;
     Node<Users> *tmp = usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().password == password)
@@ -63,15 +65,3 @@ bool Users::searchPasswordInList(QString password){
     }
     return false ;
 }
-bool Users::searchUsernameInList(QString username) {
-    if(usersList.getSize() == 0)
-        return false;
-    Node<Users> *tmp = usersList.getHeadNode();
-    while (tmp) {
-        if (tmp->getData().username == username)
-            return true;
-        tmp = tmp->getNextNode();
-    }
-    return false ;
-}
-
