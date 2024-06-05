@@ -3,7 +3,7 @@
 #include "users.h"
 #include "userpanel.h"
 
-BalanceForm::BalanceForm(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::BalanceForm)
+BalanceForm::BalanceForm(Users *users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::BalanceForm)
 {
     ui->setupUi(this);
     ui->footerBalanceLabel->hide();

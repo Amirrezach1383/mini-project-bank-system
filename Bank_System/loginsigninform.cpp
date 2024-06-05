@@ -550,9 +550,12 @@ void LoginSigninForm::openUserPanelForm () {
             userTmp = tmp->getData();
             break;
         }
+        tmp = tmp->getNextNode();
     }
 
-    UserPanel *userPanel = new UserPanel(userTmp);
+    userTmp.usersList.setHeadNode(user->usersList.getHeadNode());
+
+    UserPanel *userPanel = new UserPanel(&userTmp);
     userPanel->show();
     this->close();
 }

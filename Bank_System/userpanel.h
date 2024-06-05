@@ -23,11 +23,11 @@ private slots:
 
 
 public:
-    explicit UserPanel(Users, QWidget *parent = nullptr);
+    explicit UserPanel(Users*, QWidget *parent = nullptr);
     ~UserPanel();
 
 private:
-    Users user;
+    Users *user;
     Ui::UserPanel *ui;
 };
 

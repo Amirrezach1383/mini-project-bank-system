@@ -16,11 +16,11 @@ private slots:
     void openUserPanelForm();
 
 public:
-    explicit NewAccountForm(Users, QWidget *parent = nullptr);
+    explicit NewAccountForm(Users*, QWidget *parent = nullptr);
     ~NewAccountForm();
 
 private:
-    Users user;
+    Users *user;
     Ui::NewAccountForm *ui;
 };
 

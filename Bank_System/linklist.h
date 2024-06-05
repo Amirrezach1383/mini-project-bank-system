@@ -116,6 +116,11 @@ public:
         return size;
     }
 
+    /// Setters
+    void setHeadNode(Node<T>* data){
+        headNode = data;
+    }
+
     bool find(T data) {
         Node<T> *tmp = getHeadNode();
         while (tmp) {

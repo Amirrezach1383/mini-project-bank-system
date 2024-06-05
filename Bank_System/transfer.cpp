@@ -3,7 +3,7 @@
 #include "users.h"
 #include "userpanel.h"
 
-Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::Transfer) {
+Transfer::Transfer(Users* users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::Transfer) {
 
     ui->setupUi(this);
     /// Connect to UserPanelForm

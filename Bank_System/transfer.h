@@ -15,11 +15,11 @@ private slots:
     void openUserPanelForm ();
 
 public:
-    explicit Transfer(Users ,QWidget *parent = nullptr);
+    explicit Transfer(Users* , QWidget *parent = nullptr);
     ~Transfer();
 
 private:
-    Users user;
+    Users *user;
     Ui::Transfer *ui;
 };
 

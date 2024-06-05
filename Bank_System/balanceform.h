@@ -16,11 +16,11 @@ private slots:
     void openUserPanelForm();
 
 public:
-    explicit BalanceForm(Users, QWidget *parent = nullptr);
+    explicit BalanceForm(Users*, QWidget *parent = nullptr);
     ~BalanceForm();
 
 private:
-    Users user;
+    Users *user;
     Ui::BalanceForm *ui;
 };
 
