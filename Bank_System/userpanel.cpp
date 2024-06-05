@@ -7,13 +7,13 @@
 #include "balanceform.h"
 #include "loginsigninform.h"
 
-UserPanel::UserPanel(Users *users, QWidget *parent) : QWidget(parent) , user(users), ui(new Ui::UserPanel) {
+UserPanel::UserPanel(Users users, QWidget *parent) : QWidget(parent) , user(users), ui(new Ui::UserPanel) {
     ui->setupUi(this);
 
     /// Set Label's Texts
-    ui->firstNameLabel->setText(user->getFirstName());
-    ui->lastNameLabel->setText(user->getLastName());
-    ui->nationalCodeLabel->setText(user->getNationalCode());
+    ui->firstNameLabel->setText(user.getFirstName());
+    ui->lastNameLabel->setText(user.getLastName());
+    ui->nationalCodeLabel->setText(user.getNationalCode());
 
     /// ================ Connect To Other Pages ==================
 

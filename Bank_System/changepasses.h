@@ -15,11 +15,11 @@ private slots:
     void openUserPanelForm ();
 
 public:
-    explicit ChangePasses(Users*, QWidget *parent = nullptr);
+    explicit ChangePasses(Users, QWidget *parent = nullptr);
     ~ChangePasses();
+    Users user;
 
 private:
-    Users *user;
     Ui::ChangePasses *ui;
 };
 

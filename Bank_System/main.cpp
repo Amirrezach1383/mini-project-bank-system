@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     Users user;
     QApplication a(argc, argv);
-    LoginSigninForm w(new Users);
+    LoginSigninForm w(*new Users);
     // UserPanel u(new Users);
     // BalanceForm b;
     // NewAccountForm A;

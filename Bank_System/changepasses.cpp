@@ -3,7 +3,7 @@
 #include "users.h"
 #include "userpanel.h"
 
-ChangePasses::ChangePasses(Users *users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::ChangePasses)
+ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::ChangePasses)
 {
     ui->setupUi(this);
 

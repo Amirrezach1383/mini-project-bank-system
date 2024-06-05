@@ -4,7 +4,7 @@
 #include "userpanel.h"
 #include "QMessageBox"
 
-LoginSigninForm::LoginSigninForm(Users *users,QWidget *parent) : QWidget(parent), user(users), ui(new Ui::LoginSigninForm) {
+LoginSigninForm::LoginSigninForm(Users users,QWidget *parent) : QWidget(parent), user(users), ui(new Ui::LoginSigninForm) {
     ui->setupUi(this);
 
     /// SignUp =========
@@ -245,7 +245,7 @@ bool LoginSigninForm::checkUserExist() {
     lastName = ui->lastNameLineEdit->text();
     nationalCode = ui->nationalCodeLineEdit->text();
 
-    Node<Users> *tmp = user->usersList.getHeadNode();
+    Node<Users> *tmp = user.usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getFirstName() == firstName && tmp->getData().getLastName() == lastName && tmp->getData().getNationalCode() == nationalCode) {
 
@@ -265,7 +265,7 @@ bool LoginSigninForm::checkSignUpUsernameExist() {
         return true;
     }
 
-    Node<Users> *tmp = user->usersList.getHeadNode();
+    Node<Users> *tmp = user.usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUsername() == username) {
             ui->usernameFillError->hide();
@@ -350,20 +350,17 @@ void LoginSigninForm::checkTheFieldsValue () {
     }
 }
 
-
-
-
 ///Push Inputs
 void LoginSigninForm::pushSignUpInputs() {
 
-    user->setFirstName(ui->firstNameLineEdit->text());
-    user->setLastName(ui->lastNameLineEdit->text());
-    user->setNationnalCode(ui->nationalCodeLineEdit->text());
-    user->setAge(ui->ageLineEdit->text());
-    user->setUsername(ui->usernameLineEditS->text());
-    user->setPassword(ui->passwordLineEditS->text());
+    user.setFirstName(ui->firstNameLineEdit->text());
+    user.setLastName(ui->lastNameLineEdit->text());
+    user.setNationnalCode(ui->nationalCodeLineEdit->text());
+    user.setAge(ui->ageLineEdit->text());
+    user.setUsername(ui->usernameLineEditS->text());
+    user.setPassword(ui->passwordLineEditS->text());
 
-    user->addUserToList();
+    user.addUserToList();
 
     cleanFields();
 }
@@ -456,7 +453,7 @@ bool LoginSigninForm::checkCorrectLoginUsername(){
         return true;
     }
 
-    Node<Users> *tmp = user->usersList.getHeadNode();
+    Node<Users> *tmp = user.usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUsername() == ui->usernameLineEditL->text()){
             ui->loginUsernameIncorrectError->hide();
@@ -481,9 +478,9 @@ bool LoginSigninForm::checkCorrectLoginPassword(){
     }
 
 
-    if(user->searchPasswordInList(password)) {
+    if(user.searchPasswordInList(password)) {
         Users userTmp;
-        Node<Users> *tmp = user->usersList.getHeadNode();
+        Node<Users> *tmp = user.usersList.getHeadNode();
         while (tmp) {
             if (tmp->getData().getUsername() == ui->usernameLineEditL->text()){
                 userTmp = tmp->getData();
@@ -560,7 +557,7 @@ void LoginSigninForm::checkLoginFieldsValue(){
 void LoginSigninForm::openUserPanelForm () {
     Users userTmp;
 
-    Node<Users> *tmp = user->usersList.getHeadNode();
+    Node<Users> *tmp = user.usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUsername() == ui->usernameLineEditL->text()
             && tmp->getData().getPassword() == ui->passwordLineEditL->text()) {
@@ -570,9 +567,9 @@ void LoginSigninForm::openUserPanelForm () {
         tmp = tmp->getNextNode();
     }
 
-    userTmp.usersList.setHeadNode(user->usersList.getHeadNode());
+    userTmp.usersList.setHeadNode(user.usersList.getHeadNode());
 
-    UserPanel *userPanel = new UserPanel(&userTmp);
+    UserPanel *userPanel = new UserPanel(userTmp);
     userPanel->show();
     this->close();
 }
