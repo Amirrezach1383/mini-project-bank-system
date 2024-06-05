@@ -11,7 +11,7 @@ UserPanel::UserPanel(Users users, QWidget *parent) : QWidget(parent) , user(user
     ui->setupUi(this);
 
     /// Set Label's Texts
-    ui->firstNameLabel->setText(user.getUserName());
+    ui->firstNameLabel->setText(user.getName());
     ui->lastNameLabel->setText(user.getLastName());
     ui->nationalCodeLabel->setText(user.getNationalCode());
 
@@ -47,13 +47,10 @@ void UserPanel::openChangePasswordForm() {
     this->close();
 }
 void UserPanel::openLoginSignUpForm() {
-    LoginSigninForm *loginSignin = new LoginSigninForm;
+    LoginSigninForm *loginSignin = new LoginSigninForm(&user);
     loginSignin->show();
     this->close();
 }
-
-
-
 
 UserPanel::~UserPanel()
 {

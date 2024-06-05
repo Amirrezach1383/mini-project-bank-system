@@ -11,6 +11,8 @@ class ChangePasses;
 class ChangePasses : public QWidget
 {
     Q_OBJECT
+private slots:
+    void openUserPanelForm ();
 
 public:
     explicit ChangePasses(Users, QWidget *parent = nullptr);

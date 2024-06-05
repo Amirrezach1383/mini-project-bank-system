@@ -4,7 +4,7 @@
 #include "userpanel.h"
 #include "QMessageBox"
 
-LoginSigninForm::LoginSigninForm(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSigninForm) {
+LoginSigninForm::LoginSigninForm(Users *users,QWidget *parent) : QWidget(parent), user(users), ui(new Ui::LoginSigninForm) {
     ui->setupUi(this);
 
     /// SignUp =========
@@ -245,7 +245,7 @@ bool LoginSigninForm::checkUserExist() {
     lastName = ui->lastNameLineEdit->text();
     nationalCode = ui->nationalCodeLineEdit->text();
 
-    Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getName() == firstName && tmp->getData().getLastName() == lastName && tmp->getData().getNationalCode() == nationalCode) {
 
@@ -265,7 +265,7 @@ bool LoginSigninForm::checkSignUpUsernameExist() {
         return true;
     }
 
-    Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUserName() == username) {
             ui->usernameFillError->hide();
@@ -345,20 +345,14 @@ void LoginSigninForm::checkTheFieldsValue () {
 ///Push Inputs
 void LoginSigninForm::pushSignUpInputs() {
 
-    // QString username;
-    // username = ui->usernameLineEditS->text();
+    user->setName(ui->firstNameLineEdit->text());
+    user->setLastName(ui->lastNameLineEdit->text());
+    user->setNationnalCode(ui->nationalCodeLineEdit->text());
+    user->setAge(ui->ageLineEdit->text());
+    user->setUserName(ui->usernameLineEditS->text());
+    user->setPassword(ui->passwordLineEditS->text());
 
-    // if(user.searchUsernameInList(username))
-    //     setUsernameExistErrorInForm();
-
-    user.setName(ui->firstNameLineEdit->text());
-    user.setLastName(ui->lastNameLineEdit->text());
-    user.setNationnalCode(ui->nationalCodeLineEdit->text());
-    user.setAge(ui->ageLineEdit->text());
-    user.setUserName(ui->usernameLineEditS->text());
-    user.setPassword(ui->passwordLineEditS->text());
-
-    user.addUserToList();
+    user->addUserToList();
 
     cleanFields();
 }
@@ -451,17 +445,20 @@ bool LoginSigninForm::checkCorrectLoginUsername(){
         return true;
     }
 
-
-    if(user.searchUsernameInList(username)) {
-        ui->loginUsernameIncorrectError->hide();
-        return true;
-
-    } else {
-        ui->loginUsernameEmptyError->hide();
-        ui->loginUsernameInvalidError->hide();
-        ui->loginUsernameIncorrectError->show();
-        return false;
+    Node<Users> *tmp = user->usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getUserName() == ui->usernameLineEditL->text()){
+            ui->loginUsernameIncorrectError->hide();
+            return true;
+        }
+        tmp = tmp->getNextNode();
     }
+
+    ui->loginUsernameEmptyError->hide();
+    ui->loginUsernameInvalidError->hide();
+    ui->loginUsernameIncorrectError->show();
+    return false;
+
 }
 bool LoginSigninForm::checkCorrectLoginPassword(){
 
@@ -473,9 +470,9 @@ bool LoginSigninForm::checkCorrectLoginPassword(){
     }
 
 
-    if(user.searchPasswordInList(password)) {
+    if(user->searchPasswordInList(password)) {
         Users userTmp;
-        Node<Users> *tmp = user.usersList.getHeadNode();
+        Node<Users> *tmp = user->usersList.getHeadNode();
         while (tmp) {
             if (tmp->getData().getUserName() == ui->usernameLineEditL->text()){
                 userTmp = tmp->getData();
@@ -523,18 +520,18 @@ bool LoginSigninForm::checkEmptyLoginPassword(){
 }
 
 void LoginSigninForm::checkLoginFieldsValue(){
-    bool checkEmpty = true;
-    bool checkValid = true;
-    bool checkCorrect = true;
+    bool checkEmpty = false;
+    bool checkValid = false;
+    bool checkCorrect = false;
 
-    if(!(checkEmptyLoginPassword()) && (checkEmptyLoginUsername()))
-        checkEmpty = false;
+    if((checkEmptyLoginPassword()) && (checkEmptyLoginUsername()))
+        checkEmpty = true;
 
-    if(!(checkCorrectLoginPassword()) && (checkCorrectLoginUsername()))
-        checkCorrect = false;
+    if((checkCorrectLoginPassword()) && (checkCorrectLoginUsername()))
+        checkCorrect = true;
 
-    if(!(checkValidLoginPassword()) && (checkValidLoginUsername()))
-        checkValid = false;
+    if((checkValidLoginPassword()) && (checkValidLoginUsername()))
+        checkValid = true;
 
     if(checkCorrect && checkEmpty && checkValid) {
         openUserPanelForm();
@@ -546,7 +543,7 @@ void LoginSigninForm::checkLoginFieldsValue(){
 void LoginSigninForm::openUserPanelForm () {
     Users userTmp;
 
-    Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUserName() == ui->usernameLineEditL->text()
             && tmp->getData().getPassword() == ui->passwordLineEditL->text()) {

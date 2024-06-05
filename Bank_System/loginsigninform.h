@@ -15,12 +15,12 @@ private slots:
     void checkLoginFieldsValue();
 
 public:
-    Users user;
-    explicit LoginSigninForm(QWidget *parent = nullptr);
+    explicit LoginSigninForm(Users*, QWidget *parent = nullptr);
     ~LoginSigninForm();
 
 private:
 
+    Users *user;
     /// ========= Sign Up ==========
     /// hide Error Functions
     void hideAllError();

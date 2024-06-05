@@ -12,6 +12,9 @@ class NewAccountForm : public QWidget
 {
     Q_OBJECT
 
+private slots:
+    void openUserPanelForm();
+
 public:
     explicit NewAccountForm(Users, QWidget *parent = nullptr);
     ~NewAccountForm();

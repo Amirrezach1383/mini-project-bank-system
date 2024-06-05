@@ -11,6 +11,9 @@ class BalanceForm;
 class BalanceForm : public QWidget
 {
     Q_OBJECT
+private slots:
+
+    void openUserPanelForm();
 
 public:
     explicit BalanceForm(Users, QWidget *parent = nullptr);

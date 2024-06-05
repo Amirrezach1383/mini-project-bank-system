@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="logoutPushButton">
+  <widget class="QPushButton" name="backPushButton">
    <property name="geometry">
     <rect>
      <x>602</x>
@@ -421,7 +421,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    </property>
   </widget>
   <zorder>label</zorder>
-  <zorder>logoutPushButton</zorder>
+  <zorder>backPushButton</zorder>
   <zorder>nationalCodeLabel</zorder>
   <zorder>newAccountLabel</zorder>
   <zorder>horizontalLayoutWidget</zorder>
