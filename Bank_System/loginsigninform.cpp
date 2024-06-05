@@ -320,11 +320,22 @@ void LoginSigninForm::checkTheFieldsValue () {
     } else if (!ui->passwordFillError->isHidden())
         ui->passwordFillError->hide();
 
-    if(checkCorrectAgeValue() && checkCorrectNationalCodeValue() && checkCorrectPassword() && checkCorrectFirstName()
-        && checkCorrectLastName() && checkCorrectUserName())
+    if(!checkCorrectAgeValue())
+        checkCorrectValue = false;
 
-    checkCorrectValue = true;
-    else
+    if(!checkCorrectNationalCodeValue())
+        checkCorrectValue = false;
+
+    if(!checkCorrectPassword())
+        checkCorrectValue = false;
+
+    if(!checkCorrectFirstName())
+        checkCorrectValue = false;
+
+    if(!checkCorrectLastName())
+        checkCorrectValue = false;
+
+    if(!checkCorrectUserName())
         checkCorrectValue = false;
 
     if(!checkUserExist()) {
@@ -524,13 +535,19 @@ void LoginSigninForm::checkLoginFieldsValue(){
     bool checkValid = false;
     bool checkCorrect = false;
 
-    if((checkEmptyLoginPassword()) && (checkEmptyLoginUsername()))
+    if(checkEmptyLoginPassword())
+        checkEmpty = true;
+    if(checkEmptyLoginUsername())
         checkEmpty = true;
 
-    if((checkCorrectLoginPassword()) && (checkCorrectLoginUsername()))
+    if(checkCorrectLoginPassword())
+        checkCorrect = true;
+    if(checkCorrectLoginUsername())
         checkCorrect = true;
 
-    if((checkValidLoginPassword()) && (checkValidLoginUsername()))
+    if(checkValidLoginPassword())
+        checkValid = true;
+    if(checkValidLoginUsername())
         checkValid = true;
 
     if(checkCorrect && checkEmpty && checkValid) {
