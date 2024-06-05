@@ -85,7 +85,7 @@ font: 700 30pt &quot;Myanmar Text&quot;;</string>
     <rect>
      <x>178</x>
      <y>77</y>
-     <width>241</width>
+     <width>236</width>
      <height>81</height>
     </rect>
    </property>
@@ -219,7 +219,7 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
       <property name="title">
        <string>Card Information : </string>
       </property>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="cardsNumberLabelEdit">
        <property name="geometry">
         <rect>
          <x>147</x>
@@ -236,7 +236,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
         <string>Cards Number</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="cardsNumberLabel">
        <property name="geometry">
         <rect>
          <x>4</x>
@@ -253,7 +253,7 @@ font: 700 12pt &quot;Myanmar Text&quot;;</string>
         <string>Card Number : </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="cvv2Label">
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -270,7 +270,7 @@ font: 700 12pt &quot;Myanmar Text&quot;;</string>
         <string>CVV2 : </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="cvv2LabelEdit">
        <property name="geometry">
         <rect>
          <x>74</x>
@@ -287,7 +287,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
         <string>CVV2 Number</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="exparationDateLabel">
        <property name="geometry">
         <rect>
          <x>4</x>
@@ -304,7 +304,7 @@ font: 700 12pt &quot;Myanmar Text&quot;;</string>
         <string>Expiration date : </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="exparationDateLabelEdit">
        <property name="geometry">
         <rect>
          <x>165</x>
@@ -332,7 +332,7 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
       <property name="title">
        <string>Account Information : </string>
       </property>
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="accountNumberLabelEdit">
        <property name="geometry">
         <rect>
          <x>183</x>
@@ -349,7 +349,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
         <string>Account Number</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_13">
+      <widget class="QLabel" name="accountNumberLabel">
        <property name="geometry">
         <rect>
          <x>6</x>
@@ -366,7 +366,7 @@ font: 700 12pt &quot;Myanmar Text&quot;;</string>
         <string>Account Number : </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_14">
+      <widget class="QLabel" name="shabaNumberLabel">
        <property name="geometry">
         <rect>
          <x>6</x>
@@ -383,7 +383,7 @@ font: 700 12pt &quot;Myanmar Text&quot;;</string>
         <string>Shaba Number : </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_15">
+      <widget class="QLabel" name="shabaNumberLabelEdit">
        <property name="geometry">
         <rect>
          <x>7</x>

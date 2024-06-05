@@ -9,6 +9,10 @@ Transfer::Transfer(Users* users, QWidget *parent) : QWidget(parent), user(users)
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
+    /// Show Title
+    ui->firstNameLabel->setText(user->getFirstName());
+    ui->lastNameLabel->setText(user->getLastName());
+    ui->nationalCodeLabel->setText(user->getNationalCode());
 }
 
 void Transfer::openUserPanelForm() {

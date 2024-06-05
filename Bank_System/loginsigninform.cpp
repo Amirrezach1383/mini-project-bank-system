@@ -247,7 +247,7 @@ bool LoginSigninForm::checkUserExist() {
 
     Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getName() == firstName && tmp->getData().getLastName() == lastName && tmp->getData().getNationalCode() == nationalCode) {
+        if (tmp->getData().getFirstName() == firstName && tmp->getData().getLastName() == lastName && tmp->getData().getNationalCode() == nationalCode) {
 
             ui->signUpUserExistError->show();
             return false;
@@ -267,7 +267,7 @@ bool LoginSigninForm::checkSignUpUsernameExist() {
 
     Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getUserName() == username) {
+        if (tmp->getData().getUsername() == username) {
             ui->usernameFillError->hide();
             ui->usernameInvalidError->hide();
             ui->usernameExistsError->show();
@@ -345,11 +345,11 @@ void LoginSigninForm::checkTheFieldsValue () {
 ///Push Inputs
 void LoginSigninForm::pushSignUpInputs() {
 
-    user->setName(ui->firstNameLineEdit->text());
+    user->setFirstName(ui->firstNameLineEdit->text());
     user->setLastName(ui->lastNameLineEdit->text());
     user->setNationnalCode(ui->nationalCodeLineEdit->text());
     user->setAge(ui->ageLineEdit->text());
-    user->setUserName(ui->usernameLineEditS->text());
+    user->setUsername(ui->usernameLineEditS->text());
     user->setPassword(ui->passwordLineEditS->text());
 
     user->addUserToList();
@@ -447,7 +447,7 @@ bool LoginSigninForm::checkCorrectLoginUsername(){
 
     Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getUserName() == ui->usernameLineEditL->text()){
+        if (tmp->getData().getUsername() == ui->usernameLineEditL->text()){
             ui->loginUsernameIncorrectError->hide();
             return true;
         }
@@ -474,7 +474,7 @@ bool LoginSigninForm::checkCorrectLoginPassword(){
         Users userTmp;
         Node<Users> *tmp = user->usersList.getHeadNode();
         while (tmp) {
-            if (tmp->getData().getUserName() == ui->usernameLineEditL->text()){
+            if (tmp->getData().getUsername() == ui->usernameLineEditL->text()){
                 userTmp = tmp->getData();
             }
             tmp = tmp->getNextNode();
@@ -545,7 +545,7 @@ void LoginSigninForm::openUserPanelForm () {
 
     Node<Users> *tmp = user->usersList.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getUserName() == ui->usernameLineEditL->text()
+        if (tmp->getData().getUsername() == ui->usernameLineEditL->text()
             && tmp->getData().getPassword() == ui->passwordLineEditL->text()) {
             userTmp = tmp->getData();
             break;

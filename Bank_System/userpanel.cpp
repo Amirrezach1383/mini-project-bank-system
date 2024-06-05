@@ -11,7 +11,7 @@ UserPanel::UserPanel(Users *users, QWidget *parent) : QWidget(parent) , user(use
     ui->setupUi(this);
 
     /// Set Label's Texts
-    ui->firstNameLabel->setText(user->getName());
+    ui->firstNameLabel->setText(user->getFirstName());
     ui->lastNameLabel->setText(user->getLastName());
     ui->nationalCodeLabel->setText(user->getNationalCode());
 

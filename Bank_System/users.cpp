@@ -6,8 +6,8 @@ Users::~Users() {
 }
 
 /// Getter Functions
-QString Users::getName () {
-    return name;
+QString Users::getFirstName () {
+    return firstName;
 }
 QString Users::getLastName () {
     return lastName;
@@ -15,7 +15,7 @@ QString Users::getLastName () {
 QString Users::getPassword () {
     return password;
 }
-QString Users::getUserName () {
+QString Users::getUsername () {
     return username;
 }
 BankAccount Users::getBankAccount (int idx) {
@@ -32,13 +32,13 @@ QString Users::getNationalCode () {
 void Users::setAge (QString data) {
     age = data;
 }
-void Users::setName (QString data) {
-    name = data;
+void Users::setFirstName (QString data) {
+    firstName = data;
 }
 void Users::setLastName (QString data) {
     lastName = data;
 }
-void Users::setUserName (QString data) {
+void Users::setUsername (QString data) {
     username = data;
 }
 void Users::setBankAccount (BankAccount data, int idx) {

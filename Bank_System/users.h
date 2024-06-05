@@ -6,7 +6,7 @@
 
 class Users {
 private:
-    QString name;
+    QString firstName;
     QString lastName;
     QString nationalCode;
     QString age;
@@ -20,20 +20,20 @@ public:
     Users();
     ~Users();
     ///set data
-    void setName (QString);
+    void setFirstName (QString);
     void setLastName (QString);
     void setAge (QString);
     void setNationnalCode (QString);
-    void setUserName (QString);
+    void setUsername (QString);
     void setBankAccount (BankAccount, int);
     void setPassword (QString);
 
     ///get data
-    QString getName ();
+    QString getFirstName ();
     QString getLastName ();
     QString getAge ();
     QString getNationalCode ();
-    QString getUserName ();
+    QString getUsername ();
     QString getPassword ();
     BankAccount getBankAccount (int);
 

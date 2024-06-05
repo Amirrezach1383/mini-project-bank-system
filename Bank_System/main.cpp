@@ -9,15 +9,16 @@
 
 int main(int argc, char *argv[])
 {
+    Users user;
     QApplication a(argc, argv);
-    LoginSigninForm w(new Users);
-    // UserPanel u(*new Users);
+    //LoginSigninForm w(new Users);
+    UserPanel u(new Users);
     // BalanceForm b;
     // NewAccountForm A;
     // ChangePasses p;
     // Transfer t;
 
-    w.show();
+    u.show();
 
     return a.exec();
 }
