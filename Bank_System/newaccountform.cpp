@@ -17,6 +17,9 @@ NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent),
     /// Connect Push Button
     connect(ui->makeAccountPushButton, SIGNAL(clicked()), this, SLOT(makeAccountPushButton()));
 
+    /// Connect CheckBox
+    connect(ui->secondFixedPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(checkBoxChangeLineEditEnableOrDisable ()));
+
 }
 
 NewAccountForm::~NewAccountForm()
@@ -32,6 +35,13 @@ void NewAccountForm::openUserPanelForm() {
 }
 void NewAccountForm::makeAccountPushButton() {
 
+}
+
+void NewAccountForm::checkBoxChangeLineEditEnableOrDisable (){
+    if(ui->secondFixedPasswordCheckBox->isChecked())
+        ui->secondFixedPasswordLineEdit->setEnabled(true);
+    else
+        ui->secondFixedPasswordLineEdit->setEnabled(false);
 }
 
 ///========= Set Users Account And Card Information =========
@@ -109,9 +119,20 @@ QString NewAccountForm::makeCvv2(){
 ///========= Check and Set Errors in Form ==========
 bool NewAccountForm::checkAllError() {
 
+    bool checkErrors = true;
+    if(!checkPasswordLineEdit())
+        checkErrors = false;
 
+    if(!checkInitialBalanceLineEdit())
+        checkErrors = false;
+
+    if(ui->secondFixedPasswordCheckBox->isChecked()){
+        if(!checkFixedSecondPassword())
+            checkErrors = false;
+    }
+
+    return checkErrors;
 }
-
 
 bool NewAccountForm::checkInitialBalanceLineEdit () {
 
@@ -142,7 +163,6 @@ bool NewAccountForm::checkInitialBalanceValid (){
     return true;
 }
 
-
 bool NewAccountForm::checkPasswordLineEdit() {
 
     if(ui->cardPsswordLineEdit->text() == "") {
@@ -171,14 +191,42 @@ bool NewAccountForm::checkPasswordValid () {
         }
         i++;
     }
+    return true;
 }
-
 
 bool NewAccountForm::checkFixedSecondPassword() {
 
+    if(ui->secondFixedPasswordLineEdit->text() == "") {
+        ui->secondFixedPasswordErrorLabel->setText("Please Fill Out This Field");
+        return false;
+    }
+    if(!checkFixedSecondPassword()) {
+        ui->secondFixedPasswordErrorLabel->setText("Invalid Data");
+        return false;
+    }
+    if(ui->secondFixedPasswordLineEdit->text().length() > 6 || ui->secondFixedPasswordLineEdit->text().length() < 4) {
+        ui->cardPasswordErrorLabel->setText("Please Enter Only Four Digit!");
+        return false;
+    }
+    ui->cardPasswordErrorLabel->clear();
+    return true;
+
+
+}
+bool NewAccountForm::checkFixedSecondPasswordValid () {
+    int i = 0;
+    QString password = ui->secondFixedPasswordLineEdit->text();
+
+    while(i < password.length()) {
+        if(!('0' <= password[i] && '9' >= password[i])) {
+            return false;
+        }
+        i++;
+    }
+    return true;
 }
 
-
+/// ============ Other Functions ==============
 int NewAccountForm::findAccountType () {
 
     if(ui->comboBox->currentText() == "Saving Account")
@@ -187,9 +235,7 @@ int NewAccountForm::findAccountType () {
         return 1;
     if(ui->comboBox->currentText() == "Loan Account")
         return 2;
-
 }
-
 int NewAccountForm::getRandomNumber () {
     std::time_t now = std::time(nullptr);
     tm time = *std::localtime(&now);
@@ -198,7 +244,6 @@ int NewAccountForm::getRandomNumber () {
 
     return randomNum;
 }
-
 
 /// ============ Set User Information ============
 void NewAccountForm::setUserInformation() {

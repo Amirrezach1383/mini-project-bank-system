@@ -118,7 +118,7 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>202</y>
+     <y>193</y>
      <width>181</width>
      <height>41</height>
     </rect>
@@ -135,7 +135,7 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>99</x>
-     <y>244</y>
+     <y>229</y>
      <width>211</width>
      <height>31</height>
     </rect>
@@ -152,7 +152,7 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>207</y>
+     <y>198</y>
      <width>301</width>
      <height>28</height>
     </rect>
@@ -188,7 +188,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>243</y>
+     <y>233</y>
      <width>301</width>
      <height>28</height>
     </rect>
@@ -202,8 +202,8 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
   <widget class="QPushButton" name="makeAccountPushButton">
    <property name="geometry">
     <rect>
-     <x>588</x>
-     <y>317</y>
+     <x>589</x>
+     <y>326</y>
      <width>111</width>
      <height>39</height>
     </rect>
@@ -443,8 +443,8 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
   <widget class="QLabel" name="initialBalanceErrorLabel">
    <property name="geometry">
     <rect>
-     <x>403</x>
-     <y>277</y>
+     <x>512</x>
+     <y>267</y>
      <width>186</width>
      <height>20</height>
     </rect>
@@ -460,8 +460,8 @@ color: rgb(255, 73, 73);</string>
   <widget class="QCheckBox" name="secondFixedPasswordCheckBox">
    <property name="geometry">
     <rect>
-     <x>301</x>
-     <y>341</y>
+     <x>62</x>
+     <y>334</y>
      <width>211</width>
      <height>26</height>
     </rect>
@@ -471,16 +471,16 @@ color: rgb(255, 73, 73);</string>
 font: 10pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="text">
-    <string>Second Fixed Password</string>
+    <string>Second Fixed Password : </string>
    </property>
   </widget>
   <widget class="QLineEdit" name="cardPsswordLineEdit">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>296</y>
+     <x>288</x>
+     <y>276</y>
      <width>160</width>
-     <height>28</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -493,7 +493,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>98</x>
-     <y>296</y>
+     <y>276</y>
      <width>211</width>
      <height>31</height>
     </rect>
@@ -506,12 +506,12 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
     <string>Card Pssword : </string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="seccondFixedPasswordLineEdit">
+  <widget class="QLineEdit" name="secondFixedPasswordLineEdit">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>337</y>
-     <width>136</width>
+     <x>288</x>
+     <y>329</y>
+     <width>159</width>
      <height>30</height>
     </rect>
    </property>
@@ -525,8 +525,25 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>325</y>
-     <width>186</width>
+     <y>307</y>
+     <width>160</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="secondFixedPasswordErrorLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>335</y>
+     <width>135</width>
      <height>20</height>
     </rect>
    </property>
@@ -553,8 +570,9 @@ color: rgb(255, 73, 73);</string>
   <zorder>secondFixedPasswordCheckBox</zorder>
   <zorder>cardPsswordLineEdit</zorder>
   <zorder>nationalCodeLabel_4</zorder>
-  <zorder>seccondFixedPasswordLineEdit</zorder>
+  <zorder>secondFixedPasswordLineEdit</zorder>
   <zorder>cardPasswordErrorLabel</zorder>
+  <zorder>secondFixedPasswordErrorLabel</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>
