@@ -16,8 +16,6 @@ class NewAccountForm : public QWidget
 private slots:
     void openUserPanelForm();
     void makeAccountPushButton();
-    void secondFixedPasswordCheckBox();
-
 
 public:
     explicit NewAccountForm(Users, QWidget *parent = nullptr);
@@ -37,10 +35,16 @@ public:
     QString makeCvv2();
 
     int findAccountType();
-
-    bool checkBalanceError();
-
     int getRandomNumber ();
+
+    /// Check and set Errors In form
+    bool checkAllError();
+    bool checkInitialBalanceLineEdit();
+    bool checkInitialBalanceValid();
+    bool checkPasswordLineEdit();
+    bool checkPasswordValid();
+    bool checkFixedSecondPassword();
+
 
 
 private:

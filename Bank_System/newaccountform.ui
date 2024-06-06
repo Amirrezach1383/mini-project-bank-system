@@ -461,7 +461,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>301</x>
-     <y>331</y>
+     <y>341</y>
      <width>211</width>
      <height>26</height>
     </rect>
@@ -510,7 +510,7 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>326</y>
+     <y>337</y>
      <width>136</width>
      <height>30</height>
     </rect>
@@ -519,6 +519,23 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
 font: 10pt &quot;Myanmar Text&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="cardPasswordErrorLabel">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>325</y>
+     <width>186</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -537,6 +554,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
   <zorder>cardPsswordLineEdit</zorder>
   <zorder>nationalCodeLabel_4</zorder>
   <zorder>seccondFixedPasswordLineEdit</zorder>
+  <zorder>cardPasswordErrorLabel</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

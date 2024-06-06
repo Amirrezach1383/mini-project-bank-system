@@ -33,9 +33,6 @@ void NewAccountForm::openUserPanelForm() {
 void NewAccountForm::makeAccountPushButton() {
 
 }
-void NewAccountForm::secondFixedPasswordCheckBox() {
-
-}
 
 ///========= Set Users Account And Card Information =========
 void NewAccountForm::setUsersCardInformation(){
@@ -109,11 +106,78 @@ QString NewAccountForm::makeCvv2(){
 }
 
 
-
-bool NewAccountForm::checkBalanceError () {
+///========= Check and Set Errors in Form ==========
+bool NewAccountForm::checkAllError() {
 
 
 }
+
+
+bool NewAccountForm::checkInitialBalanceLineEdit () {
+
+    if(ui->intialBalanceLineEdit->text() == "") {
+        ui->initialBalanceErrorLabel->setText("Please Fill Out This Field");
+        return false;
+    }
+    if(!checkInitialBalanceLineEdit()) {
+        ui->initialBalanceErrorLabel->setText("Invalid Data");
+        return false;
+    }
+    if(ui->intialBalanceLineEdit->text().toInt() <= 50000) {
+        ui->initialBalanceErrorLabel->setText("The Deposit Amount Must Be More Than 50 000");
+        return false;
+    }
+    ui->initialBalanceErrorLabel->clear();
+    return true;
+}
+bool NewAccountForm::checkInitialBalanceValid (){
+    int i = 0;
+    QString initialBalance = ui->intialBalanceLineEdit->text();
+    while (i < ui->intialBalanceLineEdit->text().length()) {
+        if(!('0' <= initialBalance[i] && initialBalance[i] <= '9')) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
+
+bool NewAccountForm::checkPasswordLineEdit() {
+
+    if(ui->cardPsswordLineEdit->text() == "") {
+        ui->cardPasswordErrorLabel->setText("Please Fill Out This Field");
+        return false;
+    }
+    if(!checkPasswordValid()) {
+        ui->cardPasswordErrorLabel->setText("Invalid Data");
+        return false;
+    }
+    if(ui->cardPsswordLineEdit->text().length() > 4 || ui->cardPsswordLineEdit->text().length() < 4) {
+        ui->cardPasswordErrorLabel->setText("Please Enter Only Four Digit!");
+        return false;
+    }
+    ui->cardPasswordErrorLabel->clear();
+    return true;
+
+}
+bool NewAccountForm::checkPasswordValid () {
+    int i = 0;
+    QString password = ui->cardPsswordLineEdit->text();
+
+    while(i < password.length()) {
+        if(!('0' <= password[i] && '9' >= password[i])) {
+            return false;
+        }
+        i++;
+    }
+}
+
+
+bool NewAccountForm::checkFixedSecondPassword() {
+
+}
+
 
 int NewAccountForm::findAccountType () {
 
