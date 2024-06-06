@@ -1,5 +1,9 @@
 #include "users.h"
 
+Users::Users() {
+    numOfUserAccount = 0;
+}
+
 /// Getter Functions
 QString Users::getFirstName () {
     return firstName;
@@ -21,6 +25,9 @@ QString Users::getAge () {
 }
 QString Users::getNationalCode () {
     return nationalCode;
+}
+int Users::getNumOfUserAccount() {
+    return numOfUserAccount;
 }
 
 /// Setter Functions
@@ -44,6 +51,9 @@ void Users::setPassword (QString data) {
 }
 void Users::setNationnalCode (QString data) {
     nationalCode = data;
+}
+void Users::setNumOfUserAccount (int data) {
+    numOfUserAccount = data;
 }
 
 void Users::addUserToList() {

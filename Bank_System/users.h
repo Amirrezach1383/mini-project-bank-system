@@ -18,6 +18,8 @@ private:
 public:
     LinkList<Users> usersList;
 
+    Users ();
+
     ///set data
     void setFirstName (QString);
     void setLastName (QString);
@@ -26,6 +28,7 @@ public:
     void setUsername (QString);
     void setBankAccount (BankAccount, int);
     void setPassword (QString);
+    void setNumOfUserAccount (int);
 
 
     ///get data
@@ -36,6 +39,7 @@ public:
     QString getUsername ();
     QString getPassword ();
     BankAccount getBankAccount (int);
+    int getNumOfUserAccount();
 
     void addUserToList();
     bool searchPasswordInList(QString);

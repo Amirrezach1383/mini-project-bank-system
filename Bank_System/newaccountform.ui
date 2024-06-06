@@ -118,7 +118,7 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>230</y>
+     <y>202</y>
      <width>181</width>
      <height>41</height>
     </rect>
@@ -135,7 +135,7 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>99</x>
-     <y>280</y>
+     <y>244</y>
      <width>211</width>
      <height>31</height>
     </rect>
@@ -152,7 +152,7 @@ font: 16pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>233</y>
+     <y>207</y>
      <width>301</width>
      <height>28</height>
     </rect>
@@ -188,7 +188,7 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>280</y>
+     <y>243</y>
      <width>301</width>
      <height>28</height>
     </rect>
@@ -202,8 +202,8 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
   <widget class="QPushButton" name="makeAccountPushButton">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>326</y>
+     <x>588</x>
+     <y>317</y>
      <width>111</width>
      <height>39</height>
     </rect>
@@ -224,7 +224,7 @@ background-color: rgb(4, 27, 48);</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>370</y>
+     <y>369</y>
      <width>781</width>
      <height>151</height>
     </rect>
@@ -444,9 +444,9 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>403</x>
-     <y>310</y>
+     <y>277</y>
      <width>186</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -455,6 +455,70 @@ color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="secondFixedPasswordCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>301</x>
+     <y>331</y>
+     <width>211</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 10pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Second Fixed Password</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cardPsswordLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>296</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 10pt &quot;Myanmar Text&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>98</x>
+     <y>296</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 16pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Card Pssword : </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="seccondFixedPasswordLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>326</y>
+     <width>136</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 10pt &quot;Myanmar Text&quot;;</string>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -469,6 +533,10 @@ color: rgb(255, 73, 73);</string>
   <zorder>makeAccountPushButton</zorder>
   <zorder>horizontalLayoutWidget_2</zorder>
   <zorder>initialBalanceErrorLabel</zorder>
+  <zorder>secondFixedPasswordCheckBox</zorder>
+  <zorder>cardPsswordLineEdit</zorder>
+  <zorder>nationalCodeLabel_4</zorder>
+  <zorder>seccondFixedPasswordLineEdit</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

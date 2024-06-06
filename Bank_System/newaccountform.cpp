@@ -6,8 +6,8 @@
 NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent), user(users), ui(new Ui::NewAccountForm) {
 
     ui->setupUi(this);
-    ui->cardInformationGroupBox->hide();
-    ui->accountInformationGroupBox->hide();
+    // ui->cardInformationGroupBox->hide();
+    // ui->accountInformationGroupBox->hide();
 
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));

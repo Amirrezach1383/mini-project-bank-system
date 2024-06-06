@@ -22,6 +22,18 @@ public:
 
     void setUserInformation();
 
+    /// Set Users Account And Card Information
+    // void setUsersCardInformation();
+    // void setUsersAccountInformation();
+
+    // /// Make Account and Card Information
+    // QString makeAccountNum();
+    // QString makeCardNum();
+    // QString makeCardExpirationDate();
+    // QString makeShabaNumber();
+    // QString
+
+
 private:
     Users user;
     Ui::NewAccountForm *ui;
