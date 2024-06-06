@@ -9,8 +9,8 @@
 NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent), user(users), ui(new Ui::NewAccountForm) {
 
     ui->setupUi(this);
-    // ui->cardInformationGroupBox->hide();
-    // ui->accountInformationGroupBox->hide();
+    ui->cardInformationGroupBox->hide();
+    ui->accountInformationGroupBox->hide();
 
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
@@ -73,6 +73,19 @@ void NewAccountForm::setUsersAccountInformation(){
     bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text().toLongLong());
 
     user.setBankAccount(bankAccountTmp, user.getNumOfUserAccount() - 1);
+}
+
+void NewAccountForm::addNewDataToUserLists() {
+    QString username = user.getUsername();
+
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getUsername() == username) {
+            tmp->getData().setBankAccount(user.getBankAccount(user.getNumOfUserAccount() - 1), user.getNumOfUserAccount() - 1);
+        }
+        tmp = tmp->getNextNode();
+    }
+
 }
 
 /// Make Account and Card Information

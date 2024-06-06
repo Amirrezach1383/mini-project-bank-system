@@ -28,6 +28,8 @@ public:
     void setUsersCardInformation();
     void setUsersAccountInformation();
 
+    void addNewDataToUserLists();
+
     /// Make Account and Card Information
     QString makeAccountNum();
     QString makeShabaNumber();
