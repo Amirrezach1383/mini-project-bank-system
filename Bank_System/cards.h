@@ -12,8 +12,6 @@ private:
     QString expirationDate;
 
 public:
-    Cards();
-    ~Cards();
 
     /// Setters
     void setCardNumber(QString);

@@ -163,6 +163,26 @@ color: rgb(255, 255, 255);
 font: 10pt &quot;Myanmar Text&quot;;
 </string>
    </property>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Saving Account</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Loan Account</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Checking Account</string>
+    </property>
+   </item>
   </widget>
   <widget class="QLineEdit" name="intialBalanceLineEdit">
    <property name="geometry">
@@ -183,7 +203,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>590</x>
-     <y>322</y>
+     <y>326</y>
      <width>111</width>
      <height>39</height>
     </rect>
@@ -420,6 +440,23 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
     <pixmap resource="background.qrc">:/image/Better Template Forms.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QLabel" name="initialBalanceErrorLabel">
+   <property name="geometry">
+    <rect>
+     <x>403</x>
+     <y>310</y>
+     <width>186</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>backPushButton</zorder>
   <zorder>nationalCodeLabel</zorder>
@@ -431,6 +468,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
   <zorder>intialBalanceLineEdit</zorder>
   <zorder>makeAccountPushButton</zorder>
   <zorder>horizontalLayoutWidget_2</zorder>
+  <zorder>initialBalanceErrorLabel</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

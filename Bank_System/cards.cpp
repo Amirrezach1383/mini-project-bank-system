@@ -1,7 +1,5 @@
 #include "cards.h"
 
-Cards::Cards(){}
-Cards::~Cards(){}
 
 /// Setters Functions
 void Cards::setCardPassword(QString data) {

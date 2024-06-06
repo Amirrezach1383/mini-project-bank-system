@@ -15,8 +15,6 @@ private:
     Cards card;
 
 public:
-    BankAccount();
-    ~BankAccount();
 
     /// Setters
     void setCard(Cards);

@@ -53,19 +53,6 @@ public:
         headNode = nullptr;
         tailNode = nullptr;
     }
-    // ~LinkList<T>(){
-    //     Node<T> *tmp = headNode, *tp;
-
-    //     while (tmp != nullptr) {
-    //         tp = tmp;
-    //         tmp = tmp->getNextNode();
-    //         delete tp;
-    //     }
-    //     size = 0;
-    //     headNode = nullptr;
-    //     tailNode = nullptr;
-
-    // }
 
     /// Push Back
     void pushBack(T data){

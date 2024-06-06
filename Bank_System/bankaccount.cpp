@@ -1,8 +1,5 @@
 #include "bankaccount.h"
 
-BankAccount::BankAccount() {}
-BankAccount::~BankAccount(){}
-
 /// Setter Functions
 void BankAccount::setAccountNumber(QString data){
     accountNumber = data;

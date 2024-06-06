@@ -484,6 +484,7 @@ bool LoginSigninForm::checkCorrectLoginPassword(){
         while (tmp) {
             if (tmp->getData().getUsername() == ui->usernameLineEditL->text()){
                 userTmp = tmp->getData();
+                break;
             }
             tmp = tmp->getNextNode();
         }

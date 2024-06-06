@@ -1,10 +1,5 @@
 #include "users.h"
 
-Users::Users () {
-}
-Users::~Users() {
-}
-
 /// Getter Functions
 QString Users::getFirstName () {
     return firstName;
@@ -55,8 +50,8 @@ void Users::addUserToList() {
     usersList.pushBack(*this);
 }
 bool Users::searchPasswordInList(QString password){
-    if(usersList.getSize() == 0)
-        return false;
+
+
     Node<Users> *tmp = usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().password == password)

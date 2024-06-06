@@ -17,8 +17,6 @@ private:
 public:
     LinkList<Users> usersList;
 
-    Users();
-    ~Users();
     ///set data
     void setFirstName (QString);
     void setLastName (QString);
