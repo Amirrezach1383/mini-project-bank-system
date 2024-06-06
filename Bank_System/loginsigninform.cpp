@@ -247,7 +247,7 @@ bool LoginSigninForm::checkUserExist() {
 
     Node<Users> *tmp = user.usersList.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getFirstName() == firstName && tmp->getData().getLastName() == lastName && tmp->getData().getNationalCode() == nationalCode) {
+        if ((tmp->getData().getFirstName() == firstName && tmp->getData().getLastName() == lastName) || tmp->getData().getNationalCode() == nationalCode) {
 
             ui->signUpUserExistError->show();
             return false;

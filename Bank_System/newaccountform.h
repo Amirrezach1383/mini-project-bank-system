@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "users.h"
+#include <ctime>
 
 namespace Ui {
 class NewAccountForm;
@@ -15,6 +16,8 @@ class NewAccountForm : public QWidget
 private slots:
     void openUserPanelForm();
     void makeAccountPushButton();
+    void secondFixedPasswordCheckBox();
+
 
 public:
     explicit NewAccountForm(Users, QWidget *parent = nullptr);
@@ -23,15 +26,21 @@ public:
     void setUserInformation();
 
     /// Set Users Account And Card Information
-    // void setUsersCardInformation();
-    // void setUsersAccountInformation();
+    void setUsersCardInformation();
+    void setUsersAccountInformation();
 
-    // /// Make Account and Card Information
-    // QString makeAccountNum();
-    // QString makeCardNum();
-    // QString makeCardExpirationDate();
-    // QString makeShabaNumber();
-    // QString
+    /// Make Account and Card Information
+    QString makeAccountNum();
+    QString makeCardNum();
+    QString makeCardExpirationDate();
+    QString makeShabaNumber();
+    QString makeCvv2();
+
+    int findAccountType();
+
+    bool checkBalanceError();
+
+    int getRandomNumber ();
 
 
 private:
