@@ -25,7 +25,7 @@ public:
     void setUserInformation();
 
     /// Set Users Account And Card Information
-    void setUsersCardInformation();
+    Cards setUsersCardInformation();
     void setUsersAccountInformation();
 
     void addNewDataToUserLists();
@@ -35,7 +35,7 @@ public:
 
     /// Make Account and Card Information
     QString makeAccountNum();
-    QString makeShabaNumber();
+    QString makeShabaNumber(QString);
 
     QString makeCardNum();
     QString makeCardExpirationDate();
@@ -55,6 +55,8 @@ public:
 
     bool checkFixedSecondPassword();
     bool checkFixedSecondPasswordValid();
+
+    bool checkComboBox();
 
 
 

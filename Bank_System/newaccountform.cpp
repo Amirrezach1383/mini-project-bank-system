@@ -12,6 +12,9 @@ NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent),
     ui->cardInformationGroupBox->hide();
     ui->accountInformationGroupBox->hide();
 
+    setUserInformation();
+    checkBoxChangeLineEditEnableOrDisable();
+
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
@@ -40,6 +43,7 @@ void NewAccountForm::makeAccountPushButton() {
         user.setNumOfUserAccount(user.getNumOfUserAccount() + 1);
         setUsersAccountInformation();
         setUsersCardInformation();
+        ui->makeAccountPushButton->setEnabled(false);
     }
 }
 
@@ -48,10 +52,13 @@ void NewAccountForm::checkBoxChangeLineEditEnableOrDisable (){
         ui->secondFixedPasswordLineEdit->setEnabled(true);
     else
         ui->secondFixedPasswordLineEdit->setEnabled(false);
+
+    ui->secondFixedPasswordLineEdit->clear();
+    ui->secondFixedPasswordErrorLabel->clear();
 }
 
 ///========= Set Users Account And Card Information =========
-void NewAccountForm::setUsersCardInformation(){
+Cards NewAccountForm::setUsersCardInformation(){
     Cards cardTmp;
 
     cardTmp.setCardNumber(makeCardNum());
@@ -62,21 +69,22 @@ void NewAccountForm::setUsersCardInformation(){
     if(ui->secondFixedPasswordCheckBox->isChecked())
         cardTmp.setFixedSecondPassword(ui->secondFixedPasswordLineEdit->text());
 
-    user.getBankAccount(user.getNumOfUserAccount() - 1).setCard(cardTmp);
-
-    setCardsInformationInFormsLabels();
+    return cardTmp;
 }
 void NewAccountForm::setUsersAccountInformation(){
     BankAccount bankAccountTmp;
 
     bankAccountTmp.setAccountNumber(makeAccountNum());
-    bankAccountTmp.setShabaNumber(makeShabaNumber());
-    bankAccountTmp.setAccountType(ui->comboBox->currentText());
+    bankAccountTmp.setShabaNumber(makeShabaNumber(bankAccountTmp.getAccountNumber()));
+    bankAccountTmp.setAccountType(ui->accountTypeComboBox->currentText());
     bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text().toLongLong());
+    bankAccountTmp.setCard(setUsersCardInformation());
 
     user.setBankAccount(bankAccountTmp, user.getNumOfUserAccount() - 1);
 
     setAccountInformationInFormsLabels();
+    setCardsInformationInFormsLabels();
+
 }
 
 void NewAccountForm::addNewDataToUserLists() {
@@ -92,15 +100,18 @@ void NewAccountForm::addNewDataToUserLists() {
 
 }
 
-
 void NewAccountForm::setCardsInformationInFormsLabels(){
     ui->cardsNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCardNumber());
     ui->exparationDateLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getExpirationDate());
     ui->cvv2LabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCvv2Number());
+
+    ui->cardInformationGroupBox->show();
 }
 void NewAccountForm::setAccountInformationInFormsLabels(){
     ui->accountNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getAccountNumber());
     ui->shabaNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getShabaNumber());
+
+    ui->accountInformationGroupBox->show();
 }
 
 /// Make Account and Card Information
@@ -140,16 +151,16 @@ QString NewAccountForm::makeCardExpirationDate() {
     tm time = *std::localtime(&now);
 
     int month = time.tm_mon;
-    int year = time.tm_year + 1903;
+    int year = (time.tm_year + 1903) - 2000;
 
-    expirationDate = QString::number(year) + "/" + QString::number(month);
+    expirationDate = QString::number(year) + "/0" + QString::number(month);
     return expirationDate;
 }
-QString NewAccountForm::makeShabaNumber() {
+QString NewAccountForm::makeShabaNumber(QString accountNum) {
     QString shabaNumber;
     int accountType = findAccountType();
 
-    shabaNumber = "IR35101" + QString::number(accountType) + user.getBankAccount(user.getNumOfUserAccount() - 1).getAccountNumber();
+    shabaNumber = "IR35101" + QString::number(accountType) + "00000" + accountNum;
 
     return shabaNumber;
 }
@@ -170,6 +181,10 @@ QString NewAccountForm::makeCvv2(){
 bool NewAccountForm::checkAllError() {
 
     bool checkErrors = true;
+    if(user.getNumOfUserAccount() == 5) {
+        ui->accountLimitError->setText("You Have Five Existing Accounts!");
+        checkErrors = false;
+    }
     if(!checkPasswordLineEdit())
         checkErrors = false;
 
@@ -181,6 +196,9 @@ bool NewAccountForm::checkAllError() {
             checkErrors = false;
     }
 
+    if(!checkComboBox())
+        checkErrors = false;
+
     return checkErrors;
 }
 
@@ -190,7 +208,7 @@ bool NewAccountForm::checkInitialBalanceLineEdit () {
         ui->initialBalanceErrorLabel->setText("Please Fill Out This Field");
         return false;
     }
-    if(!checkInitialBalanceLineEdit()) {
+    if(!checkInitialBalanceValid()) {
         ui->initialBalanceErrorLabel->setText("Invalid Data");
         return false;
     }
@@ -250,15 +268,15 @@ bool NewAccountForm::checkFixedSecondPassword() {
         ui->secondFixedPasswordErrorLabel->setText("Please Fill Out This Field");
         return false;
     }
-    if(!checkFixedSecondPassword()) {
+    if(!checkFixedSecondPasswordValid()) {
         ui->secondFixedPasswordErrorLabel->setText("Invalid Data");
         return false;
     }
-    if(ui->secondFixedPasswordLineEdit->text().length() > 6 || ui->secondFixedPasswordLineEdit->text().length() < 4) {
-        ui->cardPasswordErrorLabel->setText("Please Enter Only Four Digit!");
+    if(ui->secondFixedPasswordLineEdit->text().length() > 7 || ui->secondFixedPasswordLineEdit->text().length() < 7) {
+        ui->secondFixedPasswordErrorLabel->setText("Please Enter Only Seven Digit!");
         return false;
     }
-    ui->cardPasswordErrorLabel->clear();
+    ui->secondFixedPasswordErrorLabel->clear();
     return true;
 
 
@@ -276,14 +294,25 @@ bool NewAccountForm::checkFixedSecondPasswordValid () {
     return true;
 }
 
+bool NewAccountForm::checkComboBox() {
+
+    if(ui->accountTypeComboBox->currentText() == "") {
+        ui->accountTypeComboBoxErrorLabel->setText("Please Choose One Type");
+        return false;
+    }
+    ui->accountTypeComboBoxErrorLabel->clear();
+    return true;
+
+}
+
 /// ============ Other Functions ==============
 int NewAccountForm::findAccountType () {
 
-    if(ui->comboBox->currentText() == "Saving Account")
+    if(ui->accountTypeComboBox->currentText() == "Saving Account")
         return 0;
-    if(ui->comboBox->currentText() == "Checking Account")
+    if(ui->accountTypeComboBox->currentText() == "Checking Account")
         return 1;
-    if(ui->comboBox->currentText() == "Loan Account")
+    if(ui->accountTypeComboBox->currentText() == "Loan Account")
         return 2;
 
     return -1;
