@@ -14,13 +14,16 @@ class NewAccountForm : public QWidget
 
 private slots:
     void openUserPanelForm();
+    void makeAccountPushButton();
 
 public:
     explicit NewAccountForm(Users, QWidget *parent = nullptr);
     ~NewAccountForm();
-    Users user;
+
+    void setUserInformation();
 
 private:
+    Users user;
     Ui::NewAccountForm *ui;
 };
 

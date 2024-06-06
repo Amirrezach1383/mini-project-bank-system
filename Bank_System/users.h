@@ -13,6 +13,7 @@ private:
     QString password;
     QString username;
     BankAccount bankAccount[5];
+    int numOfUserAccount;
 
 public:
     LinkList<Users> usersList;
@@ -25,6 +26,7 @@ public:
     void setUsername (QString);
     void setBankAccount (BankAccount, int);
     void setPassword (QString);
+
 
     ///get data
     QString getFirstName ();
