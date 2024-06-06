@@ -30,6 +30,9 @@ public:
 
     void addNewDataToUserLists();
 
+    void setCardsInformationInFormsLabels();
+    void setAccountInformationInFormsLabels();
+
     /// Make Account and Card Information
     QString makeAccountNum();
     QString makeShabaNumber();

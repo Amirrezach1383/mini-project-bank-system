@@ -63,6 +63,8 @@ void NewAccountForm::setUsersCardInformation(){
         cardTmp.setFixedSecondPassword(ui->secondFixedPasswordLineEdit->text());
 
     user.getBankAccount(user.getNumOfUserAccount() - 1).setCard(cardTmp);
+
+    setCardsInformationInFormsLabels();
 }
 void NewAccountForm::setUsersAccountInformation(){
     BankAccount bankAccountTmp;
@@ -73,6 +75,8 @@ void NewAccountForm::setUsersAccountInformation(){
     bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text().toLongLong());
 
     user.setBankAccount(bankAccountTmp, user.getNumOfUserAccount() - 1);
+
+    setAccountInformationInFormsLabels();
 }
 
 void NewAccountForm::addNewDataToUserLists() {
@@ -86,6 +90,17 @@ void NewAccountForm::addNewDataToUserLists() {
         tmp = tmp->getNextNode();
     }
 
+}
+
+
+void NewAccountForm::setCardsInformationInFormsLabels(){
+    ui->cardsNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCardNumber());
+    ui->exparationDateLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getExpirationDate());
+    ui->cvv2LabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCvv2Number());
+}
+void NewAccountForm::setAccountInformationInFormsLabels(){
+    ui->accountNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getAccountNumber());
+    ui->shabaNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getShabaNumber());
 }
 
 /// Make Account and Card Information
