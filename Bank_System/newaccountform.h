@@ -16,7 +16,7 @@ private slots:
     void openUserPanelForm();
     void makeAccountPushButton();
 
-    void checkBoxChangeLineEditEnableOrDisable ();
+    void checkBoxChangeLineEditEnableOrDisable();
 
 public:
     explicit NewAccountForm(Users, QWidget *parent = nullptr);

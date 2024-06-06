@@ -3,7 +3,8 @@
 #include "userpanel.h"
 #include <ctime>
 #include <time.h>
-
+#include <bankaccount.h>
+#include <cards.h>
 
 NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent), user(users), ui(new Ui::NewAccountForm) {
 
@@ -18,7 +19,7 @@ NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent),
     connect(ui->makeAccountPushButton, SIGNAL(clicked()), this, SLOT(makeAccountPushButton()));
 
     /// Connect CheckBox
-    connect(ui->secondFixedPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(checkBoxChangeLineEditEnableOrDisable ()));
+    connect(ui->secondFixedPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(checkBoxChangeLineEditEnableOrDisable()));
 
 }
 
@@ -35,6 +36,11 @@ void NewAccountForm::openUserPanelForm() {
 }
 void NewAccountForm::makeAccountPushButton() {
 
+    if(checkAllError()) {
+        user.setNumOfUserAccount(user.getNumOfUserAccount() + 1);
+        setUsersAccountInformation();
+        setUsersCardInformation();
+    }
 }
 
 void NewAccountForm::checkBoxChangeLineEditEnableOrDisable (){
@@ -46,10 +52,27 @@ void NewAccountForm::checkBoxChangeLineEditEnableOrDisable (){
 
 ///========= Set Users Account And Card Information =========
 void NewAccountForm::setUsersCardInformation(){
+    Cards cardTmp;
 
+    cardTmp.setCardNumber(makeCardNum());
+    cardTmp.setCardPassword(ui->cardPsswordLineEdit->text());
+    cardTmp.setExpirationDate(makeCardExpirationDate());
+    cardTmp.setCvv2Number(makeCvv2());
+
+    if(ui->secondFixedPasswordCheckBox->isChecked())
+        cardTmp.setFixedSecondPassword(ui->secondFixedPasswordLineEdit->text());
+
+    user.getBankAccount(user.getNumOfUserAccount() - 1).setCard(cardTmp);
 }
 void NewAccountForm::setUsersAccountInformation(){
+    BankAccount bankAccountTmp;
 
+    bankAccountTmp.setAccountNumber(makeAccountNum());
+    bankAccountTmp.setShabaNumber(makeShabaNumber());
+    bankAccountTmp.setAccountType(ui->comboBox->currentText());
+    bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text().toLongLong());
+
+    user.setBankAccount(bankAccountTmp, user.getNumOfUserAccount() - 1);
 }
 
 /// Make Account and Card Information
@@ -104,7 +127,6 @@ QString NewAccountForm::makeShabaNumber() {
 }
 QString NewAccountForm::makeCvv2(){
     QString cvv2;
-    QString nationalCode = user.getNationalCode();
     int randomNum = getRandomNumber();
 
     std::srand(time(0));
@@ -235,6 +257,8 @@ int NewAccountForm::findAccountType () {
         return 1;
     if(ui->comboBox->currentText() == "Loan Account")
         return 2;
+
+    return -1;
 }
 int NewAccountForm::getRandomNumber () {
     std::time_t now = std::time(nullptr);

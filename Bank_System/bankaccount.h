@@ -11,7 +11,7 @@ private:
     QString shabaNumber;
     QString accountNumber;
     QString dynamicSecondPassword;
-    unsigned long int balance;
+    long long int balance;
     Cards card;
 
 public:
