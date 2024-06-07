@@ -27,7 +27,23 @@ void ChangePasses::cardPasswordCheckBox(){}
 void ChangePasses::fixedSecondCheckBox(){}
 
 /// Check And Set Passwords Functions
-bool ChangePasses::checkAllError(){}
+bool ChangePasses::checkAllError(){
+    bool checkAllErrors = true;
+
+    if(!checkNewCardPasswordLineEditError())
+        checkAllErrors = false;
+
+    if(!checkNewFixedSecondPasswordLineEditError())
+        checkAllErrors = false;
+
+    if(!checkPreviousCardPasswordLineEditError())
+        checkAllErrors = false;
+
+    if(!checkPreviousFixedSecondPasswordLineEditError())
+        checkAllErrors = false;
+
+    return checkAllErrors;
+}
 
 bool ChangePasses::checkNewCardPasswordLineEditError(){
 
