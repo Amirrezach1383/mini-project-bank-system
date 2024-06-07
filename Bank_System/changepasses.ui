@@ -41,7 +41,7 @@
     <pixmap resource="background.qrc">:/image/base Template.jpg</pixmap>
    </property>
   </widget>
-  <widget class="QLabel" name="balanceLabel">
+  <widget class="QLabel" name="changePasswordLabel">
    <property name="geometry">
     <rect>
      <x>178</x>
@@ -79,212 +79,219 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QGroupBox" name="changeCardPasswordGroupBox">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <widget class="QLabel" name="previousFixedSecondPasswordLabel">
    <property name="geometry">
     <rect>
-     <x>116</x>
-     <y>197</y>
-     <width>560</width>
-     <height>150</height>
+     <x>106</x>
+     <y>376</y>
+     <width>336</width>
+     <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
-font: 10pt &quot;Myanmar Text&quot;;</string>
-   </property>
-   <property name="title">
-    <string>Change Card Password </string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>36</y>
-      <width>531</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="previousCardPasswordLabel">
-       <property name="styleSheet">
-        <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
 color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Enter Your Privious Password : </string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="previousCardPasswordLineEdit">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(4, 27, 48);
-font: 12pt &quot;Myanmar Text&quot;;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="newCardPasswordLabel">
-       <property name="styleSheet">
-        <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Enter Your New Password : </string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="newCardPasswordLineEdit">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(4, 27, 48);
-font: 12pt &quot;Myanmar Text&quot;;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="changeCardPassword">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>432</x>
-      <y>120</y>
-      <width>98</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);
-font: 12pt &quot;Myanmar Text&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Change</string>
-    </property>
-   </widget>
+   </property>
+   <property name="text">
+    <string>Enter Your Previous Password : </string>
+   </property>
   </widget>
-  <widget class="QGroupBox" name="changeFixedSecondPasswordGroupBox">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <widget class="QLineEdit" name="previousFixedSecondPasswordLineEdit">
    <property name="geometry">
     <rect>
-     <x>113</x>
-     <y>360</y>
-     <width>560</width>
-     <height>156</height>
+     <x>453</x>
+     <y>439</y>
+     <width>171</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
-font: 10pt &quot;Myanmar Text&quot;;</string>
-   </property>
-   <property name="title">
-    <string>Change Fixed Second Password </string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <widget class="QWidget" name="formLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>3</x>
-      <y>35</y>
-      <width>531</width>
-      <height>83</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="formLayout_2">
-     <item row="1" column="0">
-      <widget class="QLabel" name="newFixedSecondPasswordLabel">
-       <property name="styleSheet">
-        <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Enter Your New Password : </string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="previousFixedSecondPasswordLabel">
-       <property name="styleSheet">
-        <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Enter Your Previous Password : </string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="previousFixedSecondPasswordLineEdit">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
+    <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
 font: 12pt &quot;Myanmar Text&quot;;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="newFixedSecondPasswordLineEdit">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="newFixedSecondPasswordLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>452</x>
+     <y>376</y>
+     <width>171</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
 font: 12pt &quot;Myanmar Text&quot;;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="changeFixedSecondPassword_2">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>438</x>
-      <y>124</y>
-      <width>94</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(4, 27, 48);
+   </property>
+  </widget>
+  <widget class="QLabel" name="newFixedSecondPasswordLabel">
+   <property name="geometry">
+    <rect>
+     <x>106</x>
+     <y>436</y>
+     <width>292</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Enter Your New Password : </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="changeFixedSecondPasswordPushButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>621</x>
+     <y>478</y>
+     <width>82</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
 font: 12pt &quot;Myanmar Text&quot;;</string>
-    </property>
+   </property>
+   <property name="text">
+    <string>Change</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="previousCardPasswordLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>218</y>
+     <width>170</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+font: 12pt &quot;Myanmar Text&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="newCardPasswordLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>282</y>
+     <width>172</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+font: 12pt &quot;Myanmar Text&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="newCardPasswordLabel">
+   <property name="geometry">
+    <rect>
+     <x>106</x>
+     <y>280</y>
+     <width>292</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Enter Your New Password : </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="previousCardPasswordLabel">
+   <property name="geometry">
+    <rect>
+     <x>106</x>
+     <y>216</y>
+     <width>331</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Enter Your Privious Password : </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="changePasswordPushButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>322</y>
+     <width>82</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 12pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Change</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="previousCardPasswordLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>130</y>
+     <width>111</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Account : </string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="accountComboBox">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>135</y>
+     <width>220</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 10pt &quot;Myanmar Text&quot;;
+</string>
+   </property>
+   <item>
     <property name="text">
-     <string>Change</string>
+     <string/>
     </property>
-   </widget>
+   </item>
   </widget>
  </widget>
  <resources>
