@@ -19,6 +19,34 @@ void ChangePasses::openUserPanelForm() {
     userPanel->show();
     this->close();
 }
+
+void ChangePasses::changeCardPasswordPushButton (){}
+void ChangePasses::changeFixedSecondPasswordPushButton (){}
+
+void ChangePasses::cardPasswordCheckBox(){}
+void ChangePasses::fixedSecondCheckBox(){}
+
+/// Check And Set Passwords Functions
+bool ChangePasses::checkAllError(){}
+
+bool ChangePasses::checkNewCardPasswordLineEditError(){}
+bool ChangePasses::checkNewCardPasswordValid(){}
+
+bool ChangePasses::checkNewFixedSecondPasswordLineEditError(){}
+bool ChangePasses::checkNewFixedSecondPasswordValid(){}
+
+bool ChangePasses::checkPreviousCardPasswordLineEditError(){}
+bool ChangePasses::checkpreviousCardPasswordValid(){}
+bool ChangePasses::checkpreviousCardPasswordExists(){}
+
+bool ChangePasses::checkPreviousFixedSecondPasswordLineEditError(){}
+bool ChangePasses::checkpreviousFixedSecondPasswordValid(){}
+bool ChangePasses::checkpreviousFixedSecondPasswordExists(){}
+
+
+
+
+
 ChangePasses::~ChangePasses()
 {
     delete ui;
