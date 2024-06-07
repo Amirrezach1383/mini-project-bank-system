@@ -3,12 +3,23 @@
 #include "users.h"
 #include "userpanel.h"
 
-ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::ChangePasses)
-{
+ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::ChangePasses) {
+
     ui->setupUi(this);
+
+    cardPasswordCheckBox();
+    fixedSecondCheckBox();
 
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
+
+    /// Connect Functions to changePushButtons
+    connect(ui->changePasswordPushButton, SIGNAL(clicked()), this, SLOT(changeCardPasswordPushButton()));
+    connect(ui->changeFixedSecondPasswordPushButton, SIGNAL(clicked()), this, SLOT(changeFixedSecondPasswordPushButton()));
+
+    /// Connect Functions to checkBoxes
+    connect(ui->changeCardPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(cardPasswordCheckBox));
+    connect(ui->changeFixedSecondPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(fixedSecondCheckBox));
 
 }
 
@@ -23,23 +34,45 @@ void ChangePasses::openUserPanelForm() {
 void ChangePasses::changeCardPasswordPushButton (){}
 void ChangePasses::changeFixedSecondPasswordPushButton (){}
 
-void ChangePasses::cardPasswordCheckBox(){}
-void ChangePasses::fixedSecondCheckBox(){}
+void ChangePasses::cardPasswordCheckBox(){
+
+    if(ui->changeCardPasswordCheckBox->isChecked()) {
+        ui->newCardPasswordLineEdit->setEnabled(true);
+        ui->previousCardPasswordLineEdit->setEnabled(true);
+    } else {
+        ui->newCardPasswordLineEdit->setEnabled(false);
+        ui->previousCardPasswordLineEdit->setEnabled(false);
+    }
+}
+void ChangePasses::fixedSecondCheckBox(){
+    if(ui->changeCardPasswordCheckBox->isChecked()) {
+        ui->newFixedSecondPasswordLineEdit->setEnabled(true);
+        ui->previousFixedSecondPasswordLineEdit->setEnabled(true);
+    } else {
+        ui->newFixedSecondPasswordLineEdit->setEnabled(false);
+        ui->previousFixedSecondPasswordLineEdit->setEnabled(false);
+    }
+}
 
 /// Check And Set Passwords Functions
-bool ChangePasses::checkAllError(){
+bool ChangePasses::checkChangeFixedSecondPasswordAllError(){
+    bool checkAllErrors = true;
+
+    if(!checkNewFixedSecondPasswordLineEditError())
+        checkAllErrors = false;
+
+    if(!checkPreviousFixedSecondPasswordLineEditError())
+        checkAllErrors = false;
+
+    return checkAllErrors;
+}
+bool ChangePasses::checkChangeCardPasswordAllError(){
     bool checkAllErrors = true;
 
     if(!checkNewCardPasswordLineEditError())
         checkAllErrors = false;
 
-    if(!checkNewFixedSecondPasswordLineEditError())
-        checkAllErrors = false;
-
     if(!checkPreviousCardPasswordLineEditError())
-        checkAllErrors = false;
-
-    if(!checkPreviousFixedSecondPasswordLineEditError())
         checkAllErrors = false;
 
     return checkAllErrors;
@@ -191,9 +224,6 @@ bool ChangePasses::checkpreviousFixedSecondPasswordExists(){
     return false;
 
 }
-
-
-
 
 
 ChangePasses::~ChangePasses()

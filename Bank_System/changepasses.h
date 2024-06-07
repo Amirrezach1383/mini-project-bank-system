@@ -20,8 +20,19 @@ private slots:
     void cardPasswordCheckBox();
     void fixedSecondCheckBox();
 
+
+
+public:
+    explicit ChangePasses(Users, QWidget *parent = nullptr);
+    ~ChangePasses();
+    Users user;
+
+private:
+    Ui::ChangePasses *ui;
+
     /// Check and Set Erros
-    bool checkAllError();
+    bool checkChangeCardPasswordAllError();
+    bool checkChangeFixedSecondPasswordAllError();
 
     bool checkNewCardPasswordLineEditError();
     bool checkNewCardPasswordValid();
@@ -37,14 +48,8 @@ private slots:
     bool checkpreviousFixedSecondPasswordValid();
     bool checkpreviousFixedSecondPasswordExists();
 
+    /// Set NewPasses In User Information
 
-public:
-    explicit ChangePasses(Users, QWidget *parent = nullptr);
-    ~ChangePasses();
-    Users user;
-
-private:
-    Ui::ChangePasses *ui;
 };
 
 #endif // CHANGEPASSES_H

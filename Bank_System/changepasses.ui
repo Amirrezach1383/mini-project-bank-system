@@ -293,7 +293,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     </property>
    </item>
   </widget>
-  <widget class="QCheckBox" name="changeCardPasswordCheckPassword">
+  <widget class="QCheckBox" name="changeCardPasswordCheckBox">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -306,7 +306,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     <string>Change Card Four Digit Password</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="changeFixedSecondPasswordCheckPassword">
+  <widget class="QCheckBox" name="changeFixedSecondPasswordCheckBox">
    <property name="geometry">
     <rect>
      <x>102</x>
