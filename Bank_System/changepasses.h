@@ -49,7 +49,11 @@ private:
     bool checkpreviousFixedSecondPasswordExists();
 
     /// Set NewPasses In User Information
+    void setCardPasswordInformation();
+    void setFixedSecondPasswordInformation();
 
+    /// search user account
+    int searchBankAccount ();
 };
 
 #endif // CHANGEPASSES_H

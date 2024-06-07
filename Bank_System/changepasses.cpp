@@ -31,18 +31,29 @@ void ChangePasses::openUserPanelForm() {
     this->close();
 }
 
-void ChangePasses::changeCardPasswordPushButton (){}
-void ChangePasses::changeFixedSecondPasswordPushButton (){}
+void ChangePasses::changeCardPasswordPushButton () {
+    if(checkChangeCardPasswordAllError()) {
+        setCardPasswordInformation();
+    }
+}
+void ChangePasses::changeFixedSecondPasswordPushButton () {
+    if(checkChangeFixedSecondPasswordAllError()) {
+        setFixedSecondPasswordInformation();
+    }
+}
 
 void ChangePasses::cardPasswordCheckBox(){
-
     if(ui->changeCardPasswordCheckBox->isChecked()) {
         ui->newCardPasswordLineEdit->setEnabled(true);
         ui->previousCardPasswordLineEdit->setEnabled(true);
     } else {
         ui->newCardPasswordLineEdit->setEnabled(false);
         ui->previousCardPasswordLineEdit->setEnabled(false);
+        ui->newCardPasswordLineEdit->clear();
+        ui->previousCardPasswordLineEdit->clear();
     }
+
+
 }
 void ChangePasses::fixedSecondCheckBox(){
     if(ui->changeCardPasswordCheckBox->isChecked()) {
@@ -51,7 +62,39 @@ void ChangePasses::fixedSecondCheckBox(){
     } else {
         ui->newFixedSecondPasswordLineEdit->setEnabled(false);
         ui->previousFixedSecondPasswordLineEdit->setEnabled(false);
+        ui->newFixedSecondPasswordLineEdit->clear();
+        ui->previousFixedSecondPasswordLineEdit->clear();
+
     }
+
+}
+
+/// Set changes in User Information
+void ChangePasses::setCardPasswordInformation(){
+    int i = searchBankAccount ();
+    QString password = ui->newCardPasswordLineEdit->text();
+
+    user.getBankAccount(i).getCard().setCardPassword(password);
+
+}
+void ChangePasses::setFixedSecondPasswordInformation(){
+    int i = searchBankAccount ();
+    QString password = ui->newFixedSecondPasswordLineEdit->text();
+
+    user.getBankAccount(i).getCard().setFixedSecondPassword(password);
+}
+
+/// Search BankAccount Function
+int ChangePasses::searchBankAccount() {
+    QString accountNum = ui->accountComboBox->currentText();
+    int i = 0;
+
+    while(i < user.getNumOfUserAccount()) {
+        if(user.getBankAccount(i).getAccountNumber() == accountNum)
+            return i;
+        i++;
+    }
+    return -1;
 }
 
 /// Check And Set Passwords Functions
@@ -224,7 +267,6 @@ bool ChangePasses::checkpreviousFixedSecondPasswordExists(){
     return false;
 
 }
-
 
 ChangePasses::~ChangePasses()
 {
