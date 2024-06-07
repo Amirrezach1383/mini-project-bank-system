@@ -145,7 +145,7 @@ color: rgb(0, 0, 0);</string>
   </widget>
   <widget class="QPushButton" name="changeFixedSecondPasswordPushButton">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -233,7 +233,7 @@ color: rgb(0, 0, 0);</string>
   </widget>
   <widget class="QPushButton" name="changePasswordPushButton">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -305,6 +305,9 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="text">
     <string>Change Card Four Digit Password</string>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QCheckBox" name="changeFixedSecondPasswordCheckBox">
    <property name="geometry">
@@ -317,6 +320,9 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="text">
     <string>Change Fixed Second Password</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="previousCardPasswordErrorLabel">
@@ -376,6 +382,23 @@ color: rgb(255, 73, 73);</string>
      <x>455</x>
      <y>474</y>
      <width>164</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="accountComboBoxErrorLabel">
+   <property name="geometry">
+    <rect>
+     <x>232</x>
+     <y>165</y>
+     <width>216</width>
      <height>20</height>
     </rect>
    </property>

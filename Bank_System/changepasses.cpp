@@ -10,6 +10,8 @@ ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user
     cardPasswordCheckBox();
     fixedSecondCheckBox();
 
+    setAccountInformationInComboBox ();
+
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
@@ -18,9 +20,13 @@ ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user
     connect(ui->changeFixedSecondPasswordPushButton, SIGNAL(clicked()), this, SLOT(changeFixedSecondPasswordPushButton()));
 
     /// Connect Functions to checkBoxes
-    connect(ui->changeCardPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(cardPasswordCheckBox));
-    connect(ui->changeFixedSecondPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(fixedSecondCheckBox));
+    connect(ui->changeCardPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(cardPasswordCheckBox()));
+    connect(ui->changeFixedSecondPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(fixedSecondCheckBox()));
 
+}
+ChangePasses::~ChangePasses()
+{
+    delete ui;
 }
 
 ///========== Private Slots ============
@@ -34,37 +40,47 @@ void ChangePasses::openUserPanelForm() {
 void ChangePasses::changeCardPasswordPushButton () {
     if(checkChangeCardPasswordAllError()) {
         setCardPasswordInformation();
+        ui->newCardPasswordLineEdit->clear();
+        ui->previousCardPasswordLineEdit->clear();
     }
 }
 void ChangePasses::changeFixedSecondPasswordPushButton () {
     if(checkChangeFixedSecondPasswordAllError()) {
         setFixedSecondPasswordInformation();
+        ui->newFixedSecondPasswordLineEdit->clear();
+        ui->previousFixedSecondPasswordLineEdit->clear();
     }
 }
 
 void ChangePasses::cardPasswordCheckBox(){
+
     if(ui->changeCardPasswordCheckBox->isChecked()) {
         ui->newCardPasswordLineEdit->setEnabled(true);
         ui->previousCardPasswordLineEdit->setEnabled(true);
+        ui->changePasswordPushButton->setEnabled(true);
     } else {
         ui->newCardPasswordLineEdit->setEnabled(false);
         ui->previousCardPasswordLineEdit->setEnabled(false);
+        ui->changePasswordPushButton->setEnabled(false);
+
         ui->newCardPasswordLineEdit->clear();
         ui->previousCardPasswordLineEdit->clear();
     }
 }
 void ChangePasses::fixedSecondCheckBox(){
-    if(ui->changeCardPasswordCheckBox->isChecked()) {
+
+    if(ui->changeFixedSecondPasswordCheckBox->isChecked()) {
         ui->newFixedSecondPasswordLineEdit->setEnabled(true);
         ui->previousFixedSecondPasswordLineEdit->setEnabled(true);
+        ui->changeFixedSecondPasswordPushButton->setEnabled(false);
     } else {
         ui->newFixedSecondPasswordLineEdit->setEnabled(false);
         ui->previousFixedSecondPasswordLineEdit->setEnabled(false);
+        ui->changeFixedSecondPasswordPushButton->setEnabled(false);
+
         ui->newFixedSecondPasswordLineEdit->clear();
         ui->previousFixedSecondPasswordLineEdit->clear();
-
     }
-
 }
 
 /// Set changes in User Information
@@ -72,14 +88,25 @@ void ChangePasses::setCardPasswordInformation(){
     int i = searchBankAccount ();
     QString password = ui->newCardPasswordLineEdit->text();
 
-    user.getBankAccount(i).getCard().setCardPassword(password);
+    BankAccount bankAccountTmp = user.getBankAccount(i);
+    Cards cardTmp = bankAccountTmp.getCard();
 
+    cardTmp.setCardPassword(password);
+    bankAccountTmp.setCard(cardTmp);
+
+    user.setBankAccount(bankAccountTmp, i);
 }
 void ChangePasses::setFixedSecondPasswordInformation(){
     int i = searchBankAccount ();
     QString password = ui->newFixedSecondPasswordLineEdit->text();
 
-    user.getBankAccount(i).getCard().setFixedSecondPassword(password);
+    BankAccount bankAccountTmp = user.getBankAccount(i);
+    Cards cardTmp = user.getBankAccount(i).getCard();
+
+    cardTmp.setFixedSecondPassword(password);
+    bankAccountTmp.setCard(cardTmp);
+
+    user.setBankAccount(bankAccountTmp, i);
 }
 
 /// Search BankAccount Function
@@ -114,6 +141,9 @@ bool ChangePasses::checkChangeFixedSecondPasswordAllError(){
     if(!checkPreviousFixedSecondPasswordLineEditError())
         checkAllErrors = false;
 
+    if(!checkComboBoxError())
+        checkAllErrors = false;
+
     return checkAllErrors;
 }
 bool ChangePasses::checkChangeCardPasswordAllError(){
@@ -123,6 +153,9 @@ bool ChangePasses::checkChangeCardPasswordAllError(){
         checkAllErrors = false;
 
     if(!checkPreviousCardPasswordLineEditError())
+        checkAllErrors = false;
+
+    if(!checkComboBoxError())
         checkAllErrors = false;
 
     return checkAllErrors;
@@ -138,7 +171,7 @@ bool ChangePasses::checkNewCardPasswordLineEditError(){
         ui->newCardPasswordErrorLabel->setText("Invalid Data");
         return false;
     }
-    if(ui->newCardPasswordLineEdit->text().length() < 4 && ui->newCardPasswordLineEdit->text().length() > 4) {
+    if(ui->newCardPasswordLineEdit->text().length() < 4 || ui->newCardPasswordLineEdit->text().length() > 4) {
         ui->newCardPasswordErrorLabel->setText("Please Enter Only Four Digit");
         return false;
     }
@@ -170,7 +203,7 @@ bool ChangePasses::checkNewFixedSecondPasswordLineEditError(){
         ui->newFixedSecondPasswordErrorLabel->setText("Invalid Data");
         return false;
     }
-    if(ui->newFixedSecondPasswordLineEdit->text().length() < 7 && ui->newFixedSecondPasswordLineEdit->text().length() > 7) {
+    if(ui->newFixedSecondPasswordLineEdit->text().length() < 7 || ui->newFixedSecondPasswordLineEdit->text().length() > 7) {
         ui->newFixedSecondPasswordErrorLabel->setText("Please Enter Only Seven Digit");
         return false;
     }
@@ -201,7 +234,7 @@ bool ChangePasses::checkPreviousCardPasswordLineEditError(){
         ui->previousCardPasswordErrorLabel->setText("Invalid Data");
         return false;
     }
-    if(ui->previousCardPasswordLineEdit->text().length() < 4 && ui->previousCardPasswordLineEdit->text().length() > 4) {
+    if(ui->previousCardPasswordLineEdit->text().length() < 4 || ui->previousCardPasswordLineEdit->text().length() > 4) {
         ui->previousCardPasswordErrorLabel->setText("Please Enter Only Four Digit");
         return false;
     }
@@ -235,23 +268,23 @@ bool ChangePasses::checkpreviousCardPasswordExists(){
 
 bool ChangePasses::checkPreviousFixedSecondPasswordLineEditError(){
     if(ui->previousFixedSecondPasswordLineEdit->text() == ""){
-        ui->previousCardPasswordErrorLabel->setText("Please Fill Out This Field");
+        ui->previousFixedSecondPasswordErrorLabel->setText("Please Fill Out This Field");
         return false;
     }
     if(!checkpreviousCardPasswordValid()){
-        ui->previousCardPasswordErrorLabel->setText("Invalid Data");
+        ui->previousFixedSecondPasswordErrorLabel->setText("Invalid Data");
         return false;
     }
-    if(ui->previousFixedSecondPasswordLineEdit->text().length() < 7 && ui->previousFixedSecondPasswordLineEdit->text().length() > 7) {
-        ui->previousCardPasswordErrorLabel->setText("Please Enter Only Seven Digit");
+    if(ui->previousFixedSecondPasswordLineEdit->text().length() < 7 || ui->previousFixedSecondPasswordLineEdit->text().length() > 7) {
+        ui->previousFixedSecondPasswordErrorLabel->setText("Please Enter Only Seven Digit");
         return false;
     }
     if(!checkpreviousFixedSecondPasswordExists()){
-        ui->previousCardPasswordErrorLabel->setText("Incorrect Password");
+        ui->previousFixedSecondPasswordErrorLabel->setText("Incorrect Password");
         return false;
     }
 
-    ui->previousCardPasswordErrorLabel->clear();
+    ui->previousFixedSecondPasswordErrorLabel->clear();
     return true;
 }
 bool ChangePasses::checkpreviousFixedSecondPasswordValid(){
@@ -275,7 +308,12 @@ bool ChangePasses::checkpreviousFixedSecondPasswordExists(){
 
 }
 
-ChangePasses::~ChangePasses()
-{
-    delete ui;
+bool ChangePasses::checkComboBoxError(){
+    if(ui->accountComboBox->currentText() == "") {
+        ui->accountComboBoxErrorLabel->setText("Please Choose One Account");
+        return false;
+    }
+    ui->accountComboBoxErrorLabel->clear();
+    return true;
 }
+

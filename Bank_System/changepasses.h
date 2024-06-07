@@ -48,6 +48,8 @@ private:
     bool checkpreviousFixedSecondPasswordValid();
     bool checkpreviousFixedSecondPasswordExists();
 
+    bool checkComboBoxError();
+
     /// Set NewPasses In User Information
     void setCardPasswordInformation();
     void setFixedSecondPasswordInformation();
