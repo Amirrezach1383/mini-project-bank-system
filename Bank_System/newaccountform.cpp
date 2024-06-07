@@ -44,6 +44,7 @@ void NewAccountForm::makeAccountPushButton() {
         setUsersAccountInformation();
         setUsersCardInformation();
         ui->makeAccountPushButton->setEnabled(false);
+        addNewDataToUserLists();
     }
 }
 
