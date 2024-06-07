@@ -10,6 +10,8 @@ BalanceForm::BalanceForm(Users users, QWidget *parent) : QWidget(parent), user(u
     ui->footerBalanceLabel->hide();
     ui->valueLabel->hide();
 
+    setUsersInformations();
+    setAccountComboBoxValue();
 
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
@@ -74,8 +76,8 @@ int BalanceForm::searchBankAccount() {
 void BalanceForm::showBalanceValue(int i) {
 
     ui->valueLabel->setText(QString::number(user.getBankAccount(i).getBalance()));
+    ui->footerBalanceLabel->show();
     ui->valueLabel->show();
-    ui->balanceLabel->show();
 }
 
 /// Set Users Informations
