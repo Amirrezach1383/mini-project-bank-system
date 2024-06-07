@@ -52,8 +52,6 @@ void ChangePasses::cardPasswordCheckBox(){
         ui->newCardPasswordLineEdit->clear();
         ui->previousCardPasswordLineEdit->clear();
     }
-
-
 }
 void ChangePasses::fixedSecondCheckBox(){
     if(ui->changeCardPasswordCheckBox->isChecked()) {
@@ -95,6 +93,15 @@ int ChangePasses::searchBankAccount() {
         i++;
     }
     return -1;
+}
+
+void ChangePasses::setAccountInformationInComboBox () {
+    int i = 0;
+
+    while(i < user.getNumOfUserAccount()) {
+        ui->accountComboBox->addItem(user.getBankAccount(i).getAccountNumber());
+        i++;
+    }
 }
 
 /// Check And Set Passwords Functions

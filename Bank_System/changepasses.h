@@ -54,6 +54,8 @@ private:
 
     /// search user account
     int searchBankAccount ();
+
+    void setAccountInformationInComboBox ();
 };
 
 #endif // CHANGEPASSES_H
