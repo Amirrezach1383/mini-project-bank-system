@@ -65,6 +65,10 @@ void ChangePasses::cardPasswordCheckBox(){
 
         ui->newCardPasswordLineEdit->clear();
         ui->previousCardPasswordLineEdit->clear();
+
+        ui->previousCardPasswordErrorLabel->clear();
+        ui->newCardPasswordErrorLabel->clear();
+
     }
 }
 void ChangePasses::fixedSecondCheckBox(){
@@ -72,7 +76,7 @@ void ChangePasses::fixedSecondCheckBox(){
     if(ui->changeFixedSecondPasswordCheckBox->isChecked()) {
         ui->newFixedSecondPasswordLineEdit->setEnabled(true);
         ui->previousFixedSecondPasswordLineEdit->setEnabled(true);
-        ui->changeFixedSecondPasswordPushButton->setEnabled(false);
+        ui->changeFixedSecondPasswordPushButton->setEnabled(true);
     } else {
         ui->newFixedSecondPasswordLineEdit->setEnabled(false);
         ui->previousFixedSecondPasswordLineEdit->setEnabled(false);
@@ -80,6 +84,9 @@ void ChangePasses::fixedSecondCheckBox(){
 
         ui->newFixedSecondPasswordLineEdit->clear();
         ui->previousFixedSecondPasswordLineEdit->clear();
+
+        ui->previousFixedSecondPasswordErrorLabel->clear();
+        ui->newFixedSecondPasswordErrorLabel->clear();
     }
 }
 
@@ -158,6 +165,9 @@ bool ChangePasses::checkChangeCardPasswordAllError(){
     if(!checkComboBoxError())
         checkAllErrors = false;
 
+    if(!checkNewCardPasswordDifference())
+        checkAllErrors = false;
+
     return checkAllErrors;
 }
 
@@ -173,6 +183,10 @@ bool ChangePasses::checkNewCardPasswordLineEditError(){
     }
     if(ui->newCardPasswordLineEdit->text().length() < 4 || ui->newCardPasswordLineEdit->text().length() > 4) {
         ui->newCardPasswordErrorLabel->setText("Please Enter Only Four Digit");
+        return false;
+    }
+    if(!checkNewCardPasswordDifference()) {
+        ui->newCardPasswordErrorLabel->setText("This Is Your Previous Password");
         return false;
     }
     ui->newCardPasswordErrorLabel->clear();
@@ -192,6 +206,13 @@ bool ChangePasses::checkNewCardPasswordValid(){
     return true;
 
 }
+bool ChangePasses::checkNewCardPasswordDifference () {
+    QString password = user.getBankAccount(searchBankAccount()).getCard().getCardPassword();
+
+    if(ui->newCardPasswordLineEdit->text() == password)
+        return false;
+    return true;
+}
 
 bool ChangePasses::checkNewFixedSecondPasswordLineEditError(){
 
@@ -205,6 +226,10 @@ bool ChangePasses::checkNewFixedSecondPasswordLineEditError(){
     }
     if(ui->newFixedSecondPasswordLineEdit->text().length() < 7 || ui->newFixedSecondPasswordLineEdit->text().length() > 7) {
         ui->newFixedSecondPasswordErrorLabel->setText("Please Enter Only Seven Digit");
+        return false;
+    }
+    if(!checkNewFixedSecondPasswordDifference()) {
+        ui->newFixedSecondPasswordErrorLabel->setText("This Is Your Previous Password");
         return false;
     }
     ui->newFixedSecondPasswordErrorLabel->clear();
@@ -222,6 +247,14 @@ bool ChangePasses::checkNewFixedSecondPasswordValid(){
         i++;
     }
     return true;
+}
+bool ChangePasses::checkNewFixedSecondPasswordDifference () {
+    QString password = user.getBankAccount(searchBankAccount()).getCard().getFixedSecondPassword();
+
+    if(ui->newFixedSecondPasswordLineEdit->text() == password)
+        return false;
+    return true;
+
 }
 
 bool ChangePasses::checkPreviousCardPasswordLineEditError(){

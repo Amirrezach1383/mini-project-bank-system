@@ -36,9 +36,11 @@ private:
 
     bool checkNewCardPasswordLineEditError();
     bool checkNewCardPasswordValid();
+    bool checkNewCardPasswordDifference();
 
     bool checkNewFixedSecondPasswordLineEditError();
     bool checkNewFixedSecondPasswordValid();
+    bool checkNewFixedSecondPasswordDifference();
 
     bool checkPreviousCardPasswordLineEditError();
     bool checkpreviousCardPasswordValid();
