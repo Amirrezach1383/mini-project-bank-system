@@ -228,6 +228,23 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="accountComboBoxErrorLabel">
+   <property name="geometry">
+    <rect>
+     <x>351</x>
+     <y>274</y>
+     <width>284</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+color: rgb(255, 73, 73);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="background.qrc"/>

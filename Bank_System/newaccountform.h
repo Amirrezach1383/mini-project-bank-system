@@ -22,6 +22,10 @@ public:
     explicit NewAccountForm(Users, QWidget *parent = nullptr);
     ~NewAccountForm();
 
+private:
+    Users user;
+    Ui::NewAccountForm *ui;
+
     void setUserInformation();
 
     /// Set Users Account And Card Information
@@ -57,12 +61,6 @@ public:
     bool checkFixedSecondPasswordValid();
 
     bool checkComboBox();
-
-
-
-private:
-    Users user;
-    Ui::NewAccountForm *ui;
 };
 
 #endif // NEWACCOUNTFORM_H
