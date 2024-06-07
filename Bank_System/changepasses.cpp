@@ -11,6 +11,9 @@ ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
 }
+
+///========== Private Slots ============
+
 void ChangePasses::openUserPanelForm() {
     UserPanel *userPanel = new class UserPanel(user);
     userPanel->show();

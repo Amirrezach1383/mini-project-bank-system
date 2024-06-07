@@ -14,6 +14,9 @@ class ChangePasses : public QWidget
 private slots:
     void openUserPanelForm ();
 
+    void changeCardPasswordPushButton ();
+    void changeFixedSecondPasswordPushButton ();
+
 public:
     explicit ChangePasses(Users, QWidget *parent = nullptr);
     ~ChangePasses();
