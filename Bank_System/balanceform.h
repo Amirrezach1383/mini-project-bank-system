@@ -21,13 +21,15 @@ public:
 
     /// Set Users Informations
     void setUsersInformations();
+    // Set ComboBox Value
+    void setAccountComboBoxValue();
 
     /// Set And Check Errors
     bool checkAllErrors();
     bool checkAccountComboBox();
 
     /// Show Balance Value
-    void showBalanceValue ();
+    void showBalanceValue (int);
 
     /// Search BankAccount Function
     int searchBankAccount ();

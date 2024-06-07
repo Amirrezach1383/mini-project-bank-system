@@ -14,6 +14,9 @@ BalanceForm::BalanceForm(Users users, QWidget *parent) : QWidget(parent), user(u
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
+    /// Connect ShowBalance PushButton
+    connect(ui->showBalancePushButton, SIGNAL(clicked()), this, SLOT(showBalancePushButton()));
+
 }
 
 ///======== Private Slots ===========
@@ -24,6 +27,13 @@ void BalanceForm::openUserPanelForm() {
     this->close();
 }
 
+void BalanceForm::showBalancePushButton() {
+    if(checkAllErrors()) {
+        int i = searchBankAccount();
+        showBalanceValue(i);
+    }
+}
+
 /// Set And Check Errors Functions
 
 bool BalanceForm::checkAllErrors () {
@@ -32,7 +42,10 @@ bool BalanceForm::checkAllErrors () {
     if(!checkAccountComboBox())
         checkAllErrors = false;
 
+    if(checkAllErrors)
+        return true;
 
+    return false;
 }
 
 bool BalanceForm::checkAccountComboBox() {
@@ -45,11 +58,25 @@ bool BalanceForm::checkAccountComboBox() {
 }
 
 /// Search BankAccount Function
-int BalanceForm::searchBankAccount(){
+int BalanceForm::searchBankAccount() {
+    QString accountNum = ui->accountComboBox->currentText();
+    int i = 0;
 
+    while(i < user.getNumOfUserAccount()) {
+        if(user.getBankAccount(i).getAccountNumber() == accountNum)
+            return i;
+        i++;
+    }
+    return -1;
 }
 
+/// show Balance Value
+void BalanceForm::showBalanceValue(int i) {
 
+    ui->valueLabel->setText(QString::number(user.getBankAccount(i).getBalance()));
+    ui->valueLabel->show();
+    ui->balanceLabel->show();
+}
 
 /// Set Users Informations
 void BalanceForm::setUsersInformations (){
@@ -58,6 +85,17 @@ void BalanceForm::setUsersInformations (){
     ui->nationalCodeLabel->setText(user.getNationalCode());
 
 }
+// Set AccountComboBox Value
+void BalanceForm::setAccountComboBoxValue() {
+    int i = 0;
+
+    while(i < user.getNumOfUserAccount()) {
+        ui->accountComboBox->addItem(user.getBankAccount(i).getAccountNumber());
+        i++;
+    }
+
+}
+
 
 
 BalanceForm::~BalanceForm()
