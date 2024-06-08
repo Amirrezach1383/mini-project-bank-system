@@ -13,7 +13,6 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
 
 
 }
-
 Transfer::~Transfer()
 {
     delete ui;
@@ -26,10 +25,29 @@ void Transfer::openUserPanelForm() {
     this->close();
 }
 
+
+
 ///========== Check And Set Errors Functions ==========
 
 bool Transfer::checkAllErrors (){
+    bool checkAllErrors = true;
 
+    if(!checkOrirginCardNumComboBoxError())
+        checkAllErrors = false;
+
+    if(!checkTransferAmountLineEditError())
+        checkAllErrors = false;
+
+    if(!checkSecondPasswordLineEditError())
+        checkAllErrors = false;
+
+    if(!checkDestinationCardNumLineEditError())
+        checkAllErrors = false;
+
+    if(!checkCvv2LineEditError())
+        checkAllErrors = false;
+
+    return checkAllErrors;
 }
 
 bool Transfer::checkOrirginCardNumComboBoxError(){
@@ -42,12 +60,70 @@ bool Transfer::checkOrirginCardNumComboBoxError(){
 }
 
 bool Transfer::checkTransferAmountLineEditError(){
+    if(ui->transferAmountLineEdit->text() == "") {
+        ui->transferAmountErrorLabel->setText("Please Fill Out This Field");
+        return false;
+    }
+    if(!checkSecondPasswordLineEditValid()) {
+        ui->transferAmountErrorLabel->setText("Invalid Data");
+        return false;
+    }
+    ui->transferAmountErrorLabel->clear();
+    return true;
 
+}
+bool Transfer::checkTransferAmountLineEditValid(){
+    QString transferAmount = ui->transferAmountLineEdit->text();
+    int i = 0;
+
+    while (i < ui->transferAmountLineEdit->text().length()) {
+        if(!('0' <= transferAmount[i] && transferAmount[i] <= '9')) {
+            return false;
+        }
+        i++;
+    }
+    return true;
 }
 
 bool Transfer::checkSecondPasswordLineEditError(){
+    if(ui->secondPasswordLineEdit->text() == "") {
+        ui->secondPasswordErrorLabel->setText("Please Fill Out This Field");
+        return false;
+    }
+    if(!checkSecondPasswordLineEditValid()) {
+        ui->secondPasswordErrorLabel->setText("Invalid Data");
+        return false;
+    }
+    if(!checkSecondPasswordLineEditExist()) {
+        ui->secondPasswordErrorLabel->setText("Incorrect Password");
+        return false;
+    }
+    ui->secondPasswordErrorLabel->clear();
+    return true;
 
 }
+bool Transfer::checkSecondPasswordLineEditValid(){
+    QString secondPassword = ui->secondPasswordLineEdit->text();
+    int i = 0;
+
+    while (i < ui->secondPasswordLineEdit->text().length()) {
+        if(!('0' <= secondPassword[i] && secondPassword[i] <= '9')) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+
+}
+bool Transfer::checkSecondPasswordLineEditExist(){
+    QString secondPassword = ui->secondPasswordLineEdit->text();
+
+    if(!searchSecondPassword(secondPassword))
+        return false;
+    return true;
+
+}
+
 
 bool Transfer::checkDestinationCardNumLineEditError(){
     if(ui->distinationCardNumberLineEdit->text() == "") {
@@ -59,7 +135,7 @@ bool Transfer::checkDestinationCardNumLineEditError(){
         return false;
     }
     if(!checkDestinationCardNumLineEditExist()) {
-        ui->disCardNumComboBoxErrorLabel->setText("Incorrect Card Number");
+        ui->disCardNumComboBoxErrorLabel->setText("This User Doesn't Exists");
         return false;
     }
     ui->disCardNumComboBoxErrorLabel->clear();
@@ -87,7 +163,6 @@ bool Transfer::checkDestinationCardNumLineEditExist(){
         return false;
     return true;
 }
-
 
 bool Transfer::checkCvv2LineEditError(){
     if(ui->cvv2LineEdit->text() == "") {
@@ -152,7 +227,20 @@ bool Transfer::searchCard (QString cardNum){
     }
     return false;
 }
-
+bool Transfer::searchSecondPassword(QString secondPassword){
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<BankAccount> *tmpBankAccount;
+    while(tmp) {
+        tmpBankAccount = tmp->getData().userBankAccountsList.getHeadNode();
+        while(tmpBankAccount) {
+            if(tmpBankAccount->getData().getCard().getFixedSecondPassword() == secondPassword)
+                return true;
+            tmpBankAccount = tmpBankAccount->getNextNode();
+        }
+        tmp = tmp->getNextNode();
+    }
+    return false;
+}
 
 /// Set Users Informations
 

@@ -26,8 +26,12 @@ public:
     bool checkOrirginCardNumComboBoxError();
 
     bool checkTransferAmountLineEditError();
+    bool checkTransferAmountLineEditValid();
+
 
     bool checkSecondPasswordLineEditError();
+    bool checkSecondPasswordLineEditValid();
+    bool checkSecondPasswordLineEditExist();
 
     bool checkDestinationCardNumLineEditError();
     bool checkDestinationCardNumLineValid();
@@ -38,7 +42,8 @@ public:
     bool checkCvv2LineEditExist();
 
     /// Search Function
-    bool searchCard (QString);
+    bool searchCard(QString);
+    bool searchSecondPassword(QString);
 
 private:
     Ui::Transfer *ui;
