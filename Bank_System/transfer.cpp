@@ -26,7 +26,7 @@ void Transfer::openUserPanelForm() {
     this->close();
 }
 
-///========== Check And Set Functions ==========
+///========== Check And Set Errors Functions ==========
 
 bool Transfer::checkAllErrors (){
 
@@ -50,8 +50,44 @@ bool Transfer::checkSecondPasswordLineEditError(){
 }
 
 bool Transfer::checkDestinationCardNumLineEditError(){
+    if(ui->distinationCardNumberLineEdit->text() == "") {
+        ui->disCardNumComboBoxErrorLabel->setText("Please Fill Out This Field");
+        return false;
+    }
+    if(!checkDestinationCardNumLineValid()) {
+        ui->disCardNumComboBoxErrorLabel->setText("Invalid Data");
+        return false;
+    }
+    if(!checkDestinationCardNumLineEditExist()) {
+        ui->disCardNumComboBoxErrorLabel->setText("Incorrect Card Number");
+        return false;
+    }
+    ui->disCardNumComboBoxErrorLabel->clear();
+    return true;
+
 
 }
+bool Transfer::checkDestinationCardNumLineValid(){
+    QString cvv2 = ui->distinationCardNumberLineEdit->text();
+    int i = 0;
+
+    while (i < ui->distinationCardNumberLineEdit->text().length()) {
+        if(!('0' <= cvv2[i] && cvv2[i] <= '9')) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+
+}
+bool Transfer::checkDestinationCardNumLineEditExist(){
+    QString cardNum = ui->distinationCardNumberLineEdit->text();
+
+    if(!searchCard(cardNum))
+        return false;
+    return true;
+}
+
 
 bool Transfer::checkCvv2LineEditError(){
     if(ui->cvv2LineEdit->text() == "") {
@@ -72,8 +108,9 @@ bool Transfer::checkCvv2LineEditError(){
 }
 bool Transfer::checkCvv2LineEditValid(){
 
-    int i = 0;
     QString cvv2 = ui->cvv2LineEdit->text();
+    int i = 0;
+
     while (i < ui->cvv2LineEdit->text().length()) {
         if(!('0' <= cvv2[i] && cvv2[i] <= '9')) {
             return false;
@@ -94,6 +131,22 @@ bool Transfer::checkCvv2LineEditExist(){
             if(cvv2 == tmp->getData().getCard().getCvv2Number()) {
                 return true;
             }
+        }
+        tmp = tmp->getNextNode();
+    }
+    return false;
+}
+
+/// Serch Function
+bool Transfer::searchCard (QString cardNum){
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<BankAccount> *tmpBankAccount;
+    while(tmp) {
+        tmpBankAccount = tmp->getData().userBankAccountsList.getHeadNode();
+        while(tmpBankAccount) {
+            if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
+                return true;
+            tmpBankAccount = tmpBankAccount->getNextNode();
         }
         tmp = tmp->getNextNode();
     }

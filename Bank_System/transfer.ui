@@ -324,7 +324,7 @@ font: 700 16pt &quot;Myanmar Text&quot;;</string>
     <string>Transfer Amount :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="distinationCardNumberLineEdit_2">
+  <widget class="QLineEdit" name="transferAmountLineEdit">
    <property name="geometry">
     <rect>
      <x>444</x>
@@ -360,7 +360,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>395</y>
+     <y>404</y>
      <width>71</width>
      <height>40</height>
     </rect>
@@ -377,7 +377,7 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>167</x>
-     <y>399</y>
+     <y>408</y>
      <width>90</width>
      <height>28</height>
     </rect>
@@ -392,7 +392,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>432</y>
+     <y>441</y>
      <width>153</width>
      <height>20</height>
     </rect>
@@ -409,7 +409,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>281</x>
-     <y>398</y>
+     <y>407</y>
      <width>203</width>
      <height>41</height>
     </rect>
@@ -426,7 +426,7 @@ font: 14pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>486</x>
-     <y>401</y>
+     <y>410</y>
      <width>120</width>
      <height>28</height>
     </rect>
@@ -441,7 +441,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>432</y>
+     <y>441</y>
      <width>320</width>
      <height>20</height>
     </rect>
@@ -458,7 +458,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>610</x>
-     <y>400</y>
+     <y>409</y>
      <width>90</width>
      <height>30</height>
     </rect>
@@ -476,6 +476,40 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
    </property>
    <property name="default">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="toLabel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>370</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 16pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>To : </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="toLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>151</x>
+     <y>373</y>
+     <width>160</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Name</string>
    </property>
   </widget>
  </widget>

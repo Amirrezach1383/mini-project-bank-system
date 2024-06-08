@@ -30,10 +30,15 @@ public:
     bool checkSecondPasswordLineEditError();
 
     bool checkDestinationCardNumLineEditError();
+    bool checkDestinationCardNumLineValid();
+    bool checkDestinationCardNumLineEditExist();
 
     bool checkCvv2LineEditError();
     bool checkCvv2LineEditValid();
     bool checkCvv2LineEditExist();
+
+    /// Search Function
+    bool searchCard (QString);
 
 private:
     Ui::Transfer *ui;
