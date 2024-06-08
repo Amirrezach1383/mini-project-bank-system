@@ -14,6 +14,7 @@ class Transfer : public QWidget
 private slots:
     void openUserPanelForm ();
     void transferPushButton();
+    void setUserBalanceInForm();
 
 public:
     explicit Transfer(Users, QWidget *parent = nullptr);
@@ -64,13 +65,15 @@ public:
 
     bool isBeforeNow(const std::tm& date);
 
+    /// Set Users Informatioins In forms label
+    void setUsersInformationInFormsLabels ();
+
+
 
 
 private:
     Ui::Transfer *ui;
 
-    /// Set Users Informatioins In forms label
-    void setUsersInformationInFormsLabels ();
 
 };
 

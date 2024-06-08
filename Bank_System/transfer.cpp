@@ -27,6 +27,11 @@ void Transfer::openUserPanelForm() {
     this->close();
 }
 
+void Transfer::setUserBalanceInForm() {
+    QString cardNum = ui->originCardNumberComboBax->currentText();
+    ui->yourBalanceValueLabel->setText(QString::number(findOriginCardBankAccount(cardNum).getBalance()));
+}
+
 void Transfer::transferPushButton() {
 
     if(checkAllErrors()){
@@ -314,12 +319,12 @@ Cards Transfer::findOrirginCard(QString cardNum){
 BankAccount Transfer::findOriginCardBankAccount(QString cardNum) {
     Node<BankAccount> *tmpBankAccount;
 
-        tmpBankAccount = user.userBankAccountsList.getHeadNode();
-        while(tmpBankAccount) {
-            if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
-                return tmpBankAccount->getData();
-            tmpBankAccount = tmpBankAccount->getNextNode();
-        }
+    tmpBankAccount = user.userBankAccountsList.getHeadNode();
+    while(tmpBankAccount) {
+        if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
+            return tmpBankAccount->getData();
+        tmpBankAccount = tmpBankAccount->getNextNode();
+    }
 
     return *new BankAccount;
 
@@ -364,6 +369,7 @@ void Transfer::setUsersInformationInFormsLabels () {
     ui->lastNameLabel->setText(user.getLastName());
     ui->nationalCodeLabel->setText(user.getNationalCode());
 }
+
 
 /// Time Functions
 bool Transfer::isBeforeNow(const std::tm& date){
