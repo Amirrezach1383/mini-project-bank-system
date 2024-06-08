@@ -13,20 +13,24 @@ class Transfer : public QWidget
     Q_OBJECT
 private slots:
     void openUserPanelForm ();
+    void transferPushButton();
 
 public:
     explicit Transfer(Users, QWidget *parent = nullptr);
     ~Transfer();
 
     Users user;
-    ///========== Check And Set Functions ==========
 
+    ///========== Check And Set Functions ==========
     bool checkAllErrors ();
 
     bool checkOrirginCardNumComboBoxError();
 
+    bool checkCardExpirationDate();
+
     bool checkTransferAmountLineEditError();
     bool checkTransferAmountLineEditValid();
+
 
 
     bool checkSecondPasswordLineEditError();
@@ -44,6 +48,11 @@ public:
     /// Search Function
     bool searchCard(QString);
     bool searchSecondPassword(QString);
+
+    Cards findCard(QString);
+
+    /// Time Functions
+
 
 private:
     Ui::Transfer *ui;

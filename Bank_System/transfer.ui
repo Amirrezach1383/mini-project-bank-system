@@ -200,7 +200,7 @@ font: 14pt &quot;Myanmar Text&quot;;
 </string>
    </property>
   </widget>
-  <widget class="QPushButton" name="backPushButton_2">
+  <widget class="QPushButton" name="transferPushButton">
    <property name="geometry">
     <rect>
      <x>609</x>

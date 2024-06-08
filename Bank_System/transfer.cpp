@@ -11,6 +11,8 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
+    /// Connect transfer PushButton
+    connect(ui->transferPushButton, SIGNAL(clicked()), this, SLOT(transferPushButton()));
 
 }
 Transfer::~Transfer()
@@ -18,17 +20,22 @@ Transfer::~Transfer()
     delete ui;
 }
 
-/// Private Slots
+///========== Private Slots =============
 void Transfer::openUserPanelForm() {
     UserPanel *userPanel = new UserPanel(user);
     userPanel->show();
     this->close();
 }
 
+void Transfer::transferPushButton() {
 
+    if(checkAllErrors()){
+
+    }
+
+}
 
 ///========== Check And Set Errors Functions ==========
-
 bool Transfer::checkAllErrors (){
     bool checkAllErrors = true;
 
@@ -59,6 +66,14 @@ bool Transfer::checkOrirginCardNumComboBoxError(){
     return true;
 }
 
+bool Transfer::checkCardExpirationDate() {
+    QString cardNum = ui->originCardNumberComboBax->currentText();
+
+
+
+
+}
+
 bool Transfer::checkTransferAmountLineEditError(){
     if(ui->transferAmountLineEdit->text() == "") {
         ui->transferAmountErrorLabel->setText("Please Fill Out This Field");
@@ -70,7 +85,6 @@ bool Transfer::checkTransferAmountLineEditError(){
     }
     ui->transferAmountErrorLabel->clear();
     return true;
-
 }
 bool Transfer::checkTransferAmountLineEditValid(){
     QString transferAmount = ui->transferAmountLineEdit->text();
@@ -242,6 +256,19 @@ bool Transfer::searchSecondPassword(QString secondPassword){
     return false;
 }
 
+Cards Transfer::findCard(QString cardNum){
+
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+
+    while(tmp) {
+        if(cardNum == tmp->getData().getCard().getCardNumber()) {
+            return tmp->getData().getCard();
+        }
+        tmp = tmp->getNextNode();
+    }
+    return *new Cards;
+
+}
 /// Set Users Informations
 
 void Transfer::setUsersInformationInFormsLabels () {
