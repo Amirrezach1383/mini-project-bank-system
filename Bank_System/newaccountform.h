@@ -42,7 +42,7 @@ private:
     QString makeShabaNumber(QString);
 
     QString makeCardNum();
-    QString makeCardExpirationDate();
+    tm makeCardExpirationDate();
     QString makeCvv2();
 
     int findAccountType();

@@ -104,9 +104,15 @@ void NewAccountForm::setCardsInformationInFormsLabels(){
 
     Node<BankAccount> *tmp = user.userBankAccountsList.getTailNode();
     Cards card = tmp->getData().getCard();
+    QString expirationDate;
+
+    tm time = card.getExpirationDate();
+
+    expirationDate = QString::number(time.tm_year) + "/" + QString::number(time.tm_mon);
+
 
     ui->cardsNumberLabelEdit->setText(card.getCardNumber());
-    ui->exparationDateLabelEdit->setText(card.getExpirationDate());
+    ui->exparationDateLabelEdit->setText(expirationDate);
     ui->cvv2LabelEdit->setText(card.getCvv2Number());
 
     ui->cardInformationGroupBox->show();
@@ -153,15 +159,14 @@ QString NewAccountForm::makeCardNum() {
     return cardNum;
 }
 
-QString NewAccountForm::makeCardExpirationDate() {
-    QString expirationDate;
+tm NewAccountForm::makeCardExpirationDate() {
+    tm expirationDate;
     std::time_t now = std::time(nullptr);
     tm time = *std::localtime(&now);
 
-    int month = time.tm_mon;
-    int year = (time.tm_year + 1903) - 2000;
+    time.tm_year += 3;
 
-    expirationDate = QString::number(year) + "/0" + QString::number(month);
+    expirationDate = time;
     return expirationDate;
 }
 QString NewAccountForm::makeShabaNumber(QString accountNum) {
