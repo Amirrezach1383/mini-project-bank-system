@@ -68,6 +68,8 @@ public:
     /// Set Users Informatioins In forms label
     void setUsersInformationInFormsLabels ();
 
+    void setUsersCardsInformation();
+
 
 
 

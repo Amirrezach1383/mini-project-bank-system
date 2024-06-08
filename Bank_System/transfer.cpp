@@ -370,6 +370,13 @@ void Transfer::setUsersInformationInFormsLabels () {
     ui->nationalCodeLabel->setText(user.getNationalCode());
 }
 
+void Transfer::setUsersCardsInformation(){
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+    while(tmp){
+        ui->originCardNumberComboBax->addItem(tmp->getData().getCard().getCardNumber());
+        tmp = tmp->getNextNode();
+    }
+}
 
 /// Time Functions
 bool Transfer::isBeforeNow(const std::tm& date){
