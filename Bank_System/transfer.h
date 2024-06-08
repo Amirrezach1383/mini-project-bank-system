@@ -25,8 +25,7 @@ public:
     bool checkAllErrors ();
 
     bool checkOrirginCardNumComboBoxError();
-
-    bool checkCardExpirationDate();
+    bool checkOriginCardExpirationDate();
 
     bool checkTransferAmountLineEditError();
     bool checkTransferAmountLineEditValid();
@@ -40,6 +39,8 @@ public:
     bool checkDestinationCardNumLineEditError();
     bool checkDestinationCardNumLineValid();
     bool checkDestinationCardNumLineEditExist();
+    bool checkDestinationCardExpiration();
+
 
     bool checkCvv2LineEditError();
     bool checkCvv2LineEditValid();
@@ -49,9 +50,13 @@ public:
     bool searchCard(QString);
     bool searchSecondPassword(QString);
 
-    Cards findCard(QString);
+    Cards findOrirginCard(QString);
+    Cards findDesCard(QString);
 
     /// Time Functions
+
+    bool isBeforeNow(const std::tm& date);
+
 
 
 private:

@@ -54,6 +54,9 @@ bool Transfer::checkAllErrors (){
     if(!checkCvv2LineEditError())
         checkAllErrors = false;
 
+
+
+
     return checkAllErrors;
 }
 
@@ -62,14 +65,21 @@ bool Transfer::checkOrirginCardNumComboBoxError(){
         ui->originCardNumComboBoxErrorLabel->setText("Please Fill Out This Field");
         return false;
     }
+    if(!checkOriginCardExpirationDate()){
+        ui->originCardNumComboBoxErrorLabel->setText("This Card Has Expired");
+        return false;
+    }
     ui->originCardNumComboBoxErrorLabel->clear();
     return true;
 }
-
-bool Transfer::checkCardExpirationDate() {
+bool Transfer::checkOriginCardExpirationDate() {
     QString cardNum = ui->originCardNumberComboBax->currentText();
 
+    tm expirationDate = findOrirginCard(cardNum).getExpirationDate();
 
+    if(isBeforeNow(expirationDate))
+        return false;
+    return true;
 
 
 }
@@ -152,6 +162,9 @@ bool Transfer::checkDestinationCardNumLineEditError(){
         ui->disCardNumComboBoxErrorLabel->setText("This User Doesn't Exists");
         return false;
     }
+    if(!checkDestinationCardExpiration()) {
+        ui->disCardNumComboBoxErrorLabel->setText("This Card Has Expired");
+    }
     ui->disCardNumComboBoxErrorLabel->clear();
     return true;
 
@@ -177,6 +190,15 @@ bool Transfer::checkDestinationCardNumLineEditExist(){
         return false;
     return true;
 }
+bool Transfer::checkDestinationCardExpiration(){
+    QString desCardNum = ui->originCardNumberComboBax->currentText();
+    tm expirationDate = findDesCard(desCardNum).getExpirationDate();
+
+    if(isBeforeNow(expirationDate))
+        return false;
+    return true;
+}
+
 
 bool Transfer::checkCvv2LineEditError(){
     if(ui->cvv2LineEdit->text() == "") {
@@ -226,7 +248,7 @@ bool Transfer::checkCvv2LineEditExist(){
     return false;
 }
 
-/// Serch Function
+/// Search Function
 bool Transfer::searchCard (QString cardNum){
     Node<Users> *tmp = user.usersList.getHeadNode();
     Node<BankAccount> *tmpBankAccount;
@@ -256,7 +278,7 @@ bool Transfer::searchSecondPassword(QString secondPassword){
     return false;
 }
 
-Cards Transfer::findCard(QString cardNum){
+Cards Transfer::findOrirginCard(QString cardNum){
 
     Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
 
@@ -269,10 +291,37 @@ Cards Transfer::findCard(QString cardNum){
     return *new Cards;
 
 }
-/// Set Users Informations
+Cards Transfer::findDesCard(QString cardNum){
+        Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<BankAccount> *tmpBankAccount;
+    while(tmp) {
+        tmpBankAccount = tmp->getData().userBankAccountsList.getHeadNode();
+        while(tmpBankAccount) {
+            if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
+                return tmpBankAccount->getData().getCard();
+            tmpBankAccount = tmpBankAccount->getNextNode();
+        }
+        tmp = tmp->getNextNode();
+    }
+    return *new Cards;
+}
 
+/// Set Users Informations
 void Transfer::setUsersInformationInFormsLabels () {
     ui->firstNameLabel->setText(user.getFirstName());
     ui->lastNameLabel->setText(user.getLastName());
     ui->nationalCodeLabel->setText(user.getNationalCode());
 }
+
+/// Time Functions
+bool Transfer::isBeforeNow(const std::tm& date){
+
+    std::time_t now = std::time(nullptr);
+    std::time_t inputTime = std::mktime(const_cast<std::tm*>(&date));
+
+    return inputTime < now;
+}
+
+
+
+
