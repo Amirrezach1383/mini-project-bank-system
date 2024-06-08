@@ -11,7 +11,7 @@ void Cards::setCardNumber(QString data) {
 void Cards::setCvv2Number(QString data) {
     cvv2Number = data;
 }
-void Cards::setExpirationDate(QString data) {
+void Cards::setExpirationDate(tm data) {
     expirationDate = data;
 }
 void Cards::setFixedSecondPassword(QString data) {
@@ -28,7 +28,7 @@ QString Cards::getCardNumber() {
 QString Cards::getCvv2Number() {
     return cvv2Number;
 }
-QString Cards::getExpirationDate() {
+tm Cards::getExpirationDate() {
     return expirationDate;
 }
 QString Cards::getFixedSecondPassword() {

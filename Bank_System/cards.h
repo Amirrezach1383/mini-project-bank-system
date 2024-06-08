@@ -1,6 +1,7 @@
 #ifndef CARDS_H
 #define CARDS_H
 #include <QString>
+#include <ctime>
 
 class Cards
 {
@@ -9,7 +10,7 @@ private:
     QString cvv2Number;
     QString cardPassword;
     QString fixedSecondPassword;
-    QString expirationDate;
+    tm expirationDate;
 
 public:
 
@@ -18,14 +19,14 @@ public:
     void setCvv2Number(QString);
     void setCardPassword(QString);
     void setFixedSecondPassword(QString);
-    void setExpirationDate(QString);
+    void setExpirationDate(tm);
 
     /// Getters
     QString getCardNumber();
     QString getCvv2Number();
     QString getCardPassword();
     QString getFixedSecondPassword();
-    QString getExpirationDate();
+    tm getExpirationDate();
 
 };
 
