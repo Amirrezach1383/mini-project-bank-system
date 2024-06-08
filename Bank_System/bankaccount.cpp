@@ -19,6 +19,12 @@ void BankAccount::setDynamicSecondPassword(QString data) {
 void BankAccount::setCard(Cards data) {
     card = data;
 }
+void BankAccount::setLastTransactionDate(tm data) {
+    lastTransactionDate = data;
+}
+void BankAccount::setLastTransactionAmount(long long int data) {
+    lastTransactionAmount = data;
+}
 
 /// Getter Functions
 QString BankAccount::getAccountNumber() {
@@ -39,4 +45,11 @@ QString BankAccount::getDynamicSecondPassword() {
 Cards BankAccount::getCard () {
     return card;
 }
+tm BankAccount::getLastTransactionDate(){
+    return lastTransactionDate;
+}
+long long int BankAccount::getLastTransactionAmount(){
+    return lastTransactionAmount;
+}
+
 

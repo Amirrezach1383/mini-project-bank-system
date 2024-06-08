@@ -2,6 +2,7 @@
 #define BANKACCOUNT_H
 #include <QString>
 #include <cards.h>
+#include <ctime>
 
 
 class BankAccount
@@ -13,6 +14,8 @@ private:
     QString dynamicSecondPassword;
     long long int balance;
     Cards card;
+    tm lastTransactionDate;
+    long long int lastTransactionAmount;
 
 public:
 
@@ -23,6 +26,8 @@ public:
     void setShabaNumber(QString);
     void setAccountNumber(QString);
     void setDynamicSecondPassword(QString);
+    void setLastTransactionDate(tm);
+    void setLastTransactionAmount(long long int);
 
 
     /// Getters
@@ -32,6 +37,10 @@ public:
     QString getShabaNumber();
     QString getAccountNumber();
     QString getDynamicSecondPassword();
+    tm getLastTransactionDate();
+    long long int getLastTransactionAmount();
+
+
 };
 
 #endif // BANKACCOUNT_H
