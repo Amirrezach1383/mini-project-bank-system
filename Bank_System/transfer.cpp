@@ -18,6 +18,9 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
 
     /// Connect ComboBox to Balance Value
     connect(ui->originCardNumberComboBax, SIGNAL(activated(int)), this, SLOT(setUserBalanceInForm()));
+
+    /// Connect getSecondPassPushButton
+
 }
 Transfer::~Transfer()
 {
@@ -35,10 +38,14 @@ void Transfer::setUserBalanceInForm() {
     QString cardNum = ui->originCardNumberComboBax->currentText();
     ui->yourBalanceValueLabel->setText(QString::number(findOriginCardBankAccount(cardNum).getBalance()));
 }
+void Transfer::getSecondPassPushButton(){
 
+}
 void Transfer::transferPushButton() {
 
     if(checkAllErrors()){
+        setDesUserInfo();
+
 
     }
 
@@ -62,9 +69,6 @@ bool Transfer::checkAllErrors (){
 
     if(!checkCvv2LineEditError())
         checkAllErrors = false;
-
-
-
 
     return checkAllErrors;
 }
@@ -106,6 +110,10 @@ bool Transfer::checkTransferAmountLineEditError(){
         ui->transferAmountErrorLabel->setText("Card Balance Is Insufficient");
         return false;
     }
+    if(!checkTransferAmountIn24Hour()){
+        ui->transferErrorLabel->setText("You Can't Transfer More");
+        return false;
+    }
     ui->transferAmountErrorLabel->clear();
     return true;
 }
@@ -131,7 +139,17 @@ bool Transfer::checkTransferAmountInRange(){
 
     return true;
 }
+bool Transfer::checkTransferAmountIn24Hour() {
+    BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
+    long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
+    if((transferAmount + bankAccount.getLastTransactionAmount()) > 6000000
+        && !checkPassed24hour(bankAccount.getLastTransactionDate())) {
+        return false;
+    }
+    return true;
+
+}
 
 bool Transfer::checkSecondPasswordLineEditError(){
     if(ui->secondPasswordLineEdit->text() == "") {
@@ -234,7 +252,7 @@ bool Transfer::checkCvv2LineEditError(){
         return false;
     }
     if(!checkCvv2LineEditExist()) {
-        ui->cvv2ErrorLabel->setText("Incorrect Password");
+        ui->cvv2ErrorLabel->setText("Incorrect");
         return false;
     }
     ui->cvv2ErrorLabel->clear();
@@ -390,7 +408,16 @@ bool Transfer::isBeforeNow(const std::tm& date){
 
     return inputTime < now;
 }
+bool Transfer::checkPassed24hour(tm date){
+    date.tm_mday += 1;
 
+    std::mktime(&date);
+
+    if(!isBeforeNow(date))
+        return true;
+    return false;
+
+}
 
 
 

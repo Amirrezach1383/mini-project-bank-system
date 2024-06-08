@@ -15,6 +15,7 @@ private slots:
     void openUserPanelForm ();
     void transferPushButton();
     void setUserBalanceInForm();
+    void getSecondPassPushButton();
 
 public:
     explicit Transfer(Users, QWidget *parent = nullptr);
@@ -31,6 +32,7 @@ public:
     bool checkTransferAmountLineEditError();
     bool checkTransferAmountLineEditValid();
     bool checkTransferAmountInRange();
+    bool checkTransferAmountIn24Hour();
 
 
     bool checkSecondPasswordLineEditError();
@@ -64,11 +66,13 @@ public:
     /// Time Functions
 
     bool isBeforeNow(const std::tm& date);
+    bool checkPassed24hour(tm);
 
     /// Set Users Informatioins In forms label
     void setUsersInformationInFormsLabels ();
 
     void setUsersCardsInformation();
+
 
 
 
