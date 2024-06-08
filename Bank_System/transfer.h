@@ -29,7 +29,7 @@ public:
 
     bool checkTransferAmountLineEditError();
     bool checkTransferAmountLineEditValid();
-
+    bool checkTransferAmountInRange();
 
 
     bool checkSecondPasswordLineEditError();
@@ -55,6 +55,7 @@ public:
     bool searchSecondPassword(QString);
 
     Cards findOrirginCard(QString);
+    BankAccount findOriginCardBankAccount(QString);
     Cards findDesCard(QString);
 
     Users findDesUser();

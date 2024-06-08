@@ -62,7 +62,7 @@ bool Transfer::checkAllErrors (){
 
 bool Transfer::checkOrirginCardNumComboBoxError(){
     if(ui->originCardNumberComboBax->currentText() == ""){
-        ui->originCardNumComboBoxErrorLabel->setText("Please Fill Out This Field");
+        ui->originCardNumComboBoxErrorLabel->setText("Please Select A Card Number");
         return false;
     }
     if(!checkOriginCardExpirationDate()){
@@ -93,6 +93,10 @@ bool Transfer::checkTransferAmountLineEditError(){
         ui->transferAmountErrorLabel->setText("Invalid Data");
         return false;
     }
+    if(!checkTransferAmountInRange()) {
+        ui->transferAmountErrorLabel->setText("Card Balance Is Insufficient");
+        return false;
+    }
     ui->transferAmountErrorLabel->clear();
     return true;
 }
@@ -108,6 +112,17 @@ bool Transfer::checkTransferAmountLineEditValid(){
     }
     return true;
 }
+bool Transfer::checkTransferAmountInRange(){
+
+    QString cardNum = ui->originCardNumberComboBax->currentText();
+    long long int balance = findOriginCardBankAccount(cardNum).getBalance();
+
+    if(ui->transferAmountLineEdit->text().toLongLong() >= balance)
+        return false;
+
+    return true;
+}
+
 
 bool Transfer::checkSecondPasswordLineEditError(){
     if(ui->secondPasswordLineEdit->text() == "") {
@@ -272,16 +287,13 @@ bool Transfer::searchCard(QString cardNum){
     return false;
 }
 bool Transfer::searchSecondPassword(QString secondPassword){
-    Node<Users> *tmp = user.usersList.getHeadNode();
     Node<BankAccount> *tmpBankAccount;
-    while(tmp) {
-        tmpBankAccount = tmp->getData().userBankAccountsList.getHeadNode();
-        while(tmpBankAccount) {
-            if(tmpBankAccount->getData().getCard().getFixedSecondPassword() == secondPassword)
-                return true;
-            tmpBankAccount = tmpBankAccount->getNextNode();
-        }
-        tmp = tmp->getNextNode();
+
+    tmpBankAccount = user.userBankAccountsList.getHeadNode();
+    while(tmpBankAccount) {
+        if(tmpBankAccount->getData().getCard().getFixedSecondPassword() == secondPassword)
+            return true;
+        tmpBankAccount = tmpBankAccount->getNextNode();
     }
     return false;
 }
@@ -299,8 +311,21 @@ Cards Transfer::findOrirginCard(QString cardNum){
     return *new Cards;
 
 }
+BankAccount Transfer::findOriginCardBankAccount(QString cardNum) {
+    Node<BankAccount> *tmpBankAccount;
+
+        tmpBankAccount = user.userBankAccountsList.getHeadNode();
+        while(tmpBankAccount) {
+            if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
+                return tmpBankAccount->getData();
+            tmpBankAccount = tmpBankAccount->getNextNode();
+        }
+
+    return *new BankAccount;
+
+}
 Cards Transfer::findDesCard(QString cardNum){
-        Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<Users> *tmp = user.usersList.getHeadNode();
     Node<BankAccount> *tmpBankAccount;
     while(tmp) {
         tmpBankAccount = tmp->getData().userBankAccountsList.getHeadNode();
@@ -313,6 +338,7 @@ Cards Transfer::findDesCard(QString cardNum){
     }
     return *new Cards;
 }
+
 
 Users Transfer::findDesUser(){
     QString desCardNum = ui->distinationCardNumberLineEdit->text();
