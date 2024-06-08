@@ -77,7 +77,7 @@ BankAccount BalanceForm::searchBankAccount() {
 /// show Balance Value
 void BalanceForm::showBalanceValue(BankAccount bankAccount) {
 
-    ui->valueLabel->setText(bankAccount.getBalance());
+    ui->valueLabel->setText(QString::number(bankAccount.getBalance()));
     ui->footerBalanceLabel->show();
     ui->valueLabel->show();
 }

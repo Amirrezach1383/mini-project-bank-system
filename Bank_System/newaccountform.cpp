@@ -77,7 +77,7 @@ void NewAccountForm::setUsersAccountInformation(){
     bankAccountTmp.setAccountNumber(makeAccountNum());
     bankAccountTmp.setShabaNumber(makeShabaNumber(bankAccountTmp.getAccountNumber()));
     bankAccountTmp.setAccountType(ui->accountTypeComboBox->currentText());
-    bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text());
+    bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text().toLongLong());
     bankAccountTmp.setCard(setUsersCardInformation());
 
     user.addBankAccountToList(bankAccountTmp);

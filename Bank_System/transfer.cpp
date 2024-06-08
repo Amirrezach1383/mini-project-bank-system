@@ -3,18 +3,23 @@
 #include "users.h"
 #include "userpanel.h"
 
-Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), ui(new Ui::Transfer) {
+Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users), ui(new Ui::Transfer) {
 
     ui->setupUi(this);
-    this->user = users;
+    setUsersInformationInFormsLabels();
+
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
 
-    /// Show Title
-    ui->firstNameLabel->setText(user.getFirstName());
-    ui->lastNameLabel->setText(user.getLastName());
-    ui->nationalCodeLabel->setText(user.getNationalCode());
+
 }
+
+Transfer::~Transfer()
+{
+    delete ui;
+}
+
+/// Private Slots
 
 void Transfer::openUserPanelForm() {
     UserPanel *userPanel = new UserPanel(user);
@@ -22,7 +27,11 @@ void Transfer::openUserPanelForm() {
     this->close();
 }
 
-Transfer::~Transfer()
-{
-    delete ui;
+
+/// Set Users Informations
+
+void Transfer::setUsersInformationInFormsLabels () {
+    ui->firstNameLabel->setText(user.getFirstName());
+    ui->lastNameLabel->setText(user.getLastName());
+    ui->nationalCodeLabel->setText(user.getNationalCode());
 }

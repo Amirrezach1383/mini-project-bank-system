@@ -17,10 +17,13 @@ private slots:
 public:
     explicit Transfer(Users, QWidget *parent = nullptr);
     ~Transfer();
-    Users user;
 
 private:
+    Users user;
     Ui::Transfer *ui;
+
+    void setUsersInformationInFormsLabels ();
+
 };
 
 #endif // TRANSFER_H
