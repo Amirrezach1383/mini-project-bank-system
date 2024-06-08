@@ -23,7 +23,6 @@ NewAccountForm::NewAccountForm(Users users, QWidget *parent)  : QWidget(parent),
 
     /// Connect CheckBox
     connect(ui->secondFixedPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(checkBoxChangeLineEditEnableOrDisable()));
-
 }
 
 NewAccountForm::~NewAccountForm()
@@ -78,10 +77,10 @@ void NewAccountForm::setUsersAccountInformation(){
     bankAccountTmp.setAccountNumber(makeAccountNum());
     bankAccountTmp.setShabaNumber(makeShabaNumber(bankAccountTmp.getAccountNumber()));
     bankAccountTmp.setAccountType(ui->accountTypeComboBox->currentText());
-    bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text().toLongLong());
+    bankAccountTmp.setBalance(ui->intialBalanceLineEdit->text());
     bankAccountTmp.setCard(setUsersCardInformation());
 
-    user.setBankAccount(bankAccountTmp, user.getNumOfUserAccount() - 1);
+    user.addBankAccountToList(bankAccountTmp);
 
     setAccountInformationInFormsLabels();
     setCardsInformationInFormsLabels();
@@ -94,7 +93,7 @@ void NewAccountForm::addNewDataToUserLists() {
     Node<Users> *tmp = user.usersList.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUsername() == username) {
-            tmp->getData().setBankAccount(user.getBankAccount(user.getNumOfUserAccount() - 1), user.getNumOfUserAccount() - 1);
+            tmp->setData(user);
         }
         tmp = tmp->getNextNode();
     }
@@ -102,15 +101,22 @@ void NewAccountForm::addNewDataToUserLists() {
 }
 
 void NewAccountForm::setCardsInformationInFormsLabels(){
-    ui->cardsNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCardNumber());
-    ui->exparationDateLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getExpirationDate());
-    ui->cvv2LabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCvv2Number());
+
+    Node<BankAccount> *tmp = user.userBankAccountsList.getTailNode();
+    Cards card = tmp->getData().getCard();
+
+    ui->cardsNumberLabelEdit->setText(card.getCardNumber());
+    ui->exparationDateLabelEdit->setText(card.getExpirationDate());
+    ui->cvv2LabelEdit->setText(card.getCvv2Number());
 
     ui->cardInformationGroupBox->show();
 }
 void NewAccountForm::setAccountInformationInFormsLabels(){
-    ui->accountNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getAccountNumber());
-    ui->shabaNumberLabelEdit->setText(user.getBankAccount(user.getNumOfUserAccount() - 1).getShabaNumber());
+
+    Node<BankAccount> *tmp = user.userBankAccountsList.getTailNode();
+
+    ui->accountNumberLabelEdit->setText(tmp->getData().getAccountNumber());
+    ui->shabaNumberLabelEdit->setText(tmp->getData().getShabaNumber());
 
     ui->accountInformationGroupBox->show();
 }

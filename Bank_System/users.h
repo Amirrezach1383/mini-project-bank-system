@@ -12,11 +12,11 @@ private:
     QString age;
     QString password;
     QString username;
-    BankAccount bankAccount[5];
     int numOfUserAccount;
 
 public:
     LinkList<Users> usersList;
+    LinkList<BankAccount> userBankAccountsList;
 
     Users ();
 
@@ -42,6 +42,7 @@ public:
     int getNumOfUserAccount();
 
     void addUserToList();
+    void addBankAccountToList(BankAccount);
     bool searchPasswordInList(QString);
 
 };

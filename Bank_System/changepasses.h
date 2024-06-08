@@ -57,7 +57,9 @@ private:
     void setFixedSecondPasswordInformation();
 
     /// search user account
-    int searchBankAccount ();
+    BankAccount searchBankAccount ();
+
+    void setNewBankAccountIinformation(BankAccount);
 
     void setAccountInformationInComboBox ();
 };

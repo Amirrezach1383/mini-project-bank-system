@@ -23,6 +23,8 @@ ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user
     connect(ui->changeCardPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(cardPasswordCheckBox()));
     connect(ui->changeFixedSecondPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(fixedSecondCheckBox()));
 
+    // connect(ui.object, SIGNAL(textChanged()), ui.errorLabel, SLOT(clear()));
+
 }
 ChangePasses::~ChangePasses()
 {
@@ -92,53 +94,67 @@ void ChangePasses::fixedSecondCheckBox(){
 
 /// Set changes in User Information
 void ChangePasses::setCardPasswordInformation(){
-    int i = searchBankAccount ();
+    BankAccount bankAccount = searchBankAccount();
     QString password = ui->newCardPasswordLineEdit->text();
 
-    BankAccount bankAccountTmp = user.getBankAccount(i);
-    Cards cardTmp = bankAccountTmp.getCard();
+    Cards cardTmp = bankAccount.getCard();
 
     cardTmp.setCardPassword(password);
-    bankAccountTmp.setCard(cardTmp);
+    bankAccount.setCard(cardTmp);
 
-    user.setBankAccount(bankAccountTmp, i);
+    setNewBankAccountIinformation(bankAccount);
 }
 void ChangePasses::setFixedSecondPasswordInformation(){
-    int i = searchBankAccount ();
+    BankAccount bankAccount = searchBankAccount();
     QString password = ui->newFixedSecondPasswordLineEdit->text();
 
-    BankAccount bankAccountTmp = user.getBankAccount(i);
-    Cards cardTmp = user.getBankAccount(i).getCard();
+    Cards cardTmp = bankAccount.getCard();
 
     cardTmp.setFixedSecondPassword(password);
-    bankAccountTmp.setCard(cardTmp);
+    bankAccount.setCard(cardTmp);
 
-    user.setBankAccount(bankAccountTmp, i);
+    setNewBankAccountIinformation(bankAccount);
 }
 
 /// Search BankAccount Function
-int ChangePasses::searchBankAccount() {
+BankAccount ChangePasses::searchBankAccount() {
     QString accountNum = ui->accountComboBox->currentText();
-    int i = 0;
 
-    while(i < user.getNumOfUserAccount()) {
-        if(user.getBankAccount(i).getAccountNumber() == accountNum)
-            return i;
-        i++;
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+
+    while(tmp) {
+        if(tmp->getData().getAccountNumber() == accountNum)
+            return tmp->getData();
+        tmp = tmp->getNextNode();
     }
-    return -1;
+    return *new BankAccount;
 }
 
 void ChangePasses::setAccountInformationInComboBox () {
-    int i = 0;
 
-    while(i < user.getNumOfUserAccount()) {
-        ui->accountComboBox->addItem(user.getBankAccount(i).getAccountNumber());
-        i++;
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+    while(tmp) {
+        ui->accountComboBox->addItem(tmp->getData().getAccountNumber());
+        tmp = tmp->getNextNode();
     }
 }
 
-/// Check And Set Passwords Functions
+void ChangePasses::setNewBankAccountIinformation(BankAccount bankAcocunt) {
+
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+
+    while(tmp) {
+        if(tmp->getData().getAccountNumber() == bankAcocunt.getAccountNumber()){
+            tmp->setData(bankAcocunt);
+            break;
+        }
+        tmp = tmp->getNextNode();
+    }
+
+
+}
+
+/// Check And Set Passwords Errror Functions
 bool ChangePasses::checkChangeFixedSecondPasswordAllError(){
     bool checkAllErrors = true;
 
@@ -207,7 +223,8 @@ bool ChangePasses::checkNewCardPasswordValid(){
 
 }
 bool ChangePasses::checkNewCardPasswordDifference () {
-    QString password = user.getBankAccount(searchBankAccount()).getCard().getCardPassword();
+    BankAccount bankAccount = searchBankAccount();
+    QString password = bankAccount.getCard().getCardPassword();
 
     if(ui->newCardPasswordLineEdit->text() == password)
         return false;
@@ -249,7 +266,8 @@ bool ChangePasses::checkNewFixedSecondPasswordValid(){
     return true;
 }
 bool ChangePasses::checkNewFixedSecondPasswordDifference () {
-    QString password = user.getBankAccount(searchBankAccount()).getCard().getFixedSecondPassword();
+    BankAccount bankAccount = searchBankAccount();
+    QString password = bankAccount.getCard().getFixedSecondPassword();
 
     if(ui->newFixedSecondPasswordLineEdit->text() == password)
         return false;
@@ -292,7 +310,8 @@ bool ChangePasses::checkpreviousCardPasswordValid(){
 
 }
 bool ChangePasses::checkpreviousCardPasswordExists(){
-    QString password = user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getCardPassword();
+    BankAccount bankAccount = searchBankAccount();
+    QString password = bankAccount.getCard().getCardPassword();
 
     if(ui->previousCardPasswordLineEdit->text() == password)
         return true;
@@ -333,7 +352,8 @@ bool ChangePasses::checkpreviousFixedSecondPasswordValid(){
     return true;
 }
 bool ChangePasses::checkpreviousFixedSecondPasswordExists(){
-    QString password = user.getBankAccount(user.getNumOfUserAccount() - 1).getCard().getFixedSecondPassword();
+    BankAccount bankAccount = searchBankAccount();
+    QString password = bankAccount.getCard().getFixedSecondPassword();
 
     if(password == ui->previousFixedSecondPasswordLineEdit->text())
         return true;

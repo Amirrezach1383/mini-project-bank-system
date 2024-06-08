@@ -31,8 +31,8 @@ void BalanceForm::openUserPanelForm() {
 
 void BalanceForm::showBalancePushButton() {
     if(checkAllErrors()) {
-        int i = searchBankAccount();
-        showBalanceValue(i);
+        BankAccount bankAccount = searchBankAccount();
+        showBalanceValue(bankAccount);
     }
 }
 
@@ -60,22 +60,24 @@ bool BalanceForm::checkAccountComboBox() {
 }
 
 /// Search BankAccount Function
-int BalanceForm::searchBankAccount() {
+BankAccount BalanceForm::searchBankAccount() {
     QString accountNum = ui->accountComboBox->currentText();
-    int i = 0;
 
-    while(i < user.getNumOfUserAccount()) {
-        if(user.getBankAccount(i).getAccountNumber() == accountNum)
-            return i;
-        i++;
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+    while(tmp) {
+        if(tmp->getData().getAccountNumber() == accountNum)
+            return tmp->getData();
+
+        tmp = tmp->getNextNode();
     }
-    return -1;
+
+    return *new BankAccount;
 }
 
 /// show Balance Value
-void BalanceForm::showBalanceValue(int i) {
+void BalanceForm::showBalanceValue(BankAccount bankAccount) {
 
-    ui->valueLabel->setText(QString::number(user.getBankAccount(i).getBalance()));
+    ui->valueLabel->setText(bankAccount.getBalance());
     ui->footerBalanceLabel->show();
     ui->valueLabel->show();
 }
@@ -89,11 +91,11 @@ void BalanceForm::setUsersInformations (){
 }
 // Set AccountComboBox Value
 void BalanceForm::setAccountComboBoxValue() {
-    int i = 0;
 
-    while(i < user.getNumOfUserAccount()) {
-        ui->accountComboBox->addItem(user.getBankAccount(i).getAccountNumber());
-        i++;
+    Node<BankAccount> *tmp = user.userBankAccountsList.getHeadNode();
+    while(tmp) {
+        ui->accountComboBox->addItem(tmp->getData().getAccountNumber());
+        tmp = tmp->getNextNode();
     }
 
 }

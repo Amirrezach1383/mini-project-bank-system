@@ -17,9 +17,6 @@ QString Users::getPassword () {
 QString Users::getUsername () {
     return username;
 }
-BankAccount Users::getBankAccount (int idx) {
-    return bankAccount[idx];
-}
 QString Users::getAge () {
     return age;
 }
@@ -43,9 +40,6 @@ void Users::setLastName (QString data) {
 void Users::setUsername (QString data) {
     username = data;
 }
-void Users::setBankAccount (BankAccount data, int idx) {
-    bankAccount[idx] = data;
-}
 void Users::setPassword (QString data) {
     password = data;
 }
@@ -59,6 +53,11 @@ void Users::setNumOfUserAccount (int data) {
 void Users::addUserToList() {
     usersList.pushBack(*this);
 }
+void Users::addBankAccountToList(BankAccount bankAccount){
+
+    this->userBankAccountsList.pushBack(bankAccount);
+}
+
 bool Users::searchPasswordInList(QString password){
 
 

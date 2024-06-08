@@ -11,14 +11,14 @@ private:
     QString shabaNumber;
     QString accountNumber;
     QString dynamicSecondPassword;
-    long long int balance;
+    QString balance;
     Cards card;
 
 public:
 
     /// Setters
     void setCard(Cards);
-    void setBalance(unsigned long int);
+    void setBalance(QString);
     void setAccountType(QString);
     void setShabaNumber(QString);
     void setAccountNumber(QString);
@@ -27,7 +27,7 @@ public:
 
     /// Getters
     Cards getCard();
-    unsigned long int getBalance();
+    QString getBalance();
     QString getAccountType();
     QString getShabaNumber();
     QString getAccountNumber();

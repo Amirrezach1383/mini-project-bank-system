@@ -29,10 +29,10 @@ public:
     bool checkAccountComboBox();
 
     /// Show Balance Value
-    void showBalanceValue (int);
+    void showBalanceValue (BankAccount);
 
     /// Search BankAccount Function
-    int searchBankAccount ();
+    BankAccount searchBankAccount ();
 
 
 private:

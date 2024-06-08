@@ -7,7 +7,7 @@ void BankAccount::setAccountNumber(QString data){
 void BankAccount::setAccountType(QString data) {
     accountType = data;
 }
-void BankAccount::setBalance(unsigned long int data) {
+void BankAccount::setBalance(QString data) {
     balance = data;
 }
 void BankAccount::setShabaNumber(QString data) {
@@ -27,7 +27,7 @@ QString BankAccount::getAccountNumber() {
 QString BankAccount::getAccountType() {
     return accountType;
 }
-unsigned long int BankAccount::getBalance() {
+QString BankAccount::getBalance() {
     return balance;
 }
 QString BankAccount::getShabaNumber() {
