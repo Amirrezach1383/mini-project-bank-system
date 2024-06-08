@@ -46,12 +46,18 @@ public:
     bool checkCvv2LineEditValid();
     bool checkCvv2LineEditExist();
 
+    /// Set Destination Account's User's INFO
+    void setDesUserInfo();
+
+
     /// Search Function
     bool searchCard(QString);
     bool searchSecondPassword(QString);
 
     Cards findOrirginCard(QString);
     Cards findDesCard(QString);
+
+    Users findDesUser();
 
     /// Time Functions
 

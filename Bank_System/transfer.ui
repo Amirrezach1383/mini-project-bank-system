@@ -495,7 +495,7 @@ font: 700 16pt &quot;Myanmar Text&quot;;</string>
     <string>To : </string>
    </property>
   </widget>
-  <widget class="QLabel" name="toLabel_2">
+  <widget class="QLabel" name="toLabelEdit">
    <property name="geometry">
     <rect>
      <x>151</x>

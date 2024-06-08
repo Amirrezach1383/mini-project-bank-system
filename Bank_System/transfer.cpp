@@ -248,8 +248,16 @@ bool Transfer::checkCvv2LineEditExist(){
     return false;
 }
 
+/// Set Destination Account's User's INFO
+void Transfer::setDesUserInfo(){
+    Users desUser = findDesUser();
+
+    ui->toLabelEdit->setText(desUser.getFirstName() + " " + desUser.getLastName());
+}
+
+
 /// Search Function
-bool Transfer::searchCard (QString cardNum){
+bool Transfer::searchCard(QString cardNum){
     Node<Users> *tmp = user.usersList.getHeadNode();
     Node<BankAccount> *tmpBankAccount;
     while(tmp) {
@@ -304,6 +312,24 @@ Cards Transfer::findDesCard(QString cardNum){
         tmp = tmp->getNextNode();
     }
     return *new Cards;
+}
+
+Users Transfer::findDesUser(){
+    QString desCardNum = ui->distinationCardNumberLineEdit->text();
+
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    Node<BankAccount> *tmpBankAccount;
+    while(tmp) {
+        tmpBankAccount = tmp->getData().userBankAccountsList.getHeadNode();
+        while(tmpBankAccount) {
+            if(tmpBankAccount->getData().getCard().getCardNumber() == desCardNum)
+                return tmp->getData();
+            tmpBankAccount = tmpBankAccount->getNextNode();
+        }
+        tmp = tmp->getNextNode();
+    }
+    return *new Users;
+
 }
 
 /// Set Users Informations
