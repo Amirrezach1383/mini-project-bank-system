@@ -152,6 +152,7 @@ QString NewAccountForm::makeCardNum() {
 
     return cardNum;
 }
+
 QString NewAccountForm::makeCardExpirationDate() {
     QString expirationDate;
     std::time_t now = std::time(nullptr);
