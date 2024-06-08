@@ -7,6 +7,8 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
 
     ui->setupUi(this);
     setUsersInformationInFormsLabels();
+    setUsersCardsInformation();
+    setUserBalanceInForm();
 
     /// Connect to UserPanelForm
     connect(ui->backPushButton, SIGNAL(clicked()), this, SLOT(openUserPanelForm()));
@@ -14,6 +16,8 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
     /// Connect transfer PushButton
     connect(ui->transferPushButton, SIGNAL(clicked()), this, SLOT(transferPushButton()));
 
+    /// Connect ComboBox to Balance Value
+    connect(ui->originCardNumberComboBax, SIGNAL(activated(int)), this, SLOT(setUserBalanceInForm()));
 }
 Transfer::~Transfer()
 {
