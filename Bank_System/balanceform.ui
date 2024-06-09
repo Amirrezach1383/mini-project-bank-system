@@ -65,7 +65,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>20</y>
+     <y>18</y>
      <width>201</width>
      <height>71</height>
     </rect>
@@ -88,8 +88,10 @@ font:700 33pt &quot;Hyogo&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 18pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">
+color: rgb(0, 0, 0);
+font:700 18pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Account : </string>
@@ -124,13 +126,14 @@ background-color: rgb(4, 27, 48);</string>
     <rect>
      <x>165</x>
      <y>366</y>
-     <width>121</width>
+     <width>140</width>
      <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
-font: 18pt &quot;Myanmar Text&quot;;</string>
+    <string notr="true">
+color: rgb(0, 0, 0);
+font:700 18pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>Balance : </string>
@@ -143,14 +146,15 @@ font: 18pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>385</y>
+     <y>384</y>
      <width>289</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">
+color: rgb(0, 0, 0);
+font:18pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>value</string>
@@ -180,15 +184,15 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
   <widget class="QLabel" name="nationalCodeLabel">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>122</y>
-     <width>211</width>
+     <x>184</x>
+     <y>126</y>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 0);
-font: 11pt &quot;Myanmar Text&quot;;</string>
+font: 11pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>National Code</string>
@@ -211,38 +215,21 @@ color: rgb(255, 73, 73);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="lastNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>100</y>
-     <width>126</width>
-     <height>49</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;Myanmar Text&quot;;</string>
-   </property>
-   <property name="text">
-    <string>Last Name</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="firstNameLabel">
    <property name="geometry">
     <rect>
      <x>184</x>
      <y>85</y>
-     <width>111</width>
+     <width>261</width>
      <height>49</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;Myanmar Text&quot;;</string>
+font: 14pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
-    <string>First Name </string>
+    <string>First Name And LastName</string>
    </property>
   </widget>
  </widget>

@@ -53,22 +53,22 @@
    <property name="geometry">
     <rect>
      <x>84</x>
-     <y>70</y>
+     <y>53</y>
      <width>161</width>
      <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
-     <pointsize>30</pointsize>
+     <family>Hyogo</family>
+     <pointsize>33</pointsize>
      <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 0);
-font: 700 30pt &quot;Myanmar Text&quot;;</string>
+font:700 33pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>Login</string>
@@ -97,21 +97,24 @@ font: 10pt &quot;Myanmar Text&quot;;
   <widget class="QLabel" name="usernameLabelL">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>8</x>
      <y>221</y>
-     <width>161</width>
+     <width>130</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
-     <bold>false</bold>
+     <italic>false</italic>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Username :</string>
@@ -140,21 +143,24 @@ font: 10pt &quot;Myanmar Text&quot;;
   <widget class="QLabel" name="passwordLabelL">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>291</y>
-     <width>111</width>
+     <x>8</x>
+     <y>286</y>
+     <width>130</width>
      <height>39</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Password :</string>
@@ -275,21 +281,23 @@ font: 10pt &quot;Myanmar Text&quot;;
   <widget class="QLabel" name="SignInLabel">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>70</y>
+     <x>471</x>
+     <y>55</y>
      <width>221</width>
      <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
-     <pointsize>30</pointsize>
+     <family>Hyogo</family>
+     <pointsize>33</pointsize>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font:700 33pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>Sign Up</string>
@@ -306,13 +314,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Last Name : </string>
@@ -329,13 +340,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
-     <bold>false</bold>
+     <italic>false</italic>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Age : </string>
@@ -352,13 +366,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>First Name :</string>
@@ -367,7 +384,7 @@ font: 10pt &quot;Myanmar Text&quot;;
   <widget class="QLabel" name="nationalCodeLabel">
    <property name="geometry">
     <rect>
-     <x>352</x>
+     <x>350</x>
      <y>250</y>
      <width>171</width>
      <height>39</height>
@@ -375,14 +392,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
      <italic>false</italic>
-     <bold>false</bold>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>National Code : </string>
@@ -399,13 +418,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Username : </string>
@@ -422,13 +444,16 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Hyogo</family>
      <pointsize>14</pointsize>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Password : </string>

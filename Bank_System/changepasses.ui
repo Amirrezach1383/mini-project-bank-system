@@ -44,15 +44,15 @@
   <widget class="QLabel" name="changePasswordLabel">
    <property name="geometry">
     <rect>
-     <x>178</x>
-     <y>49</y>
-     <width>471</width>
+     <x>179</x>
+     <y>46</y>
+     <width>441</width>
      <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 0);
-font: 700 30pt &quot;Myanmar Text&quot;;</string>
+font:700 33pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>Change Password</string>
@@ -83,14 +83,15 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>376</y>
-     <width>336</width>
+     <y>370</y>
+     <width>350</width>
      <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Enter Your Previous Password : </string>
@@ -130,14 +131,15 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>436</y>
-     <width>292</width>
+     <y>430</y>
+     <width>310</width>
      <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Enter Your New Password : </string>
@@ -201,14 +203,15 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>284</y>
-     <width>292</width>
+     <y>279</y>
+     <width>310</width>
      <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Enter Your New Password : </string>
@@ -218,14 +221,15 @@ color: rgb(0, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>220</y>
-     <width>331</width>
+     <y>216</y>
+     <width>350</width>
      <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Enter Your Privious Password : </string>
@@ -259,14 +263,15 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>130</y>
+     <y>125</y>
      <width>111</width>
      <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 700 14pt &quot;Myanmar Text&quot;;
-color: rgb(0, 0, 0);</string>
+    <string notr="true">color: rgb(0, 0, 0);
+font: 700 14pt &quot;Hyogo&quot;;
+</string>
    </property>
    <property name="text">
     <string>Account : </string>
@@ -296,14 +301,14 @@ font: 10pt &quot;Myanmar Text&quot;;
   <widget class="QCheckBox" name="changeCardPasswordCheckBox">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>193</y>
-     <width>271</width>
+     <x>102</x>
+     <y>196</y>
+     <width>20</width>
      <height>26</height>
     </rect>
    </property>
    <property name="text">
-    <string>Change Card Four Digit Password</string>
+    <string/>
    </property>
    <property name="checked">
     <bool>true</bool>
@@ -313,13 +318,13 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="geometry">
     <rect>
      <x>102</x>
-     <y>348</y>
-     <width>271</width>
+     <y>347</y>
+     <width>20</width>
      <height>26</height>
     </rect>
    </property>
    <property name="text">
-    <string>Change Fixed Second Password</string>
+    <string/>
    </property>
    <property name="checked">
     <bool>false</bool>
@@ -408,6 +413,42 @@ color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="previousCardPasswordLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>336</y>
+     <width>290</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font:  12pt &quot;Hyogo&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Change Fixed Second Password</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="previousCardPasswordLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>185</y>
+     <width>300</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font:  12pt &quot;Hyogo&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Change Card Four Digit Password</string>
    </property>
   </widget>
  </widget>

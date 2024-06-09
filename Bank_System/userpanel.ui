@@ -31,69 +31,18 @@
   <widget class="QLabel" name="userPanelLabel">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>23</y>
-     <width>251</width>
+     <x>281</x>
+     <y>24</y>
+     <width>261</width>
      <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 0);
-font: 700 30pt &quot;Myanmar Text&quot;;</string>
+font:700 33pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>User Panel </string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>81</y>
-     <width>261</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="firstNameLabel">
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;Myanmar Text&quot;;</string>
-      </property>
-      <property name="text">
-       <string>First Name </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lastNameLabel">
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;Myanmar Text&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Last Name</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="nationalCodeLabel">
-   <property name="geometry">
-    <rect>
-     <x>182</x>
-     <y>123</y>
-     <width>211</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
-font: 11pt &quot;Myanmar Text&quot;;</string>
-   </property>
-   <property name="text">
-    <string>National Code</string>
    </property>
   </widget>
   <widget class="QPushButton" name="logoutPushButton">
@@ -225,15 +174,49 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
     <pixmap resource="background.qrc">:/image/Better User Panel.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QLabel" name="nationalCodeLabel">
+   <property name="geometry">
+    <rect>
+     <x>181</x>
+     <y>117</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;Hyogo&quot;;</string>
+   </property>
+   <property name="text">
+    <string>National Code</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>181</x>
+     <y>76</y>
+     <width>261</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Hyogo&quot;;</string>
+   </property>
+   <property name="text">
+    <string>First Name And LastName</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>userPanelLabel</zorder>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>nationalCodeLabel</zorder>
   <zorder>logoutPushButton</zorder>
   <zorder>transferPushButton</zorder>
   <zorder>showBalancePushButton</zorder>
   <zorder>newAccountPushButton</zorder>
   <zorder>changPasswordPushButton</zorder>
+  <zorder>nationalCodeLabel</zorder>
+  <zorder>firstNameLabel</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>
