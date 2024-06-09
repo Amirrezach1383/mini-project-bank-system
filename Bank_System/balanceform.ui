@@ -66,13 +66,13 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
     <rect>
      <x>300</x>
      <y>20</y>
-     <width>191</width>
+     <width>201</width>
      <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 0);
-font: 700 30pt &quot;Myanmar Text&quot;;</string>
+font:700 33pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
     <string>Balance</string>
@@ -194,40 +194,6 @@ font: 11pt &quot;Myanmar Text&quot;;</string>
     <string>National Code</string>
    </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>183</x>
-     <y>80</y>
-     <width>261</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="firstNameLabel">
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;Myanmar Text&quot;;</string>
-      </property>
-      <property name="text">
-       <string>First Name </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lastNameLabel">
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;Myanmar Text&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Last Name</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="accountComboBoxErrorLabel">
    <property name="geometry">
     <rect>
@@ -243,6 +209,40 @@ color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>100</y>
+     <width>126</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Last Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>184</x>
+     <y>85</y>
+     <width>111</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Myanmar Text&quot;;</string>
+   </property>
+   <property name="text">
+    <string>First Name </string>
    </property>
   </widget>
  </widget>
