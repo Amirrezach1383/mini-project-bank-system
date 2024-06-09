@@ -19,6 +19,8 @@ private:
 
 public:
 
+    BankAccount();
+
     /// Setters
     void setCard(Cards);
     void setBalance(long long int);

@@ -22,6 +22,9 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
     /// Connect getSecondPassPushButton
     connect(ui->getSecondPasswordPushButton, SIGNAL(clicked()), this, SLOT(getSecondPassPushButton()));
 
+    /// Connect Destination Card Number
+    connect(ui->distinationCardNumberLineEdit, SIGNAL(textChanged(QString)), this, SLOT(destinationCardNumberLineEdit()));
+
 }
 Transfer::~Transfer()
 {
@@ -41,6 +44,7 @@ void Transfer::setUserBalanceInForm() {
 }
 void Transfer::getSecondPassPushButton(){
     if(checkAllErrors()) {
+        ui->secondPasswordErrorLabel->clear();
         if(checkGetSecondPasswordLineEditErorr()) {
             ui->secondPasswordLineEdit->setEnabled(false);
             setRandomSecondPassword();
@@ -53,7 +57,7 @@ void Transfer::getSecondPassPushButton(){
 void Transfer::transferPushButton() {
 
     if(checkAllErrors()){
-        setDesUserInfo();
+
 
 
     }
@@ -69,6 +73,10 @@ void Transfer::setRandomSecondPassword(){
 
     ui->secondPasswordLineEdit->setText(QString::number(randomNum));
 
+}
+
+void Transfer::destinationCardNumberLineEdit(){
+    checkDestinationCardNumLineEditError();
 }
 
 ///========== Check And Set Errors Functions ==========
@@ -253,6 +261,7 @@ bool Transfer::checkDestinationCardNumLineEditError(){
     if(!checkDestinationCardExpiration()) {
         ui->disCardNumComboBoxErrorLabel->setText("This Card Has Expired");
     }
+    setDesUserInfo();
     ui->disCardNumComboBoxErrorLabel->clear();
     return true;
 

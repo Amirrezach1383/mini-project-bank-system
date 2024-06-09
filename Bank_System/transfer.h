@@ -17,6 +17,7 @@ private slots:
     void setUserBalanceInForm();
     void getSecondPassPushButton();
 
+    void destinationCardNumberLineEdit();
 public:
     explicit Transfer(Users, QWidget *parent = nullptr);
     ~Transfer();
