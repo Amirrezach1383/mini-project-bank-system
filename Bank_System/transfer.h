@@ -33,6 +33,7 @@ public:
     bool checkTransferAmountLineEditValid();
     bool checkTransferAmountInRange();
     bool checkTransferAmountIn24Hour();
+    bool checkTransferAmountsRange();
 
 
     bool checkSecondPasswordLineEditError();

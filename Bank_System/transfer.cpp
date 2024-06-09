@@ -70,6 +70,9 @@ bool Transfer::checkAllErrors (){
     if(!checkCvv2LineEditError())
         checkAllErrors = false;
 
+    if(!checkTransferAmountIn24Hour())
+        checkAllErrors = false;
+
     return checkAllErrors;
 }
 
@@ -114,6 +117,10 @@ bool Transfer::checkTransferAmountLineEditError(){
         ui->transferErrorLabel->setText("You Can't Transfer More");
         return false;
     }
+    if(!checkTransferAmountsRange()){
+        ui->transferErrorLabel->setText("Transfer Amount Is Out Of Range");
+        return false;
+    }
     ui->transferAmountErrorLabel->clear();
     return true;
 }
@@ -149,6 +156,15 @@ bool Transfer::checkTransferAmountIn24Hour() {
     }
     return true;
 
+}
+bool Transfer::checkTransferAmountsRange(){
+
+    QString transferAmount = ui->transferAmountLineEdit->text();
+    long long int transferAmountInt = transferAmount.toLongLong();
+
+    if(transferAmountInt > 3000000 || transferAmountInt < 1000)
+        return false;
+    return true;
 }
 
 bool Transfer::checkSecondPasswordLineEditError(){
