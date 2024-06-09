@@ -23,8 +23,11 @@ public:
 
     Users user;
 
+    void setRandomSecondPassword();
+
     ///========== Check And Set Functions ==========
     bool checkAllErrors ();
+
 
     bool checkOrirginCardNumComboBoxError();
     bool checkOriginCardExpirationDate();
@@ -39,6 +42,7 @@ public:
     bool checkSecondPasswordLineEditError();
     bool checkSecondPasswordLineEditValid();
     bool checkSecondPasswordLineEditExist();
+    bool checkGetSecondPasswordLineEditErorr();
 
     bool checkDestinationCardNumLineEditError();
     bool checkDestinationCardNumLineValid();
@@ -68,6 +72,9 @@ public:
 
     bool isBeforeNow(const std::tm& date);
     bool checkPassed24hour(tm);
+
+    /// Get Random Number
+    int getRandomNumber ();
 
     /// Set Users Informatioins In forms label
     void setUsersInformationInFormsLabels ();

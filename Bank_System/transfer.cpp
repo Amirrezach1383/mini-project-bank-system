@@ -20,6 +20,7 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
     connect(ui->originCardNumberComboBax, SIGNAL(activated(int)), this, SLOT(setUserBalanceInForm()));
 
     /// Connect getSecondPassPushButton
+    connect(ui->getSecondPasswordPushButton, SIGNAL(clicked()), this, SLOT(getSecondPassPushButton()));
 
 }
 Transfer::~Transfer()
@@ -39,7 +40,15 @@ void Transfer::setUserBalanceInForm() {
     ui->yourBalanceValueLabel->setText(QString::number(findOriginCardBankAccount(cardNum).getBalance()));
 }
 void Transfer::getSecondPassPushButton(){
+    if(checkAllErrors()) {
+        if(checkGetSecondPasswordLineEditErorr()) {
+            ui->secondPasswordLineEdit->setEnabled(false);
+            setRandomSecondPassword();
+        }
+        else
+            ui->secondPasswordErrorLabel->setText("You Have Requested A Password Once");
 
+    }
 }
 void Transfer::transferPushButton() {
 
@@ -48,6 +57,17 @@ void Transfer::transferPushButton() {
 
 
     }
+
+}
+
+void Transfer::setRandomSecondPassword(){
+    int randomNum = getRandomNumber();
+
+    srand(time(0));
+
+    randomNum += (rand() % 8990000) + 1000000;
+
+    ui->secondPasswordLineEdit->setText(QString::number(randomNum));
 
 }
 
@@ -75,6 +95,7 @@ bool Transfer::checkAllErrors (){
 
     return checkAllErrors;
 }
+
 
 bool Transfer::checkOrirginCardNumComboBoxError(){
     if(ui->originCardNumberComboBax->currentText() == ""){
@@ -148,6 +169,8 @@ bool Transfer::checkTransferAmountInRange(){
 }
 bool Transfer::checkTransferAmountIn24Hour() {
     BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
+    if(bankAccount.getLastTransactionAmount() == 0)
+        return true;
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
     if((transferAmount + bankAccount.getLastTransactionAmount()) > 6000000
@@ -204,6 +227,13 @@ bool Transfer::checkSecondPasswordLineEditExist(){
         return false;
     return true;
 
+}
+bool Transfer::checkGetSecondPasswordLineEditErorr(){
+
+    if(ui->secondPasswordLineEdit->isEnabled()) {
+        return true;
+    }
+    return false;
 }
 
 
@@ -424,6 +454,17 @@ bool Transfer::isBeforeNow(const std::tm& date){
 
     return inputTime < now;
 }
+
+/// Get random Number
+int Transfer::getRandomNumber () {
+    std::time_t now = std::time(nullptr);
+    tm time = *std::localtime(&now);
+    int hour = time.tm_hour, min = time.tm_min, month = time.tm_mon, day = time.tm_mday;
+    int randomNum = hour + min + month + day;
+
+    return randomNum;
+}
+
 bool Transfer::checkPassed24hour(tm date){
     date.tm_mday += 1;
 
