@@ -43,25 +43,23 @@ void Transfer::setUserBalanceInForm() {
     ui->yourBalanceValueLabel->setText(QString::number(findOriginCardBankAccount(cardNum).getBalance()));
 }
 void Transfer::getSecondPassPushButton(){
+
     if(checkChangePasswordError()) {
         ui->secondPasswordErrorLabel->clear();
         if(checkGetSecondPasswordLineEditErorr()) {
             ui->secondPasswordLineEdit->setEnabled(false);
             setRandomSecondPassword();
-
-
         }
         else
             ui->secondPasswordErrorLabel->setText("You Have Requested A Password Once");
-
     }
 }
 void Transfer::transferPushButton() {
 
     if(checkAllErrors()){
-
-
-
+        setChangeInDestinationAccount();
+        setChangeInOriginAccount();
+        checkAndUpdateLastTransactionDate();
     }
 
 }
@@ -207,10 +205,10 @@ bool Transfer::checkTransferAmountIn24Hour() {
         return true;
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
-    if((transferAmount + bankAccount.getLastTransactionAmount()) > 6000000
-        && !checkPassed24hour(bankAccount.getLastTransactionDate())) {
-        return false;
-    }
+    if((transferAmount + bankAccount.getLastTransactionAmount()) > 6000000)
+        if(!checkPassed24hour(bankAccount.getLastTransactionDate()))
+            return false;
+
     return true;
 
 }
@@ -324,7 +322,6 @@ bool Transfer::checkDestinationCardExpiration(){
     return true;
 }
 
-
 bool Transfer::checkCvv2LineEditError(){
     if(ui->cvv2LineEdit->text() == "") {
         ui->cvv2ErrorLabel->setText("Please Fill Out This Field");
@@ -389,16 +386,17 @@ void Transfer::setChangeInOriginAccount(){
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
     bankAccount.setBalance(bankAccount.getBalance() - (transferAmount * 0.0001));
-
+    setDateAndAmountLastTransacion(bankAccount);
     updateUsersBankAccount(bankAccount);
 }
+
 void Transfer::setChangesInLastTransactionBankAccount(){
-    BankAccount bankAcount = findDesCardBankAccount(ui->distinationCardNumberLineEdit->text());
+    BankAccount bankAccount = findDesCardBankAccount(ui->distinationCardNumberLineEdit->text());
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
-    bankAcount.setBalance(bankAcount.getBalance() + transferAmount);
-
-    updateUsersBankAccount(bankAcount);
+    bankAccount.setBalance(bankAccount.getBalance() + transferAmount);
+    setDateAndAmountLastTransacion(bankAccount);
+    updateUsersBankAccount(bankAccount);
 }
 
 void Transfer::updateUsersBankAccount(BankAccount bankAccount) {
@@ -414,6 +412,14 @@ void Transfer::updateUsersBankAccount(BankAccount bankAccount) {
         }
         bankAccountTmp = bankAccountTmp->getNextNode();
     }
+}
+
+void Transfer::setDateAndAmountLastTransacion(BankAccount& bankAccount){
+    if(bankAccount.getLastTransactionAmount() == 0) {
+        time_t now = time(0);
+        bankAccount.setLastTransactionDate(*localtime(&now));
+    }
+    bankAccount.setLastTransactionAmount(bankAccount.getLastTransactionAmount() + ui->transferAmountLineEdit->text().toLongLong());
 }
 
 /// Search Function
@@ -541,6 +547,28 @@ bool Transfer::isBeforeNow(const std::tm& date){
 
     return inputTime < now;
 }
+bool Transfer::checkPassed24hour(tm date){
+    date.tm_mday += 1;
+
+    std::mktime(&date);
+
+    if(!isBeforeNow(date))
+        return true;
+    return false;
+
+}
+
+void Transfer::checkAndUpdateLastTransactionDate () {
+
+    BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
+
+    if(!checkPassed24hour(bankAccount.getLastTransactionDate())){
+        time_t now = time(0);
+        bankAccount.setLastTransactionDate(*localtime(&now));
+        updateUsersBankAccount(bankAccount);
+    }
+}
+
 
 /// Get random Number
 int Transfer::getRandomNumber () {
@@ -552,16 +580,6 @@ int Transfer::getRandomNumber () {
     return randomNum;
 }
 
-bool Transfer::checkPassed24hour(tm date){
-    date.tm_mday += 1;
-
-    std::mktime(&date);
-
-    if(!isBeforeNow(date))
-        return true;
-    return false;
-
-}
 
 
 

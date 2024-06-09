@@ -68,6 +68,8 @@ public:
 
     void updateUsersBankAccount(BankAccount);
 
+    void setDateAndAmountLastTransacion(BankAccount&);
+
     /// Search Function
     bool searchCard(QString);
     bool searchSecondPassword(QString);
@@ -84,6 +86,8 @@ public:
 
     bool isBeforeNow(const std::tm& date);
     bool checkPassed24hour(tm);
+
+    void checkAndUpdateLastTransactionDate ();
 
     /// Get Random Number
     int getRandomNumber ();
