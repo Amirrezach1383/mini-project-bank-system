@@ -379,22 +379,18 @@ void Transfer::setDesUserInfo(){
 
 /// Set Changes in Users BankAccounts
 void Transfer::setChangeInDestinationAccount(){
+    BankAccount bankAccount = findDesCardBankAccount(ui->distinationCardNumberLineEdit->text());
+    long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
+    bankAccount.setBalance(bankAccount.getBalance() + transferAmount);
+    setDateAndAmountLastTransacion(bankAccount);
+    updateUsersBankAccount(bankAccount);
 }
 void Transfer::setChangeInOriginAccount(){
     BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
-    bankAccount.setBalance(bankAccount.getBalance() - (transferAmount * 0.0001));
-    setDateAndAmountLastTransacion(bankAccount);
-    updateUsersBankAccount(bankAccount);
-}
-
-void Transfer::setChangesInLastTransactionBankAccount(){
-    BankAccount bankAccount = findDesCardBankAccount(ui->distinationCardNumberLineEdit->text());
-    long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
-
-    bankAccount.setBalance(bankAccount.getBalance() + transferAmount);
+    bankAccount.setBalance(bankAccount.getBalance() - transferAmount - (transferAmount * 0.0001));
     setDateAndAmountLastTransacion(bankAccount);
     updateUsersBankAccount(bankAccount);
 }
@@ -408,9 +404,9 @@ void Transfer::updateUsersBankAccount(BankAccount bankAccount) {
                 bankAccountTmp->setData(bankAccount);
                 return;
             }
-            tmp = tmp->getNextNode();
+            bankAccountTmp = bankAccountTmp->getNextNode();
         }
-        bankAccountTmp = bankAccountTmp->getNextNode();
+        tmp = tmp->getNextNode();
     }
 }
 
