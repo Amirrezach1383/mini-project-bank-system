@@ -33,6 +33,8 @@ public:
 
     bool checkChangePasswordError ();
 
+    bool checkTheCardsNumSame();
+
     bool checkOrirginCardNumComboBoxError();
     bool checkOriginCardExpirationDate();
 

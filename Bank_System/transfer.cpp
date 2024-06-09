@@ -65,7 +65,9 @@ void Transfer::transferPushButton() {
 }
 
 void Transfer::destinationCardNumberLineEdit(){
-    checkDestinationCardNumLineEditError();
+    if(checkDestinationCardNumLineEditError())
+        setDesUserInfo();
+
 }
 
 /// Other Functions
@@ -101,6 +103,9 @@ bool Transfer::checkAllErrors (){
     if(!checkCvv2LineEditError())
         checkAllErrors = false;
 
+    if(!checkTheCardsNumSame())
+        checkAllErrors = false;
+
     if(!checkTransferAmountIn24Hour())
         checkAllErrors = false;
 
@@ -127,6 +132,15 @@ bool Transfer::checkChangePasswordError(){
 
     return checkAllErrors;
 
+}
+
+bool Transfer::checkTheCardsNumSame(){
+    if(ui->originCardNumberComboBax->currentText() == ui->distinationCardNumberLineEdit->text()) {
+        ui->transferErrorLabel->setText("Please Enter Differnt Card Number");
+        return false;
+    }
+    ui->transferErrorLabel->clear();
+    return true;
 }
 
 bool Transfer::checkOrirginCardNumComboBoxError(){
@@ -235,6 +249,10 @@ bool Transfer::checkSecondPasswordLineEditError(){
         ui->secondPasswordErrorLabel->setText("Incorrect Password");
         return false;
     }
+    if(ui->transferAmountLineEdit->text().toLongLong() > 100000) {
+        ui->secondPasswordErrorLabel->setText("You Can't Transfer More Than 100 000 With Fixed Password");
+        return false;
+    }
     ui->secondPasswordErrorLabel->clear();
     return true;
 
@@ -260,6 +278,7 @@ bool Transfer::checkSecondPasswordLineEditExist(){
 
     if(!searchSecondPassword(secondPassword))
         return false;
+
     return true;
 
 }
@@ -287,7 +306,6 @@ bool Transfer::checkDestinationCardNumLineEditError(){
     if(!checkDestinationCardExpiration()) {
         ui->disCardNumComboBoxErrorLabel->setText("This Card Has Expired");
     }
-    setDesUserInfo();
     ui->disCardNumComboBoxErrorLabel->clear();
     return true;
 
