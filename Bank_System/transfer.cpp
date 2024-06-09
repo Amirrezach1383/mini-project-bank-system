@@ -110,7 +110,7 @@ bool Transfer::checkAllErrors (){
 }
 
 bool Transfer::checkChangePasswordError(){
-     bool checkAllErrors = true;
+    bool checkAllErrors = true;
 
     if(!checkOrirginCardNumComboBoxError())
         checkAllErrors = false;
@@ -380,6 +380,41 @@ void Transfer::setDesUserInfo(){
     ui->toLabelEdit->setText(desUser.getFirstName() + " " + desUser.getLastName());
 }
 
+/// Set Changes in Users BankAccounts
+void Transfer::setChangeInDestinationAccount(){
+
+}
+void Transfer::setChangeInOriginAccount(){
+    BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
+    long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
+
+    bankAccount.setBalance(bankAccount.getBalance() - (transferAmount * 0.0001));
+
+    updateUsersBankAccount(bankAccount);
+}
+void Transfer::setChangesInLastTransactionBankAccount(){
+    BankAccount bankAcount = findDesCardBankAccount(ui->distinationCardNumberLineEdit->text());
+    long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
+
+    bankAcount.setBalance(bankAcount.getBalance() + transferAmount);
+
+    updateUsersBankAccount(bankAcount);
+}
+
+void Transfer::updateUsersBankAccount(BankAccount bankAccount) {
+    Node<Users> *tmp = user.usersList.getHeadNode();
+    while (tmp) {
+        Node<BankAccount> *bankAccountTmp = user.userBankAccountsList.getHeadNode();
+        while(bankAccountTmp) {
+            if(bankAccountTmp->getData().getAccountNumber() == bankAccount.getAccountNumber()) {
+                bankAccountTmp->setData(bankAccount);
+                return;
+            }
+            tmp = tmp->getNextNode();
+        }
+        bankAccountTmp = bankAccountTmp->getNextNode();
+    }
+}
 
 /// Search Function
 bool Transfer::searchCard(QString cardNum){
@@ -421,19 +456,6 @@ Cards Transfer::findOrirginCard(QString cardNum){
     return *new Cards;
 
 }
-BankAccount Transfer::findOriginCardBankAccount(QString cardNum) {
-    Node<BankAccount> *tmpBankAccount;
-
-    tmpBankAccount = user.userBankAccountsList.getHeadNode();
-    while(tmpBankAccount) {
-        if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
-            return tmpBankAccount->getData();
-        tmpBankAccount = tmpBankAccount->getNextNode();
-    }
-
-    return *new BankAccount;
-
-}
 Cards Transfer::findDesCard(QString cardNum){
     Node<Users> *tmp = user.usersList.getHeadNode();
     Node<BankAccount> *tmpBankAccount;
@@ -449,6 +471,34 @@ Cards Transfer::findDesCard(QString cardNum){
     return *new Cards;
 }
 
+BankAccount Transfer::findOriginCardBankAccount(QString cardNum) {
+    Node<BankAccount> *tmpBankAccount;
+
+    tmpBankAccount = user.userBankAccountsList.getHeadNode();
+    while(tmpBankAccount) {
+        if(tmpBankAccount->getData().getCard().getCardNumber() == cardNum)
+            return tmpBankAccount->getData();
+        tmpBankAccount = tmpBankAccount->getNextNode();
+    }
+
+    return *new BankAccount;
+
+}
+BankAccount Transfer::findDesCardBankAccount(QString cardNum) {
+    Node<Users> *tmp = user.usersList.getHeadNode();
+
+    while(tmp) {
+        Node<BankAccount> *bankAccount = user.userBankAccountsList.getHeadNode();
+        while(bankAccount) {
+            if(bankAccount->getData().getCard().getCardNumber() == cardNum)
+                return bankAccount->getData();
+            bankAccount = bankAccount->getNextNode();
+        }
+        tmp = tmp->getNextNode();
+    }
+    return *new BankAccount;
+
+}
 
 Users Transfer::findDesUser(){
     QString desCardNum = ui->distinationCardNumberLineEdit->text();

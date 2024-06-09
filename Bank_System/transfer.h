@@ -61,14 +61,22 @@ public:
     /// Set Destination Account's User's INFO
     void setDesUserInfo();
 
+    /// Set Changes in Users BankAccounts
+    void setChangeInDestinationAccount();
+    void setChangeInOriginAccount();
+    void setChangesInLastTransactionBankAccount();
+
+    void updateUsersBankAccount(BankAccount);
 
     /// Search Function
     bool searchCard(QString);
     bool searchSecondPassword(QString);
 
     Cards findOrirginCard(QString);
-    BankAccount findOriginCardBankAccount(QString);
     Cards findDesCard(QString);
+
+    BankAccount findOriginCardBankAccount(QString);
+    BankAccount findDesCardBankAccount(QString);
 
     Users findDesUser();
 
