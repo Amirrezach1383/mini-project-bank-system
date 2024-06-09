@@ -24,11 +24,14 @@ public:
 
     Users user;
 
+    QString secondTimePassword;
+
     void setRandomSecondPassword();
 
     ///========== Check And Set Functions ==========
     bool checkAllErrors ();
 
+    bool checkChangePasswordError ();
 
     bool checkOrirginCardNumComboBoxError();
     bool checkOriginCardExpirationDate();

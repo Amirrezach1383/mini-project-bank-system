@@ -43,11 +43,13 @@ void Transfer::setUserBalanceInForm() {
     ui->yourBalanceValueLabel->setText(QString::number(findOriginCardBankAccount(cardNum).getBalance()));
 }
 void Transfer::getSecondPassPushButton(){
-    if(checkAllErrors()) {
+    if(checkChangePasswordError()) {
         ui->secondPasswordErrorLabel->clear();
         if(checkGetSecondPasswordLineEditErorr()) {
             ui->secondPasswordLineEdit->setEnabled(false);
             setRandomSecondPassword();
+
+
         }
         else
             ui->secondPasswordErrorLabel->setText("You Have Requested A Password Once");
@@ -64,6 +66,11 @@ void Transfer::transferPushButton() {
 
 }
 
+void Transfer::destinationCardNumberLineEdit(){
+    checkDestinationCardNumLineEditError();
+}
+
+/// Other Functions
 void Transfer::setRandomSecondPassword(){
     int randomNum = getRandomNumber();
 
@@ -72,12 +79,10 @@ void Transfer::setRandomSecondPassword(){
     randomNum += (rand() % 8990000) + 1000000;
 
     ui->secondPasswordLineEdit->setText(QString::number(randomNum));
+    secondTimePassword = QString::number(randomNum);
 
 }
 
-void Transfer::destinationCardNumberLineEdit(){
-    checkDestinationCardNumLineEditError();
-}
 
 ///========== Check And Set Errors Functions ==========
 bool Transfer::checkAllErrors (){
@@ -104,6 +109,27 @@ bool Transfer::checkAllErrors (){
     return checkAllErrors;
 }
 
+bool Transfer::checkChangePasswordError(){
+     bool checkAllErrors = true;
+
+    if(!checkOrirginCardNumComboBoxError())
+        checkAllErrors = false;
+
+    if(!checkTransferAmountLineEditError())
+        checkAllErrors = false;
+
+    if(!checkDestinationCardNumLineEditError())
+        checkAllErrors = false;
+
+    if(!checkCvv2LineEditError())
+        checkAllErrors = false;
+
+    if(!checkTransferAmountIn24Hour())
+        checkAllErrors = false;
+
+    return checkAllErrors;
+
+}
 
 bool Transfer::checkOrirginCardNumComboBoxError(){
     if(ui->originCardNumberComboBax->currentText() == ""){
@@ -231,6 +257,9 @@ bool Transfer::checkSecondPasswordLineEditValid(){
 bool Transfer::checkSecondPasswordLineEditExist(){
     QString secondPassword = ui->secondPasswordLineEdit->text();
 
+    if(ui->secondPasswordLineEdit->text() == secondPassword)
+        return true;
+
     if(!searchSecondPassword(secondPassword))
         return false;
     return true;
@@ -243,7 +272,6 @@ bool Transfer::checkGetSecondPasswordLineEditErorr(){
     }
     return false;
 }
-
 
 bool Transfer::checkDestinationCardNumLineEditError(){
     if(ui->distinationCardNumberLineEdit->text() == "") {
