@@ -38,9 +38,12 @@
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-background-color: rgb(4, 27, 48);</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Back</string>
@@ -68,7 +71,7 @@ font:700 33pt &quot;Hyogo&quot;;</string>
     <rect>
      <x>102</x>
      <y>188</y>
-     <width>200</width>
+     <width>190</width>
      <height>41</height>
     </rect>
    </property>
@@ -87,7 +90,7 @@ font: 16pt &quot;Hyogo&quot;;
     <rect>
      <x>100</x>
      <y>245</y>
-     <width>210</width>
+     <width>190</width>
      <height>31</height>
     </rect>
    </property>
@@ -113,7 +116,9 @@ font: 16pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 10pt &quot;Myanmar Text&quot;;
+font: 10pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
 </string>
    </property>
    <item>
@@ -147,17 +152,22 @@ font: 10pt &quot;Myanmar Text&quot;;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);
-font: 10pt &quot;Myanmar Text&quot;;</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QPushButton" name="makeAccountPushButton">
    <property name="geometry">
     <rect>
-     <x>602</x>
-     <y>338</y>
-     <width>98</width>
+     <x>540</x>
+     <y>331</y>
+     <width>160</width>
      <height>39</height>
     </rect>
    </property>
@@ -165,9 +175,12 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-background-color: rgb(4, 27, 48);</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Make Account</string>
@@ -186,10 +199,8 @@ background-color: rgb(4, 27, 48);</string>
     <item>
      <widget class="QGroupBox" name="cardInformationGroupBox">
       <property name="styleSheet">
-       <string notr="true">
-color: rgb(0, 0, 0);
-font: 16pt &quot;Hyogo&quot;;
-</string>
+       <string notr="true">color: rgb(0, 0, 0);
+font: 16pt &quot;Hyogo&quot;;</string>
       </property>
       <property name="title">
        <string>Card Information : </string>
@@ -293,7 +304,7 @@ font: 700 12pt &quot;Hyogo&quot;;
       <widget class="QLabel" name="exparationDateLabelEdit">
        <property name="geometry">
         <rect>
-         <x>172</x>
+         <x>178</x>
          <y>100</y>
          <width>140</width>
          <height>31</height>
@@ -313,10 +324,8 @@ font: 12pt &quot;Hyogo&quot;;
     <item>
      <widget class="QGroupBox" name="accountInformationGroupBox">
       <property name="styleSheet">
-       <string notr="true">
-color: rgb(0, 0, 0);
-font: 16pt &quot;Hyogo&quot;;
-</string>
+       <string notr="true">color: rgb(0, 0, 0);
+font: 16pt &quot;Hyogo&quot;;</string>
       </property>
       <property name="title">
        <string>Account Information : </string>
@@ -420,8 +429,8 @@ font: 12pt &quot;Hyogo&quot;;
   <widget class="QLabel" name="initialBalanceErrorLabel">
    <property name="geometry">
     <rect>
-     <x>104</x>
-     <y>281</y>
+     <x>100</x>
+     <y>277</y>
      <width>345</width>
      <height>20</height>
     </rect>
@@ -437,15 +446,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QCheckBox" name="secondFixedPasswordCheckBox">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>299</y>
+     <x>79</x>
+     <y>300</y>
      <width>21</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
-font: 10pt &quot;Myanmar Text&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -461,9 +469,14 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);
-font: 10pt &quot;Myanmar Text&quot;;</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="nationalCodeLabel_4">
@@ -471,7 +484,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
     <rect>
      <x>455</x>
      <y>245</y>
-     <width>200</width>
+     <width>170</width>
      <height>31</height>
     </rect>
    </property>
@@ -495,16 +508,24 @@ font: 14pt &quot;Hyogo&quot;;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);
-font: 10pt &quot;Myanmar Text&quot;;</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(4, 27, 48);
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="cardPasswordErrorLabel">
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>284</y>
+     <y>276</y>
      <width>233</width>
      <height>20</height>
     </rect>
@@ -520,8 +541,8 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="secondFixedPasswordErrorLabel">
    <property name="geometry">
     <rect>
-     <x>122</x>
-     <y>335</y>
+     <x>103</x>
+     <y>330</y>
      <width>200</width>
      <height>20</height>
     </rect>
@@ -538,7 +559,7 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>291</x>
-     <y>226</y>
+     <y>223</y>
      <width>260</width>
      <height>20</height>
     </rect>
@@ -554,8 +575,8 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="accountLimitError">
    <property name="geometry">
     <rect>
-     <x>375</x>
-     <y>347</y>
+     <x>315</x>
+     <y>342</y>
      <width>220</width>
      <height>21</height>
     </rect>
@@ -605,8 +626,8 @@ font: 14pt &quot;Hyogo&quot;;</string>
   <widget class="QLabel" name="nationalCodeLabel_5">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>299</y>
+     <x>99</x>
+     <y>300</y>
      <width>200</width>
      <height>31</height>
     </rect>
@@ -618,7 +639,7 @@ font: 14pt &quot;Hyogo&quot;;
 </string>
    </property>
    <property name="text">
-    <string>Card Password : </string>
+    <string>Fixed Second Pass :</string>
    </property>
   </widget>
   <zorder>label</zorder>

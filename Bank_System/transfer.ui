@@ -77,7 +77,10 @@ font:700 33pt &quot;Hyogo&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Back</string>
@@ -90,7 +93,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>197</y>
+     <y>191</y>
      <width>190</width>
      <height>41</height>
     </rect>
@@ -109,7 +112,7 @@ font: 700 16pt &quot;Hyogo&quot;;
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>198</y>
+     <y>192</y>
      <width>180</width>
      <height>40</height>
     </rect>
@@ -124,7 +127,7 @@ font: 16pt &quot;Hyogo&quot;;
     <string>value</string>
    </property>
   </widget>
-  <widget class="QLabel" name="distinationCardNumberLabel">
+  <widget class="QLabel" name="destinationCardNumberLabel">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -140,7 +143,7 @@ font: 700 16pt &quot;Hyogo&quot;;
 </string>
    </property>
    <property name="text">
-    <string>Distination Card Number :  </string>
+    <string>Destination Card Number :  </string>
    </property>
   </widget>
   <widget class="QComboBox" name="originCardNumberComboBax">
@@ -155,17 +158,19 @@ font: 700 16pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 14pt &quot;Myanmar Text&quot;;
+font: 11pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
 </string>
    </property>
   </widget>
   <widget class="QPushButton" name="transferPushButton">
    <property name="geometry">
     <rect>
-     <x>609</x>
-     <y>473</y>
-     <width>91</width>
-     <height>32</height>
+     <x>598</x>
+     <y>444</y>
+     <width>100</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="cursor">
@@ -174,7 +179,10 @@ font: 14pt &quot;Myanmar Text&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Transfer</string>
@@ -183,7 +191,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="distinationCardNumberLabel_2">
+  <widget class="QLabel" name="originCardNumberLabal">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -202,7 +210,7 @@ font: 700 16pt &quot;Hyogo&quot;;
     <string>Origin Card Number :  </string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="distinationCardNumberLineEdit">
+  <widget class="QLineEdit" name="destinationCardNumberLineEdit">
    <property name="geometry">
     <rect>
      <x>444</x>
@@ -212,9 +220,14 @@ font: 700 16pt &quot;Hyogo&quot;;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 14pt &quot;Myanmar Text&quot;;
+    <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="originCardNumComboBoxErrorLabel">
@@ -234,11 +247,11 @@ color: rgb(255, 73, 73);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="disCardNumComboBoxErrorLabel">
+  <widget class="QLabel" name="desCardNumComboBoxErrorLabel">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>323</y>
+     <x>449</x>
+     <y>319</y>
      <width>241</width>
      <height>20</height>
     </rect>
@@ -254,14 +267,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="transferErrorLabel">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>479</y>
-     <width>320</width>
+     <x>388</x>
+     <y>482</y>
+     <width>310</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -271,8 +284,8 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="transferAmountLabel">
    <property name="geometry">
     <rect>
-     <x>98</x>
-     <y>334</y>
+     <x>100</x>
+     <y>328</y>
      <width>260</width>
      <height>41</height>
     </rect>
@@ -290,23 +303,28 @@ font: 700 16pt &quot;Hyogo&quot;;
   <widget class="QLineEdit" name="transferAmountLineEdit">
    <property name="geometry">
     <rect>
-     <x>444</x>
-     <y>342</y>
+     <x>443</x>
+     <y>339</y>
      <width>255</width>
      <height>28</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 14pt &quot;Myanmar Text&quot;;
+    <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="transferAmountErrorLabel">
    <property name="geometry">
     <rect>
      <x>447</x>
-     <y>373</y>
+     <y>370</y>
      <width>250</width>
      <height>20</height>
     </rect>
@@ -322,8 +340,8 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="cvv2Label">
    <property name="geometry">
     <rect>
-     <x>101</x>
-     <y>409</y>
+     <x>367</x>
+     <y>383</y>
      <width>80</width>
      <height>40</height>
     </rect>
@@ -341,23 +359,28 @@ font: 14pt &quot;Hyogo&quot;;
   <widget class="QLineEdit" name="cvv2LineEdit">
    <property name="geometry">
     <rect>
-     <x>179</x>
-     <y>417</y>
+     <x>445</x>
+     <y>391</y>
      <width>90</width>
      <height>28</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 14pt &quot;Myanmar Text&quot;;
+    <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="cvv2ErrorLabel">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>447</y>
+     <x>371</x>
+     <y>420</y>
      <width>153</width>
      <height>20</height>
     </rect>
@@ -373,9 +396,9 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="seccondPasswordLabel">
    <property name="geometry">
     <rect>
-     <x>281</x>
-     <y>409</y>
-     <width>261</width>
+     <x>104</x>
+     <y>438</y>
+     <width>210</width>
      <height>41</height>
     </rect>
    </property>
@@ -392,24 +415,29 @@ font:  14pt &quot;Hyogo&quot;;
   <widget class="QLineEdit" name="secondPasswordLineEdit">
    <property name="geometry">
     <rect>
-     <x>489</x>
-     <y>416</y>
+     <x>305</x>
+     <y>445</y>
      <width>110</width>
      <height>28</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 14pt &quot;Myanmar Text&quot;;
+    <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="secondPasswordErrorLabel">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>447</y>
-     <width>320</width>
+     <x>109</x>
+     <y>476</y>
+     <width>310</width>
      <height>20</height>
     </rect>
    </property>
@@ -424,9 +452,9 @@ color: rgb(255, 73, 73);</string>
   <widget class="QPushButton" name="getSecondPasswordPushButton">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>415</y>
-     <width>90</width>
+     <x>425</x>
+     <y>444</y>
+     <width>120</width>
      <height>30</height>
     </rect>
    </property>
@@ -436,7 +464,10 @@ color: rgb(255, 73, 73);</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 9pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Get Sec Pass</string>
@@ -448,8 +479,8 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
   <widget class="QLabel" name="toLabel">
    <property name="geometry">
     <rect>
-     <x>98</x>
-     <y>368</y>
+     <x>101</x>
+     <y>381</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -467,8 +498,8 @@ font: 700 16pt &quot;Hyogo&quot;;
   <widget class="QLabel" name="toLabelEdit">
    <property name="geometry">
     <rect>
-     <x>155</x>
-     <y>370</y>
+     <x>158</x>
+     <y>383</y>
      <width>160</width>
      <height>37</height>
     </rect>

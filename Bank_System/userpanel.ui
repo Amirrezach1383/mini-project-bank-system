@@ -58,9 +58,12 @@ font:700 33pt &quot;Hyogo&quot;;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-background-color: rgb(4, 27, 48);</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Log Out</string>
@@ -69,9 +72,9 @@ background-color: rgb(4, 27, 48);</string>
   <widget class="QPushButton" name="transferPushButton">
    <property name="geometry">
     <rect>
-     <x>531</x>
+     <x>519</x>
      <y>270</y>
-     <width>117</width>
+     <width>140</width>
      <height>41</height>
     </rect>
    </property>
@@ -81,7 +84,10 @@ background-color: rgb(4, 27, 48);</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font:  10pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Transfer</string>
@@ -90,9 +96,9 @@ font:  10pt &quot;Myanmar Text&quot;;</string>
   <widget class="QPushButton" name="showBalancePushButton">
    <property name="geometry">
     <rect>
-     <x>532</x>
-     <y>380</y>
-     <width>116</width>
+     <x>520</x>
+     <y>378</y>
+     <width>141</width>
      <height>44</height>
     </rect>
    </property>
@@ -102,7 +108,10 @@ font:  10pt &quot;Myanmar Text&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 9pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Show Balance</string>
@@ -111,16 +120,16 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
   <widget class="QPushButton" name="newAccountPushButton">
    <property name="geometry">
     <rect>
-     <x>165</x>
+     <x>152</x>
      <y>270</y>
-     <width>117</width>
+     <width>140</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
-     <pointsize>9</pointsize>
+     <family>Hyogo</family>
+     <pointsize>12</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -131,7 +140,10 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 9pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>New Account</string>
@@ -140,9 +152,9 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
   <widget class="QPushButton" name="changPasswordPushButton">
    <property name="geometry">
     <rect>
-     <x>165</x>
-     <y>380</y>
-     <width>117</width>
+     <x>152</x>
+     <y>378</y>
+     <width>140</width>
      <height>43</height>
     </rect>
    </property>
@@ -152,7 +164,10 @@ font: 9pt &quot;Myanmar Text&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 9pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Change passes</string>

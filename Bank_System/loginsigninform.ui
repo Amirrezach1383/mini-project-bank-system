@@ -90,8 +90,11 @@ font:700 33pt &quot;Hyogo&quot;;</string>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -136,8 +139,11 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -178,8 +184,9 @@ font: 700 14pt &quot;Hyogo&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
-     <pointsize>11</pointsize>
+     <family>Hyogo</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
      <bold>false</bold>
     </font>
    </property>
@@ -188,7 +195,11 @@ font: 700 14pt &quot;Hyogo&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Login</string>
@@ -206,8 +217,11 @@ color: rgb(255, 255, 255);</string>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -223,8 +237,11 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -240,8 +257,11 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -257,8 +277,11 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -274,8 +297,11 @@ font: 10pt &quot;Myanmar Text&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -472,8 +498,11 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-gridline-color: rgb(91, 91, 91);
-font: 10pt &quot;Myanmar Text&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
 </string>
    </property>
   </widget>
@@ -488,8 +517,9 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
-     <pointsize>11</pointsize>
+     <family>Hyogo</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
      <bold>false</bold>
     </font>
    </property>
@@ -498,7 +528,11 @@ font: 10pt &quot;Myanmar Text&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Sign Up</string>
@@ -846,9 +880,9 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="signUpUserExistError">
    <property name="geometry">
     <rect>
-     <x>351</x>
-     <y>458</y>
-     <width>301</width>
+     <x>354</x>
+     <y>454</y>
+     <width>270</width>
      <height>20</height>
     </rect>
    </property>

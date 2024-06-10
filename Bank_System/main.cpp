@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     user.setUsername("amir1383");
     user.setFirstName("Amirreza");
     user.setLastName("Chami");
-    user.setPassword("amir_1383");
+    user.setPassword("amir1383");
     user.setAge("25");
     user.setNationnalCode("1080711287");
 
@@ -28,14 +28,14 @@ int main(int argc, char *argv[]) {
     user.addUserToList();
 
     QApplication a(argc, argv);
-    // LoginSigninForm w(user);
+    LoginSigninForm w(user);
     // UserPanel u(new Users);
     // BalanceForm b;
-    NewAccountForm A(user);
+    // NewAccountForm A(user);
     // ChangePasses p;
     // Transfer t;
 
-    A.show();
+    w.show();
 
     return a.exec();
 }

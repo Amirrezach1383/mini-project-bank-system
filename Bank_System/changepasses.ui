@@ -73,7 +73,10 @@ font:700 33pt &quot;Hyogo&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Back</string>
@@ -109,7 +112,12 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="newFixedSecondPasswordLineEdit">
@@ -124,7 +132,12 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="newFixedSecondPasswordLabel">
@@ -151,10 +164,10 @@ font: 700 14pt &quot;Hyogo&quot;;
    </property>
    <property name="geometry">
     <rect>
-     <x>621</x>
-     <y>489</y>
-     <width>82</width>
-     <height>29</height>
+     <x>603</x>
+     <y>490</y>
+     <width>100</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="cursor">
@@ -163,7 +176,10 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Change</string>
@@ -181,7 +197,12 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="newCardPasswordLineEdit">
@@ -196,7 +217,12 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(4, 27, 48);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+border-radius : 8px;
+border : 1px solid #ffffff;
+font: 10pt &quot;Hyogo&quot;;
+cursor : text;
+padding: 2px 5px
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="newCardPasswordLabel">
@@ -241,9 +267,9 @@ font: 700 14pt &quot;Hyogo&quot;;
    </property>
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>338</y>
-     <width>82</width>
+     <x>602</x>
+     <y>341</y>
+     <width>100</width>
      <height>29</height>
     </rect>
    </property>
@@ -253,7 +279,10 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 12pt &quot;Myanmar Text&quot;;</string>
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
+</string>
    </property>
    <property name="text">
     <string>Change</string>
@@ -289,7 +318,9 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 10pt &quot;Myanmar Text&quot;;
+font: 12pt &quot;Hyogo&quot;;
+border-radius : 8px;
+border : 1px solid #ffffff;
 </string>
    </property>
    <item>
