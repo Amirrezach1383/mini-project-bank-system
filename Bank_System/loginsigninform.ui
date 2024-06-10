@@ -67,7 +67,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 0);
+    <string notr="true">
+color: rgb(0, 0, 0);
 font:700 33pt &quot;Hyogo&quot;;</string>
    </property>
    <property name="text">
@@ -523,13 +524,13 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>522</x>
-     <y>190</y>
+     <y>187</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -540,13 +541,13 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>521</x>
-     <y>235</y>
+     <y>232</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -556,14 +557,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="nationalCodeError">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>279</y>
+     <x>521</x>
+     <y>275</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -580,7 +581,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -591,13 +592,13 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>521</x>
-     <y>377</y>
+     <y>374</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -608,13 +609,13 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>522</x>
-     <y>425</y>
+     <y>423</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -631,7 +632,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -641,14 +642,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="nationalCodeInvalidError">
    <property name="geometry">
     <rect>
-     <x>521</x>
-     <y>279</y>
+     <x>520</x>
+     <y>276</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -658,14 +659,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="usernameInvalidError">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>377</y>
+     <x>522</x>
+     <y>374</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -675,14 +676,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="passwordInvalidError">
    <property name="geometry">
     <rect>
-     <x>521</x>
+     <x>524</x>
      <y>425</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -692,14 +693,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="lastNameInvalidError">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>235</y>
+     <x>524</x>
+     <y>230</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -710,13 +711,13 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>522</x>
-     <y>189</y>
+     <y>187</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -727,13 +728,13 @@ color: rgb(255, 73, 73);</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>376</y>
+     <y>374</y>
      <width>171</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -750,7 +751,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -767,7 +768,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -777,14 +778,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="loginPasswordEmptyError">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>133</x>
      <y>320</y>
-     <width>171</width>
+     <width>169</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -801,7 +802,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -813,12 +814,12 @@ color: rgb(255, 73, 73);</string>
     <rect>
      <x>130</x>
      <y>250</y>
-     <width>161</width>
+     <width>170</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -828,14 +829,14 @@ color: rgb(255, 73, 73);</string>
   <widget class="QLabel" name="loginUsernameIncorrectError">
    <property name="geometry">
     <rect>
-     <x>131</x>
+     <x>133</x>
      <y>250</y>
      <width>161</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -852,7 +853,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">

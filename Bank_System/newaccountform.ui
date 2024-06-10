@@ -427,7 +427,7 @@ font: 12pt &quot;Hyogo&quot;;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -510,7 +510,7 @@ font: 10pt &quot;Myanmar Text&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -527,7 +527,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -544,7 +544,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -561,7 +561,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">

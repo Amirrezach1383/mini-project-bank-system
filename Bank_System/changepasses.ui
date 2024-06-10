@@ -259,7 +259,7 @@ font: 12pt &quot;Myanmar Text&quot;;</string>
     <string>Change</string>
    </property>
   </widget>
-  <widget class="QLabel" name="previousCardPasswordLabel_2">
+  <widget class="QLabel" name="accountLabal">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -340,7 +340,7 @@ font: 10pt &quot;Myanmar Text&quot;;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -357,7 +357,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -374,7 +374,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -391,7 +391,7 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
@@ -408,14 +408,14 @@ color: rgb(255, 73, 73);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;Myanmar Text&quot;;
+    <string notr="true">font: 9pt &quot;Hyogo&quot;;
 color: rgb(255, 73, 73);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="previousCardPasswordLabel_3">
+  <widget class="QLabel" name="changeFixedSecondPassLabel">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -433,7 +433,7 @@ font:  12pt &quot;Hyogo&quot;;
     <string>Change Fixed Second Password</string>
    </property>
   </widget>
-  <widget class="QLabel" name="previousCardPasswordLabel_4">
+  <widget class="QLabel" name="changeCardPasswordLabel">
    <property name="geometry">
     <rect>
      <x>130</x>

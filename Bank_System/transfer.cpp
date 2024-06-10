@@ -23,7 +23,7 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
     connect(ui->getSecondPasswordPushButton, SIGNAL(clicked()), this, SLOT(getSecondPassPushButton()));
 
     /// Connect Destination Card Number
-    connect(ui->distinationCardNumberLineEdit, SIGNAL(textChanged(QString)), this, SLOT(destinationCardNumberLineEdit()));
+    connect(ui->destinationCardNumberLineEdit, SIGNAL(textChanged(QString)), this, SLOT(destinationCardNumberLineEdit()));
 
 }
 Transfer::~Transfer()
@@ -135,7 +135,7 @@ bool Transfer::checkChangePasswordError(){
 }
 
 bool Transfer::checkTheCardsNumSame(){
-    if(ui->originCardNumberComboBax->currentText() == ui->distinationCardNumberLineEdit->text()) {
+    if(ui->originCardNumberComboBax->currentText() == ui->destinationCardNumberLineEdit->text()) {
         ui->transferErrorLabel->setText("Please Enter Differnt Card Number");
         return false;
     }
@@ -291,31 +291,31 @@ bool Transfer::checkGetSecondPasswordLineEditErorr(){
 }
 
 bool Transfer::checkDestinationCardNumLineEditError(){
-    if(ui->distinationCardNumberLineEdit->text() == "") {
-        ui->disCardNumComboBoxErrorLabel->setText("Please Fill Out This Field");
+    if(ui->destinationCardNumberLineEdit->text() == "") {
+        ui->desCardNumComboBoxErrorLabel->setText("Please Fill Out This Field");
         return false;
     }
     if(!checkDestinationCardNumLineValid()) {
-        ui->disCardNumComboBoxErrorLabel->setText("Invalid Data");
+        ui->desCardNumComboBoxErrorLabel->setText("Invalid Data");
         return false;
     }
     if(!checkDestinationCardNumLineEditExist()) {
-        ui->disCardNumComboBoxErrorLabel->setText("This User Doesn't Exists");
+        ui->desCardNumComboBoxErrorLabel->setText("This User Doesn't Exists");
         return false;
     }
     if(!checkDestinationCardExpiration()) {
-        ui->disCardNumComboBoxErrorLabel->setText("This Card Has Expired");
+        ui->desCardNumComboBoxErrorLabel->setText("This Card Has Expired");
     }
-    ui->disCardNumComboBoxErrorLabel->clear();
+    ui->desCardNumComboBoxErrorLabel->clear();
     return true;
 
 
 }
 bool Transfer::checkDestinationCardNumLineValid(){
-    QString cvv2 = ui->distinationCardNumberLineEdit->text();
+    QString cvv2 = ui->destinationCardNumberLineEdit->text();
     int i = 0;
 
-    while (i < ui->distinationCardNumberLineEdit->text().length()) {
+    while (i < ui->destinationCardNumberLineEdit->text().length()) {
         if(!('0' <= cvv2[i] && cvv2[i] <= '9')) {
             return false;
         }
@@ -325,7 +325,7 @@ bool Transfer::checkDestinationCardNumLineValid(){
 
 }
 bool Transfer::checkDestinationCardNumLineEditExist(){
-    QString cardNum = ui->distinationCardNumberLineEdit->text();
+    QString cardNum = ui->destinationCardNumberLineEdit->text();
 
     if(!searchCard(cardNum))
         return false;
@@ -397,7 +397,7 @@ void Transfer::setDesUserInfo(){
 
 /// Set Changes in Users BankAccounts
 void Transfer::setChangeInDestinationAccount(){
-    BankAccount bankAccount = findDesCardBankAccount(ui->distinationCardNumberLineEdit->text());
+    BankAccount bankAccount = findDesCardBankAccount(ui->destinationCardNumberLineEdit->text());
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
     bankAccount.setBalance(bankAccount.getBalance() + transferAmount);
@@ -521,7 +521,7 @@ BankAccount Transfer::findDesCardBankAccount(QString cardNum) {
 }
 
 Users Transfer::findDesUser(){
-    QString desCardNum = ui->distinationCardNumberLineEdit->text();
+    QString desCardNum = ui->destinationCardNumberLineEdit->text();
 
     Node<Users> *tmp = user.usersList.getHeadNode();
     Node<BankAccount> *tmpBankAccount;
