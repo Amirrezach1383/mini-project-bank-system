@@ -13,8 +13,8 @@ LoginSigninForm::LoginSigninForm(Users users,QWidget *parent) : QWidget(parent),
     /// SignUp =========
     hideAllError();
     connect(ui->signinPushButton, SIGNAL(clicked()), this, SLOT(checkTheFieldsValue()));
-    connect(ui->showLoginPasswordPushButton, SIGNAL(pressed()), this, SLOT(showSignUpPassword()));
-    connect(ui->showLoginPasswordPushButton, SIGNAL(released()), this, SLOT(hideSignUpPssword()));
+    connect(ui->showSignUpPasswordPushButton, SIGNAL(pressed()), this, SLOT(showSignUpPassword()));
+    connect(ui->showSignUpPasswordPushButton, SIGNAL(released()), this, SLOT(hideSignUpPssword()));
     /// =======
 
     /// Login ==========
