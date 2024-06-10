@@ -332,6 +332,7 @@ bool Transfer::checkDestinationCardNumLineEditError(){
     }
     if(!checkDestinationCardExpiration()) {
         ui->desCardNumComboBoxErrorLabel->setText("This Card Has Expired");
+        return false;
     }
     ui->desCardNumComboBoxErrorLabel->clear();
     return true;
@@ -359,7 +360,7 @@ bool Transfer::checkDestinationCardNumLineEditExist(){
     return true;
 }
 bool Transfer::checkDestinationCardExpiration(){
-    QString desCardNum = ui->originCardNumberComboBax->currentText();
+    QString desCardNum = ui->destinationCardNumberLineEdit->text();
     tm expirationDate = findDesCard(desCardNum).getExpirationDate();
 
     if(isBeforeNow(expirationDate))

@@ -7,6 +7,9 @@
 LoginSigninForm::LoginSigninForm(Users users,QWidget *parent) : QWidget(parent), user(users), ui(new Ui::LoginSigninForm) {
     ui->setupUi(this);
 
+    hideLoginPssword();
+    hideSignUpPssword();
+
     /// SignUp =========
     hideAllError();
     connect(ui->signinPushButton, SIGNAL(clicked()), this, SLOT(checkTheFieldsValue()));
