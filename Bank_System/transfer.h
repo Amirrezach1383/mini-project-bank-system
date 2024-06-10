@@ -18,6 +18,9 @@ private slots:
     void getSecondPassPushButton();
 
     void destinationCardNumberLineEdit();
+    void cvv2LineEdit();
+    // void secondPasswordLineEdit();
+    void transferAmountLineEdit();
 public:
     explicit Transfer(Users, QWidget *parent = nullptr);
     ~Transfer();
@@ -27,6 +30,8 @@ public:
     QString secondTimePassword;
 
     void setRandomSecondPassword();
+
+    void disableAllWidget();
 
     ///========== Check And Set Functions ==========
     bool checkAllErrors ();

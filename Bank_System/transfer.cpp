@@ -25,6 +25,11 @@ Transfer::Transfer(Users users, QWidget *parent) : QWidget(parent), user(users),
     /// Connect Destination Card Number
     connect(ui->destinationCardNumberLineEdit, SIGNAL(textChanged(QString)), this, SLOT(destinationCardNumberLineEdit()));
 
+    /// Connect Cvv2 LineEdit
+    connect(ui->cvv2LineEdit, SIGNAL(textChanged(QString)), this, SLOT(cvv2LineEdit()));
+
+    /// Connect TransferAmount LineEdit
+    connect(ui->transferAmountLineEdit, SIGNAL(textChanged(QString)), this, SLOT(transferAmountLineEdit()));
 }
 Transfer::~Transfer()
 {
@@ -60,6 +65,7 @@ void Transfer::transferPushButton() {
         setChangeInDestinationAccount();
         setChangeInOriginAccount();
         checkAndUpdateLastTransactionDate();
+        disableAllWidget();
     }
 
 }
@@ -69,8 +75,26 @@ void Transfer::destinationCardNumberLineEdit(){
         setDesUserInfo();
 
 }
+void Transfer::cvv2LineEdit(){
+    checkCvv2LineEditError();
+
+}
+// void Transfer::secondPasswordLineEdit(){
+//     checkSecondPasswordLineEditError();
+// }
+void Transfer::transferAmountLineEdit(){
+    checkTransferAmountLineEditError();
+}
 
 /// Other Functions
+void Transfer::disableAllWidget(){
+    ui->transferPushButton->setEnabled(false);
+    ui->originCardNumberComboBax->setEnabled(false);
+    ui->destinationCardNumberLineEdit->setEnabled(false);
+    ui->cvv2LineEdit->setEnabled(false);
+    ui->getSecondPasswordPushButton->setEnabled(false);
+    ui->transferAmountLineEdit->setEnabled(false);
+}
 void Transfer::setRandomSecondPassword(){
     int randomNum = getRandomNumber();
 
@@ -189,6 +213,7 @@ bool Transfer::checkTransferAmountLineEditError(){
         return false;
     }
     ui->transferAmountErrorLabel->clear();
+    ui->transferErrorLabel->clear();
     return true;
 }
 bool Transfer::checkTransferAmountLineEditValid(){
@@ -249,7 +274,7 @@ bool Transfer::checkSecondPasswordLineEditError(){
         ui->secondPasswordErrorLabel->setText("Incorrect Password");
         return false;
     }
-    if(ui->transferAmountLineEdit->text().toLongLong() > 100000) {
+    if(ui->transferAmountLineEdit->text().toLongLong() > 100000 && secondTimePassword == "") {
         ui->secondPasswordErrorLabel->setText("You Can't Transfer More Than 100 000 With Fixed Password");
         return false;
     }
@@ -273,7 +298,7 @@ bool Transfer::checkSecondPasswordLineEditValid(){
 bool Transfer::checkSecondPasswordLineEditExist(){
     QString secondPassword = ui->secondPasswordLineEdit->text();
 
-    if(ui->secondPasswordLineEdit->text() == secondPassword)
+    if(ui->secondPasswordLineEdit->text() == secondTimePassword)
         return true;
 
     if(!searchSecondPassword(secondPassword))

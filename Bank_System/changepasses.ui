@@ -318,7 +318,7 @@ font: 700 14pt &quot;Hyogo&quot;;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(4, 27, 48);
 color: rgb(255, 255, 255);
-font: 12pt &quot;Hyogo&quot;;
+font: 11pt &quot;Hyogo&quot;;
 border-radius : 8px;
 border : 1px solid #ffffff;
 </string>

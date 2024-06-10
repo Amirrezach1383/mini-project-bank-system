@@ -167,6 +167,11 @@ bool ChangePasses::checkChangeFixedSecondPasswordAllError(){
     if(!checkComboBoxError())
         checkAllErrors = false;
 
+    if(!checkNewFixedSecondPasswordDifference())
+        checkAllErrors = false;
+
+
+
     return checkAllErrors;
 }
 bool ChangePasses::checkChangeCardPasswordAllError(){
@@ -233,6 +238,7 @@ bool ChangePasses::checkNewCardPasswordDifference () {
 
 bool ChangePasses::checkNewFixedSecondPasswordLineEditError(){
 
+
     if(ui->newFixedSecondPasswordLineEdit->text() == ""){
         ui->newFixedSecondPasswordErrorLabel->setText("Please Fill Out This Field");
         return false;
@@ -281,6 +287,7 @@ bool ChangePasses::checkPreviousCardPasswordLineEditError(){
         ui->previousCardPasswordErrorLabel->setText("Please Fill Out This Field");
         return false;
     }
+
     if(!checkpreviousCardPasswordValid()){
         ui->previousCardPasswordErrorLabel->setText("Invalid Data");
         return false;
@@ -319,9 +326,13 @@ bool ChangePasses::checkpreviousCardPasswordExists(){
 }
 
 bool ChangePasses::checkPreviousFixedSecondPasswordLineEditError(){
+    BankAccount bankAccount = searchBankAccount();
+
     if(ui->previousFixedSecondPasswordLineEdit->text() == ""){
-        ui->previousFixedSecondPasswordErrorLabel->setText("Please Fill Out This Field");
-        return false;
+        if(bankAccount.getCard().getFixedSecondPassword() != "") {
+            ui->previousFixedSecondPasswordErrorLabel->setText("Please Fill Out This Field");
+            return false;
+        }
     }
     if(!checkpreviousCardPasswordValid()){
         ui->previousFixedSecondPasswordErrorLabel->setText("Invalid Data");
