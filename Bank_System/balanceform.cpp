@@ -84,8 +84,7 @@ void BalanceForm::showBalanceValue(BankAccount bankAccount) {
 
 /// Set Users Informations
 void BalanceForm::setUsersInformations (){
-    ui->firstNameLabel->setText(user.getFirstName());
-    ui->lastNameLabel->setText(user.getLastName());
+    ui->firstNameLabel->setText(user.getFirstName() + " " + user.getLastName());
     ui->nationalCodeLabel->setText(user.getNationalCode());
 
 }

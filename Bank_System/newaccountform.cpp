@@ -341,7 +341,6 @@ int NewAccountForm::getRandomNumber () {
 
 /// ============ Set User Information ============
 void NewAccountForm::setUserInformation() {
-    ui->firstNameLabel->setText(user.getFirstName());
-    ui->lastNameLabel->setText(user.getLastName());
+    ui->firstNameLabel->setText(user.getFirstName() + " " + user.getLastName());
     ui->nationalCodeLabel->setText(user.getNationalCode());
 }

@@ -540,8 +540,7 @@ Users Transfer::findDesUser(){
 
 /// Set Users Informations
 void Transfer::setUsersInformationInFormsLabels () {
-    ui->firstNameLabel->setText(user.getFirstName());
-    ui->lastNameLabel->setText(user.getLastName());
+    ui->firstNameLabel->setText(user.getFirstName() + " " + user.getLastName());
     ui->nationalCodeLabel->setText(user.getNationalCode());
 }
 
