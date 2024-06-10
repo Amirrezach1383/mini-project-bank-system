@@ -103,9 +103,9 @@ font: 700 14pt &quot;Hyogo&quot;;
   <widget class="QLineEdit" name="previousFixedSecondPasswordLineEdit">
    <property name="geometry">
     <rect>
-     <x>453</x>
-     <y>439</y>
-     <width>171</width>
+     <x>452</x>
+     <y>380</y>
+     <width>210</width>
      <height>31</height>
     </rect>
    </property>
@@ -114,18 +114,21 @@ font: 700 14pt &quot;Hyogo&quot;;
 background-color: rgb(4, 27, 48);
 border-radius : 8px;
 border : 1px solid #ffffff;
-font: 10pt &quot;Hyogo&quot;;
+font: 9pt &quot;Hyogo&quot;;
 cursor : text;
 padding: 2px 5px
 </string>
+   </property>
+   <property name="text">
+    <string>You Dont Have Second Pass</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="newFixedSecondPasswordLineEdit">
    <property name="geometry">
     <rect>
-     <x>452</x>
-     <y>376</y>
-     <width>171</width>
+     <x>451</x>
+     <y>439</y>
+     <width>213</width>
      <height>33</height>
     </rect>
    </property>
@@ -190,7 +193,7 @@ border : 1px solid #ffffff;
     <rect>
      <x>450</x>
      <y>222</y>
-     <width>174</width>
+     <width>212</width>
      <height>33</height>
     </rect>
    </property>
@@ -210,7 +213,7 @@ padding: 2px 5px
     <rect>
      <x>450</x>
      <y>286</y>
-     <width>176</width>
+     <width>210</width>
      <height>32</height>
     </rect>
    </property>
@@ -323,11 +326,6 @@ border-radius : 8px;
 border : 1px solid #ffffff;
 </string>
    </property>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
-   </item>
   </widget>
   <widget class="QCheckBox" name="changeCardPasswordCheckBox">
    <property name="geometry">
@@ -366,7 +364,7 @@ border : 1px solid #ffffff;
     <rect>
      <x>451</x>
      <y>260</y>
-     <width>171</width>
+     <width>197</width>
      <height>20</height>
     </rect>
    </property>
@@ -383,7 +381,7 @@ color: rgb(255, 73, 73);</string>
     <rect>
      <x>452</x>
      <y>322</y>
-     <width>171</width>
+     <width>197</width>
      <height>20</height>
     </rect>
    </property>
@@ -400,7 +398,7 @@ color: rgb(255, 73, 73);</string>
     <rect>
      <x>455</x>
      <y>411</y>
-     <width>164</width>
+     <width>190</width>
      <height>20</height>
     </rect>
    </property>
@@ -417,7 +415,7 @@ color: rgb(255, 73, 73);</string>
     <rect>
      <x>455</x>
      <y>474</y>
-     <width>164</width>
+     <width>190</width>
      <height>20</height>
     </rect>
    </property>

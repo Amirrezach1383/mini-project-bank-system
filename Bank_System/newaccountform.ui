@@ -123,11 +123,6 @@ border : 1px solid #ffffff;
    </property>
    <item>
     <property name="text">
-     <string/>
-    </property>
-   </item>
-   <item>
-    <property name="text">
      <string>Saving Account</string>
     </property>
    </item>

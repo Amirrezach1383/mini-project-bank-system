@@ -23,8 +23,6 @@ ChangePasses::ChangePasses(Users users, QWidget *parent) : QWidget(parent), user
     connect(ui->changeCardPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(cardPasswordCheckBox()));
     connect(ui->changeFixedSecondPasswordCheckBox, SIGNAL(checkStateChanged(Qt::CheckState)), this, SLOT(fixedSecondCheckBox()));
 
-    // connect(ui.object, SIGNAL(textChanged()), ui.errorLabel, SLOT(clear()));
-
 }
 ChangePasses::~ChangePasses()
 {
@@ -44,13 +42,16 @@ void ChangePasses::changeCardPasswordPushButton () {
         setCardPasswordInformation();
         ui->newCardPasswordLineEdit->clear();
         ui->previousCardPasswordLineEdit->clear();
+
     }
 }
 void ChangePasses::changeFixedSecondPasswordPushButton () {
+
     if(checkChangeFixedSecondPasswordAllError()) {
         setFixedSecondPasswordInformation();
         ui->newFixedSecondPasswordLineEdit->clear();
         ui->previousFixedSecondPasswordLineEdit->clear();
+        ui->previousFixedSecondPasswordLineEdit->setEnabled(true);
     }
 }
 
@@ -154,28 +155,30 @@ void ChangePasses::setNewBankAccountIinformation(BankAccount bankAcocunt) {
 
 }
 
-/// Check And Set Passwords Errror Functions
+/// Check And Set Passwords Error Functions
 bool ChangePasses::checkChangeFixedSecondPasswordAllError(){
     bool checkAllErrors = true;
+    BankAccount bankAcocunt = searchBankAccount();
 
-    if(!checkNewFixedSecondPasswordLineEditError())
-        checkAllErrors = false;
+    if(!checkComboBoxError())
+        return false;
 
     if(!checkPreviousFixedSecondPasswordLineEditError())
         checkAllErrors = false;
 
-    if(!checkComboBoxError())
+    if(!checkNewFixedSecondPasswordLineEditError())
         checkAllErrors = false;
 
     if(!checkNewFixedSecondPasswordDifference())
         checkAllErrors = false;
 
-
-
     return checkAllErrors;
 }
 bool ChangePasses::checkChangeCardPasswordAllError(){
     bool checkAllErrors = true;
+
+    if(!checkComboBoxError())
+        return false;
 
     if(!checkNewCardPasswordLineEditError())
         checkAllErrors = false;
@@ -183,8 +186,6 @@ bool ChangePasses::checkChangeCardPasswordAllError(){
     if(!checkPreviousCardPasswordLineEditError())
         checkAllErrors = false;
 
-    if(!checkComboBoxError())
-        checkAllErrors = false;
 
     if(!checkNewCardPasswordDifference())
         checkAllErrors = false;
@@ -283,6 +284,8 @@ bool ChangePasses::checkNewFixedSecondPasswordDifference () {
 
 bool ChangePasses::checkPreviousCardPasswordLineEditError(){
 
+    BankAccount bankAccount = searchBankAccount();
+
     if(ui->previousCardPasswordLineEdit->text() == ""){
         ui->previousCardPasswordErrorLabel->setText("Please Fill Out This Field");
         return false;
@@ -328,19 +331,26 @@ bool ChangePasses::checkpreviousCardPasswordExists(){
 bool ChangePasses::checkPreviousFixedSecondPasswordLineEditError(){
     BankAccount bankAccount = searchBankAccount();
 
+    if(bankAccount.getCard().getFixedSecondPassword() == "") {
+        ui->previousFixedSecondPasswordLineEdit->setEnabled(false);
+        ui->previousFixedSecondPasswordLineEdit->setText("You Dont Have Second Pass");
+        return true;
+    }
+
     if(ui->previousFixedSecondPasswordLineEdit->text() == ""){
-        if(bankAccount.getCard().getFixedSecondPassword() != "") {
             ui->previousFixedSecondPasswordErrorLabel->setText("Please Fill Out This Field");
             return false;
         }
-    }
+
     if(!checkpreviousCardPasswordValid()){
         ui->previousFixedSecondPasswordErrorLabel->setText("Invalid Data");
         return false;
     }
     if(ui->previousFixedSecondPasswordLineEdit->text().length() < 7 || ui->previousFixedSecondPasswordLineEdit->text().length() > 7) {
+
         ui->previousFixedSecondPasswordErrorLabel->setText("Please Enter Only Seven Digit");
         return false;
+
     }
     if(!checkpreviousFixedSecondPasswordExists()){
         ui->previousFixedSecondPasswordErrorLabel->setText("Incorrect Password");

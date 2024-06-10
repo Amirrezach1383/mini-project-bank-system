@@ -894,6 +894,70 @@ color: rgb(255, 73, 73);</string>
     <string>You Have Already Registered !</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="showLoginPasswordPushButton">
+   <property name="geometry">
+    <rect>
+     <x>258</x>
+     <y>294</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Hyogo</family>
+     <pointsize>7</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 7pt &quot;Hyogo&quot;;
+border-radius : 8px;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Show </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showSignUpPasswordPushButton">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>399</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Hyogo</family>
+     <pointsize>7</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(4, 27, 48);
+color: rgb(255, 255, 255);
+font: 7pt &quot;Hyogo&quot;;
+border-radius : 8px;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Show </string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>loginLabel</zorder>
   <zorder>usernameLineEditL</zorder>
@@ -935,6 +999,8 @@ color: rgb(255, 73, 73);</string>
   <zorder>loginUsernameEmptyError</zorder>
   <zorder>loginUsernameIncorrectError</zorder>
   <zorder>signUpUserExistError</zorder>
+  <zorder>showLoginPasswordPushButton</zorder>
+  <zorder>showSignUpPasswordPushButton</zorder>
  </widget>
  <resources>
   <include location="background.qrc"/>

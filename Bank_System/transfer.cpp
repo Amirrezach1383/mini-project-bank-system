@@ -148,8 +148,8 @@ bool Transfer::checkChangePasswordError(){
     if(!checkDestinationCardNumLineEditError())
         checkAllErrors = false;
 
-    if(!checkCvv2LineEditError())
-        checkAllErrors = false;
+    // if(!checkCvv2LineEditError())
+    //     checkAllErrors = false;
 
     if(!checkTransferAmountIn24Hour())
         checkAllErrors = false;
@@ -240,12 +240,14 @@ bool Transfer::checkTransferAmountInRange(){
 }
 bool Transfer::checkTransferAmountIn24Hour() {
     BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
+
     if(bankAccount.getLastTransactionAmount() == 0)
         return true;
+
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
-    if((transferAmount + bankAccount.getLastTransactionAmount()) > 6000000)
-        if(!checkPassed24hour(bankAccount.getLastTransactionDate()))
+    if(!checkPassed24hour(bankAccount.getLastTransactionDate()))
+        if((transferAmount + bankAccount.getLastTransactionAmount()) >= 6000000)
             return false;
 
     return true;
@@ -426,7 +428,6 @@ void Transfer::setChangeInDestinationAccount(){
     long long int transferAmount = ui->transferAmountLineEdit->text().toLongLong();
 
     bankAccount.setBalance(bankAccount.getBalance() + transferAmount);
-    setDateAndAmountLastTransacion(bankAccount);
     updateUsersBankAccount(bankAccount);
 }
 void Transfer::setChangeInOriginAccount(){
@@ -590,8 +591,9 @@ bool Transfer::checkPassed24hour(tm date){
 
     std::mktime(&date);
 
-    if(!isBeforeNow(date))
+    if(isBeforeNow(date))
         return true;
+
     return false;
 
 }
@@ -600,13 +602,12 @@ void Transfer::checkAndUpdateLastTransactionDate () {
 
     BankAccount bankAccount = findOriginCardBankAccount(ui->originCardNumberComboBax->currentText());
 
-    if(!checkPassed24hour(bankAccount.getLastTransactionDate())){
+    if(checkPassed24hour(bankAccount.getLastTransactionDate())){
         time_t now = time(0);
         bankAccount.setLastTransactionDate(*localtime(&now));
         updateUsersBankAccount(bankAccount);
     }
 }
-
 
 /// Get random Number
 int Transfer::getRandomNumber () {

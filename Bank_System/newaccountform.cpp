@@ -164,7 +164,9 @@ tm NewAccountForm::makeCardExpirationDate() {
     std::time_t now = std::time(nullptr);
     tm time = *std::localtime(&now);
 
-    time.tm_year += 3;
+    time.tm_year += 1903;
+
+    mktime(&time);
 
     expirationDate = time;
     return expirationDate;

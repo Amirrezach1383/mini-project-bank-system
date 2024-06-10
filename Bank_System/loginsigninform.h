@@ -14,6 +14,12 @@ private slots:
     void checkTheFieldsValue();
     void checkLoginFieldsValue();
 
+    void showLoginPassword();
+    void hideLoginPssword();
+
+    void showSignUpPassword();
+    void hideSignUpPssword();
+
 public:
     explicit LoginSigninForm(Users, QWidget *parent = nullptr);
     ~LoginSigninForm();

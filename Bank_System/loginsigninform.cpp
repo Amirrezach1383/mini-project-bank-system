@@ -10,10 +10,14 @@ LoginSigninForm::LoginSigninForm(Users users,QWidget *parent) : QWidget(parent),
     /// SignUp =========
     hideAllError();
     connect(ui->signinPushButton, SIGNAL(clicked()), this, SLOT(checkTheFieldsValue()));
+    connect(ui->showLoginPasswordPushButton, SIGNAL(pressed()), this, SLOT(showSignUpPassword()));
+    connect(ui->showLoginPasswordPushButton, SIGNAL(released()), this, SLOT(hideSignUpPssword()));
     /// =======
 
     /// Login ==========
     connect(ui->loginPushButton, SIGNAL(clicked()), this, SLOT(checkLoginFieldsValue()));
+    connect(ui->showLoginPasswordPushButton, SIGNAL(pressed()), this, SLOT(showLoginPassword()));
+    connect(ui->showLoginPasswordPushButton, SIGNAL(released()), this, SLOT(hideLoginPssword()));
     /// =======
 }
 LoginSigninForm::~LoginSigninForm() {
@@ -55,6 +59,13 @@ void LoginSigninForm::hideAllError(){
 }
 
 /// =================== SignUp ====================
+
+void LoginSigninForm::showSignUpPassword(){
+    ui->passwordLineEditS->setEchoMode(QLineEdit::Normal);
+}
+void LoginSigninForm::hideSignUpPssword(){
+    ui->passwordLineEditS->setEchoMode(QLineEdit::Password);
+}
 
 void LoginSigninForm::cleanFields() {
     ui->usernameLineEditS->clear();
@@ -369,6 +380,12 @@ void LoginSigninForm::pushSignUpInputs() {
 
 
 /// ===================== Login Part ========================
+void LoginSigninForm::showLoginPassword(){
+    ui->passwordLineEditL->setEchoMode(QLineEdit::Normal);
+}
+void LoginSigninForm::hideLoginPssword(){
+    ui->passwordLineEditL->setEchoMode(QLineEdit::Password);
+}
 
 bool LoginSigninForm::checkValidLoginUsername() {
     QString username = ui->usernameLineEditL->text();
